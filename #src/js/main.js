@@ -1,4 +1,6 @@
 if (document.querySelector(".preloader")) {
+    enableScroll()
+    disableScroll()
     setTimeout(() => {
         enableScroll()
         document.body.classList.add('loaded');

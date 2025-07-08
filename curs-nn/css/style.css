@@ -2964,6 +2964,16 @@ p a:hover {
   transition: all 0.3s 0.1s ease-out;
 }
 
+.modal::-webkit-scrollbar {
+  background-color: var(--scrollbar-color);
+  border-radius: 0;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: var(--dark-blue-color);
+  border-radius: 0;
+}
+
 .modal.open {
   visibility: visible;
   opacity: 1;

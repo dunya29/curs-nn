@@ -513,12 +513,16 @@ p a:hover {
   margin-bottom: -2px;
 }
 
-.section.section--dark {
+.section--dark {
   background: var(--dark-blue-color);
 }
 
-.section.section--dark .sec-top h2 {
+.section--dark .sec-top h2 {
   color: var(--white-color);
+}
+
+.section--dark .section + .section {
+  padding-top: 0;
 }
 
 .sec-top {
@@ -2391,8 +2395,14 @@ p a:hover {
 }
 
 .item-team__logo {
-  padding: 3px;
+  height: 128px;
   margin-bottom: 10px;
+}
+
+.item-team__logo img {
+  max-height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 
 .item-team__content {

@@ -181,8 +181,12 @@
         margin-bottom: 12px;
     }
     &__logo {
-        padding: 3px;
+        height: 128px;
         margin-bottom: 10px;
+        img {
+            max-height: 100%;
+            object-fit: contain;
+        }
     }
     &__content {
         text-align: center;

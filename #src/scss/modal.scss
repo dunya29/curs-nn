@@ -1,0 +1,186 @@
+.modal {
+    visibility: hidden;
+    opacity: 0;
+    padding: 40px var(--container-offset);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    overflow: auto;
+    transition: all 0.3s 0.1s ease-out;
+    &.open {
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.3s ease-out;
+        .modal__content {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.3s 0.1s ease-out;
+        }
+    }
+    .btn-cross.modal__close {
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        &:before, &:after {
+            height: 3px;
+            background: var(--bright-blue-color);
+        }
+    }
+    &__top {
+        margin-bottom: 24px;
+    }
+    &__content {
+        width: 100%;
+        max-width: 922px;
+        padding: 40px;
+        margin: auto;
+        background: var(--white-color);
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.3s ease-out;
+    }
+    @media (max-width: $bp2) {
+        &__content {
+            max-width: 700px
+        }
+    }
+    @media (max-width: $bp3) {
+        &__content {
+            max-width: var(--content-width)
+        }
+    }
+    @media (max-width: $bp4) {
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+        .btn-cross.modal__close {
+            width: 28px;
+            height: 28px;
+            right: 20px;
+            top: 20px;
+        }
+        &__content {
+            padding: 20px;
+        }
+    }
+}
+.fancy-modal {
+    display: block;
+    background: var(--white-color);
+    .modal__close.btn-cross {
+        top: 0 !important;
+        right: 0 !important;
+    }
+    .modal__top {
+        padding-right: 60px;
+    }
+    .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        &--prev {
+            left: 0;
+        }
+        &--next {
+            right: 0;
+        }
+    }
+    &__content {
+        height: 100%;
+        min-height: 200px;
+        max-width: var(--content-width);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    &__mainswiper {
+        flex: 1 1 auto;
+        display: flex;
+        position: relative;
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-slide,
+        .media-contain,
+        .media-cover {
+            height: 100%;
+        }
+    }
+}
+.news-popup {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 400;
+    transition:
+        visibility 0.3s linear,
+        opacity 0.3s linear,
+        transform 0.3s linear;
+    .media-cover {
+        flex: 0 0 207px;
+        width: 207px;
+        height: 158px;
+        margin-right: 16px;
+        border-radius: 8px;
+    }
+    &.hidden {
+        transform: translateY(30px);
+    }
+    .text-btn {
+        margin-top: 16px;
+    }
+    &__inner {
+        width: 100%;
+        max-width: 558px;
+        padding: 24px;
+        border-radius: 8px;
+        background: var(--bright-blue-color);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: relative;
+    }
+    &__close {
+        flex: 0 0 28px;
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        &:before,
+        &:after {
+            background: var(--white-color) !important;
+        }
+    }
+    &__content {
+        align-self: center;
+        .h5,
+        .text-btn {
+            color: var(--white-color);
+        }
+        p {
+            color: var(--pale-blue-color);
+            margin-bottom: 6px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

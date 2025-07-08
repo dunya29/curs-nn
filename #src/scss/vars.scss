@@ -1,0 +1,53 @@
+:root {
+    --content-width: 1640px;
+    --container-offset: 16px;
+    --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+    --main-offset: 220px;
+    --font-family: "Manrope", sans-serif;
+    --font-family-secondary: "Yubuyan", sans-serif;
+    --black-color: #0d0d0d;
+    --white-color: #fcfcfc;
+    --dark-blue-color: #002848;
+    --bright-blue-color: #007afb;
+    --soft-blue-color: #99b9df;
+    --coral-red-color: #ff5542;
+    --pale-blue-color: #dde6ed;
+    --dark-gray-color: #536373;
+    --light-gray-color: #edf2f6;
+    --error-color: #ff5542;
+    --gray-gradient: linear-gradient(180deg, rgba(0, 32, 65, 0.00) 0%, rgba(0, 32, 65, 0.60) 100%);
+    --blue-gradient: linear-gradient(180deg, rgba(0, 32, 65, 0.00) 0%, #0C5CAF 100%);
+    --scrollbar-color: #dde6ed;
+    --scrollbar-thumb-color: #99b9df;
+}
+$bp1: 1450.98px;
+$bp2: 1148.98px;
+$bp3: 1030.98px;
+$bp4: 700.98px;
+$bp5: 575.98px;
+$bp6: 479.98px;
+$bp7: 380.98px;
+
+@media (max-width: $bp1) {
+    :root {
+        --content-width: 1116px;
+        --main-offset: 164px
+    }
+}
+@media (max-width: $bp2) {
+    :root {
+        --content-width: 992px;
+        --main-offset: 124px
+    }
+}
+@media (max-width: $bp3) {
+    :root {
+        --content-width: 768px;
+    }
+}
+@media (max-width: $bp4) {
+    :root {
+        --content-width: 575px;
+    }
+}
+

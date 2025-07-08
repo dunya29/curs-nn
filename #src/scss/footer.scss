@@ -1,0 +1,120 @@
+.footer {
+    padding: 44px 0 27px;
+    background: var(--dark-blue-color);
+    position: relative;
+    &:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-top: 1px solid var(--dark-gray-color);
+        border-radius: 16px 16px 0 0;
+        pointer-events: none;
+    }
+    .item-contact {
+        color: var(--white-color);
+        margin-bottom: 12px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &__top,
+    &__bottom {
+        display: grid;
+        grid-template-columns: 8fr 4fr;
+        gap: 30px;
+    }
+    &__contacts {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    &__navs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    &__nav {
+        &-header {
+            font-weight: 600;
+            color: var(--white-color);
+            margin-bottom: 20px;
+        }
+        ul {
+            li {
+                margin-bottom: 16px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                a {
+                    color: var(--white-color);
+                }
+            }
+        }
+    }
+    &__bottom {
+        margin-top: 170px;
+        p,
+        a {
+            font-size: 14px;
+            color: rgba(237, 242, 246, 0.6);
+        }
+    }
+    @media (max-width: $bp1) {
+        padding: 30px 0 24px;
+        &__top,
+        &__bottom {
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        &__bottom {
+            margin-top: 108px;
+        }
+        &__navs {
+            gap: 20px;
+        }
+        &__nav {
+            &-header {
+                font-size: 20px;
+            }
+        }
+    }
+    @media (max-width: $bp2) {
+        &__navs {
+            gap: 16px;
+        }
+        &__nav {
+            ul {
+                li {
+                    a {
+                        font-size: 14px;
+                    }
+                }
+            }
+            &-header {
+                font-size: 16px;
+            }
+        }
+        &__top,
+        &__bottom {
+            gap: 16px;
+        }
+        &__bottom {
+            margin-top: 60px;
+        }
+    }
+    @media (max-width: $bp4) {
+        &__top,
+        &__bottom {
+            grid-template-columns: 1fr;
+        }
+        &__bottom {
+            margin-top: 24px;
+        }
+        &__copy {
+            order: 1;
+        }
+    }
+}

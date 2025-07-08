@@ -1,0 +1,31 @@
+.breadcrumbs {
+    margin-bottom: 12px;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            opacity: 0.4;
+            &:before {
+                content: "";
+                display: block;
+                width: 16px;
+                height: 16px;
+                background: url(../img/icons/chevron-r.svg) center / contain no-repeat;
+                margin: 0 5px;
+            }
+            &:first-child:before {
+                display: none;
+            }
+            &:last-child {
+                opacity: 1;
+            }
+            a {          
+                color: var(--primary-color);
+            }
+        }
+    }
+}

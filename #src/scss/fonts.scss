@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Manrope";
+    font-weight: 500;
+    font-style: normal;
+    src: local("Manrope Medium"), local("Manrope-Medium"), url("../fonts/Manrope-Medium.woff2") format("woff2"), url("../fonts/Manrope-Medium.woff") format("woff"), url("../fonts/Manrope-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Manrope";
+    font-weight: 600;
+    font-style: normal;
+    src: local("Manrope SemiBold"), local("Manrope-SemiBold"), url("../fonts/Manrope-SemiBold.woff2") format("woff2"), url("../fonts/Manrope-SemiBold.woff") format("woff"), url("../fonts/Manrope-SemiBold.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Yubuyan";
+    font-weight: 700;
+    font-style: normal;
+    src: local("Yubuyan Bold"), local("Yubuyan-Bold"), url("../fonts/Yubuyan-Bold.woff2") format("woff2"), url("../fonts/Yubuyan-Bold.woff") format("woff"), url("../fonts/Yubuyan-Bold.ttf") format("truetype");
+    font-display: swap;
+}

@@ -1,0 +1,15 @@
+<!--item-team-->
+@@if (long === true) {
+<div class="item-team item-team--span-2">
+    }
+    @@if (long === false) {
+    <div class="item-team">
+        }
+        <div class="item-team__logo">
+            <img loading="lazy" src="img/svg/clubs/@@club.svg" alt="@@name">
+        </div>
+        <div class="item-team__content">
+            <h5>@@name</h5>
+            <a href="#" class="btn main-btn"><span>Подробнее о клубе</span></a>
+        </div>
+    </div>

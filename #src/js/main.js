@@ -491,26 +491,21 @@ if (aboutContainer && aboutRibbons) {
         },
         onComplete: () => {
             aboutRibbons.style.opacity = 0.2
-            gsap.to(aboutContainer, {
-                opacity: 1,
-                ease: "power2.out",
-                duration: 0.5,
-                onComplete: () => {
-                    aboutContainer.classList.add("text-animating")
-                    if (aboutItems.length) {
-                        setTimeout(() => {
-                            aboutItems.forEach((item, i) => {
-                                gsap.to(item, {
-                                    opacity: 1,
-                                    ease: "power2.out",
-                                    duration: 1,
-                                    delay: i * 0.3,
-                                });
-                            })
-                        }, 300);
-                    }
-                }
-            });
+            aboutContainer.style.opacity = 1
+            aboutContainer.classList.add("text-animating")
+            if (aboutItems.length) {
+                setTimeout(() => {
+                    aboutItems.forEach((item, i) => {
+                        gsap.to(item, {
+                            opacity: 1,
+                            ease: "power2.out",
+                            duration: 1,
+                            delay: i * 0.3,
+                        });
+                    })
+                }, 300);
+            }
+
         },
     })
     aboutRibbons.querySelectorAll(".about__ribbons-path").forEach((path, pathIdx) => {
@@ -658,7 +653,7 @@ if (eventsWrapper && eventsCol.length) {
     let eventsTl = gsap.timeline({
         scrollTrigger: {
             trigger: eventsWrapper,
-            start: "top+=200 bottom",
+            start: "center bottom",
             invalidateOnRefresh: true,
             toggleActions: "play none play none",
         },

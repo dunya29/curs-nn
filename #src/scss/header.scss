@@ -137,9 +137,16 @@
                 pointer-events: auto;
                 .header__menu li a {
                     transform: translateY(0);
+                    transition: all .5s 0.3s linear;
+                    svg {
+                        opacity: 1;
+                        transition: all .5s 0.8s linear;
+                    }
                 }
                 .header__contacts--mob .item-contact {
                     filter: blur(0);
+                    opacity: 1;
+                    transition: all .5s 0.3s linear;
                 }
             }
             .container {
@@ -167,12 +174,13 @@
                         display: flex;
                         justify-content: space-between;
                         transform: translateY(120%);
-                        transition: all 0.5s 0.3s linear;
+                        transition: all 0s;
                         svg {
                             fill: var(--white-color);
                             width: 32px;
                             height: 32px;
                             margin-left: 16px;
+                            opacity: 0;
                         }
                     }
                 }
@@ -187,7 +195,7 @@
                 font-size: 20px;
                 margin-bottom: 20px;
                 filter: blur(10px);
-                transition: all 0.5s 0.3s linear;
+                opacity: 0;
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -237,9 +245,6 @@
         }
     }
 }
-//transition: 0.7s cubic-bezier(0, 0, 0.2, 1);
-//filter: blur(10px) brightness(75%);
-//opacity: 0.5;
 .icon-menu {
     display: none;
     @media (max-width: $bp1) {

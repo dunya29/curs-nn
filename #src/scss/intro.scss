@@ -40,16 +40,21 @@
         }
     }
     &__content {
-        .blur-text {
-            .char {
-                transition: all 0.3s calc(var(--char-i) * 0.03s + 1.4s) linear;
-            }
-        }
         .h1 {
             color: var(--white-color);
+            &.blur-text {
+                .char {
+                    transition: all 0.3s calc(var(--char-i) * 0.03s + 1.4s) linear;
+                }
+            }
         }
         .h4 {
             color: var(--light-gray-color);
+            &.blur-text {
+                .char {
+                    transition: all 0.3s calc(var(--char-i) * 0.03s + 2s) linear !important;
+                }
+            }
         }
     }
     @media (min-width: 1700px) {
@@ -63,11 +68,6 @@
                 position: absolute;
                 top: 60%;
                 right: 0;
-                &.blur-text {
-                    .char {
-                        transition: all 0.3s calc(var(--char-i) * 0.03s + 1.8s) linear !important;
-                    }
-                }
             }
         }
     }

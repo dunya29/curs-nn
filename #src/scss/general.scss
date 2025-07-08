@@ -853,6 +853,11 @@ p {
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
+.fadeRight {
+	animation-name: fadeRight;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
 @keyframes fadeUp {
 	0% {
 		opacity: 0;
@@ -861,5 +866,15 @@ p {
 	100% {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+@keyframes fadeRight {
+	0% {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
 	}
 }

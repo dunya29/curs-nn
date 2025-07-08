@@ -44,7 +44,7 @@
             color: var(--white-color);
             &.blur-text {
                 .char {
-                    transition: all 0.3s calc(var(--char-i) * 0.03s + 1.4s) linear;
+                    transition-delay: calc(var(--char-i) * 0.03s + 1.4s);
                 }
             }
         }
@@ -52,7 +52,7 @@
             color: var(--light-gray-color);
             &.blur-text {
                 .char {
-                    transition: all 0.3s calc(var(--char-i) * 0.03s + 2s) linear !important;
+                    transition-delay: calc(var(--char-i) * 0.03s + 2s) ;
                 }
             }
         }

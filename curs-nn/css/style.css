@@ -1292,8 +1292,10 @@ p a:hover {
   -webkit-filter: blur(10px);
   filter: blur(10px);
   opacity: 0;
-  -webkit-transition: all 0.3s calc(var(--char-i) * 0.03s) linear;
-  transition: all 0.3s calc(var(--char-i) * 0.03s) linear;
+  -webkit-transition: opacity 0.3s calc(var(--char-i) * 0.03s) linear, -webkit-filter 0.3s calc(var(--char-i) * 0.03s) linear;
+  transition: opacity 0.3s calc(var(--char-i) * 0.03s) linear, -webkit-filter 0.3s calc(var(--char-i) * 0.03s) linear;
+  transition: filter 0.3s calc(var(--char-i) * 0.03s) linear, opacity 0.3s calc(var(--char-i) * 0.03s) linear;
+  transition: filter 0.3s calc(var(--char-i) * 0.03s) linear, opacity 0.3s calc(var(--char-i) * 0.03s) linear, -webkit-filter 0.3s calc(var(--char-i) * 0.03s) linear;
 }
 
 .blur-text.blurFadeUp .char {
@@ -2103,8 +2105,8 @@ p a:hover {
 }
 
 .intro__content .h1.blur-text .char {
-  -webkit-transition: all 0.3s calc(var(--char-i) * 0.03s + 1.4s) linear;
-  transition: all 0.3s calc(var(--char-i) * 0.03s + 1.4s) linear;
+  -webkit-transition-delay: calc(var(--char-i) * 0.03s + 1.4s);
+  transition-delay: calc(var(--char-i) * 0.03s + 1.4s);
 }
 
 .intro__content .h4 {
@@ -2112,8 +2114,8 @@ p a:hover {
 }
 
 .intro__content .h4.blur-text .char {
-  -webkit-transition: all 0.3s calc(var(--char-i) * 0.03s + 2s) linear !important;
-  transition: all 0.3s calc(var(--char-i) * 0.03s + 2s) linear !important;
+  -webkit-transition-delay: calc(var(--char-i) * 0.03s + 2s);
+  transition-delay: calc(var(--char-i) * 0.03s + 2s);
 }
 
 .about {

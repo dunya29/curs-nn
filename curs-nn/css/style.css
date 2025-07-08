@@ -2243,6 +2243,8 @@ p a:hover {
   border-radius: 12px;
   -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 
 .item-about:before {
@@ -3258,6 +3260,15 @@ p a:hover {
 
 .footer__bottom a:hover {
   color: var(--white-color);
+}
+
+@media (min-width: 700.98px) {
+  .item-about:hover {
+    -webkit-transform: scale(1.2) !important;
+    -ms-transform: scale(1.2) !important;
+    transform: scale(1.2) !important;
+    z-index: 1;
+  }
 }
 
 @media (min-width: 1030.98px) {

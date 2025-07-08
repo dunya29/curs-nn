@@ -21,7 +21,7 @@
         opacity: 0 !important;
     }
     &__container {
-        transition: opacity .5s linear;
+        transition: opacity 0.5s linear;
     }
     &__inner {
         text-align: center;
@@ -95,7 +95,7 @@
     }
     @media (max-width: $bp4) {
         &__container {
-           // opacity: 1;
+            // opacity: 1;
         }
         &__items {
             display: grid;
@@ -116,6 +116,7 @@
     align-items: center;
     border-radius: 12px;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s linear;
     &:before {
         content: "";
         display: block;
@@ -138,6 +139,12 @@
         background: var(--white-color);
         transform: rotate(6deg);
         margin: 124px 0 0 -3.5%;
+    }
+    @media (min-width: $bp4) {
+        &:hover {
+            transform: scale(1.2)!important;
+            z-index: 1;
+        }
     }
     @media (max-width: $bp1) {
         min-height: 173px;

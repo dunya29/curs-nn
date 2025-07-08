@@ -3254,6 +3254,10 @@ p a:hover {
   color: rgba(237, 242, 246, 0.6);
 }
 
+.footer__bottom a:hover {
+  color: var(--white-color);
+}
+
 @media (min-width: 1030.98px) {
   .clubs .accordion__body {
     height: 100%;

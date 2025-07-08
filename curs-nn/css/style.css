@@ -3264,10 +3264,7 @@ p a:hover {
 
 @media (min-width: 700.98px) {
   .item-about:hover {
-    -webkit-transform: scale(1.2) !important;
-    -ms-transform: scale(1.2) !important;
-    transform: scale(1.2) !important;
-    z-index: 1;
+    background: var(--white-color);
   }
 }
 

@@ -142,8 +142,7 @@
     }
     @media (min-width: $bp4) {
         &:hover {
-            transform: scale(1.2)!important;
-            z-index: 1;
+            background: var(--white-color);
         }
     }
     @media (max-width: $bp1) {

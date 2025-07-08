@@ -2302,9 +2302,6 @@ p a:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: start;
 }
 
 .clubs__tab {
@@ -3265,6 +3262,27 @@ p a:hover {
 
   .clubs .accordion__header {
     display: none;
+  }
+
+  .clubs__blocks {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .clubs__blocks .accordion:nth-child(3),
+  .clubs__blocks .accordion:nth-child(4) {
+    margin: auto 0;
+  }
+
+  .clubs__blocks .accordion:nth-child(5),
+  .clubs__blocks .accordion:nth-child(6) {
+    margin-top: auto;
   }
 
   .news .swiper-wrapper {

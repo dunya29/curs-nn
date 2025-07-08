@@ -21,7 +21,6 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 30px;
-        align-items: start;
     }
     &__tab {
         padding: 32px 44px;
@@ -71,6 +70,21 @@
         }
         .accordion__header {
             display: none;
+        }
+        &__blocks {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            .accordion {
+                &:nth-child(3),
+                &:nth-child(4) {
+                    margin: auto 0;
+                }
+                &:nth-child(5),
+                &:nth-child(6) {
+                    margin-top: auto;
+                }
+            }
         }
     }
     @media (max-width: $bp1) {

@@ -154,13 +154,16 @@
                                     </div>
                                     <div class="accordion__body">
                                         <div class="accordion__content">
-                                            @@include("_item-team.html", {"long": true, "club": "torpedo", "name": "ХК «Торпедо»"})
-                                            @@include("_item-team.html", {"long": false, "club": "torpedo-gorkiy", "name": "ХК «Торпедо-Горький»"})
-                                            @@include("_item-team.html", {"long": false, "club": "chayka", "name": "ХК «Чайка»"})
+                                            <div class="clubs__content">
+                                                @@include("_item-team.html", {"long": true, "club": "torpedo", "name": "ХК «Торпедо»"})
+                                                @@include("_item-team.html", {"long": false, "club": "torpedo-gorkiy", "name": "ХК «Торпедо-Горький»"})
+                                                @@include("_item-team.html", {"long": false, "club": "chayka", "name": "ХК «Чайка»"})
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion" data-block="2">
+                                <div class="accordion accordion--football" data-block="2">
                                     <div class="accordion__header" data-animation="fadeUp">
                                         <div class="clubs__title">
                                             <svg><use xlink:href="img/svg/sprite.svg#football"></use></svg>
@@ -170,8 +173,14 @@
                                     </div>
                                     <div class="accordion__body">
                                         <div class="accordion__content">
-                                            @@include("_item-team.html", {"long": false, "club": "fk-pari", "name": "ФК «Пари Нижний Новгород»"})
-                                            @@include("_item-team.html", {"long": false, "club": "fk-ximik", "name": "ФК «Химик»"})
+                                            <div class="clubs__content">
+                                                @@include("_item-team.html", {"long": true, "club": "fk-pari", "name": "ФК «Пари Нижний Новгород»"})
+                                                @@include("_item-team.html", {"long": true, "club": "fk-ximik", "name": "ФК «Химик»"})
+                                            </div>
+                                            <div class="clubs__content">
+                                                @@include("_item-team.html", {"long": true, "club": "fk-pari", "name": "ФК «Пари Нижний Новгород»"})
+                                                @@include("_item-team.html", {"long": true, "club": "fk-ximik", "name": "ФК «Химик»"})
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -185,8 +194,10 @@
                                     </div>
                                     <div class="accordion__body">
                                         <div class="accordion__content">
-                                            @@include("_item-team.html", {"long": false, "club": "pkmf-torpedo", "name": "ПКМФ «Торпедо»"})
-                                            @@include("_item-team.html", {"long": false, "club": "normanochka", "name": "ЖФК «Норманочка»"})
+                                            <div class="clubs__content">
+                                                @@include("_item-team.html", {"long": false, "club": "pkmf-torpedo", "name": "ПКМФ «Торпедо»"})
+                                                @@include("_item-team.html", {"long": false, "club": "normanochka", "name": "ЖФК «Норманочка»"})
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -200,7 +211,9 @@
                                     </div>
                                     <div class="accordion__body">
                                         <div class="accordion__content">
-                                            @@include("_item-team.html", {"long": false, "club": "bk-pari", "name": "БК «Пари Нижний Новгород»"})
+                                            <div class="clubs__content">
+                                                @@include("_item-team.html", {"long": false, "club": "bk-pari", "name": "БК «Пари Нижний Новгород»"})
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -214,8 +227,10 @@
                                     </div>
                                     <div class="accordion__body">
                                         <div class="accordion__content">
-                                            @@include("_item-team.html", {"long": false, "club": "vk-sparta", "name": "ВК «Спарта»"})
-                                            @@include("_item-team.html", {"long": false, "club": "vk-ack", "name": "ВК АСК"})
+                                            <div class="clubs__content">
+                                                @@include("_item-team.html", {"long": false, "club": "vk-sparta", "name": "ВК «Спарта»"})
+                                                @@include("_item-team.html", {"long": false, "club": "vk-ack", "name": "ВК АСК"})
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -229,7 +244,9 @@
                                     </div>
                                     <div class="accordion__body">
                                         <div class="accordion__content">
-                                            @@include("_item-team.html", {"long": false, "club": "xk-start", "name": "ХК «Старт»"})
+                                            <div class="clubs__content">
+                                                @@include("_item-team.html", {"long": false, "club": "xk-start", "name": "ХК «Старт»"})
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

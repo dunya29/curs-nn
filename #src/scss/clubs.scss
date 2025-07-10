@@ -1,18 +1,14 @@
 .clubs {
     .accordion {
-        &__content {
-            padding: 25px;
-            display: flex;
-            flex-wrap: wrap;
-            border-radius: 16px;
-            background: var(--pale-blue-color);
-            .item-team {
-                flex: 1;
-                min-width: calc(50% - 30px);
-                margin: 15px;
+        &--football {
+            .accordion__content {
+                display: flex;
             }
-            .item-team--span-2 {
-                min-width: calc(100% - 30px);
+            .clubs__content {
+                margin-right: 30px;
+                &:last-child {
+                    margin-right: 0;
+                }
             }
         }
     }
@@ -63,13 +59,31 @@
             height: 100%;
         }
     }
-    @media (min-width: $bp3) {
-        .accordion__body {
-            height: 100%;
-            display: block !important;
+    &__content {
+        flex: 1;
+        padding: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 16px;
+        background: var(--pale-blue-color);
+        .item-team {
+            flex: 1;
+            min-width: calc(50% - 30px);
+            margin: 15px;
         }
-        .accordion__header {
-            display: none;
+        .item-team--span-2 {
+            min-width: calc(100% - 30px);
+        }
+    }
+    @media (min-width: $bp3) {
+        .accordion {
+            &__header {
+                display: none;
+            }
+            &__body {
+                height: 100%;
+                display: block !important;
+            }
         }
         &__blocks {
             height: 100%;
@@ -89,14 +103,9 @@
     }
     @media (max-width: $bp1) {
         .accordion {
-            &__content {
-                padding: 10px;
-                .item-team {
-                    min-width: calc(50% - 20px);
-                    margin: 10px;
-                }
-                .item-team--span-2 {
-                    min-width: calc(100% - 20px);
+            &--football {
+                .clubs__content {
+                    margin-right: 20px;
                 }
             }
         }
@@ -115,24 +124,39 @@
                 height: 24px;
             }
         }
+        &__content {
+            padding: 10px;
+            .item-team {
+                min-width: calc(50% - 20px);
+                margin: 10px;
+            }
+            .item-team--span-2 {
+                min-width: calc(100% - 20px);
+            }
+        }
     }
     @media (max-width: $bp2) {
+        .accordion {
+            &--football {
+                .clubs__content {
+                    margin-right: 16px;
+                }
+            }
+        }
         &__tab {
             margin-bottom: 16px;
         }
         &__items {
             gap: 16px;
         }
-        .accordion {
-            &__content {
-                padding: 6px;
-                .item-team {
-                    min-width: calc(50% - 12px);
-                    margin: 6px;
-                }
-                .item-team--span-2 {
-                    min-width: calc(100% - 12px);
-                }
+        &__content {
+            padding: 6px;
+            .item-team {
+                min-width: calc(50% - 12px);
+                margin: 6px;
+            }
+            .item-team--span-2 {
+                min-width: calc(100% - 12px);
             }
         }
     }
@@ -147,6 +171,11 @@
             &:last-child {
                 margin-bottom: 0;
             }
+            &--football {
+                .clubs__content {
+                    margin-right: 20px;
+                }
+            }
             &__header {
                 padding: 12px 20px;
                 display: flex;
@@ -156,7 +185,7 @@
                 background: var(--white-color);
             }
             &__content {
-                margin-top: 20px;
+                margin: 20px 0 8px;
             }
         }
         &__items {
@@ -168,15 +197,23 @@
     }
     @media (max-width: $bp5) {
         .accordion {
-            &__content {
-                padding: 12px;
-                .item-team,
-                .item-team--span-2 {
-                    min-width: 100%;
-                    margin: 0 0 12px;
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
+            &--football {
+                .accordion__content {
+                    display: block;
+                }
+                .clubs__content {
+                    margin: 20px 0 0;
+                }
+            }
+        }
+        &__content {
+            padding: 12px;
+            .item-team,
+            .item-team--span-2 {
+                min-width: 100%;
+                margin: 0 0 12px;
+                &:last-child {
+                    margin-bottom: 0;
                 }
             }
         }
@@ -184,9 +221,6 @@
 }
 .item-team {
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     border-radius: 16px;
     border: 2px solid var(--soft-blue-color);
     background: var(--white-color);
@@ -194,12 +228,18 @@
         color: var(--dark-blue-color);
         margin-bottom: 12px;
     }
+    .main-btn {
+        width: 100%;
+        max-width: 255px;
+        padding: 12px;
+    }
     &__logo {
         height: 128px;
         margin-bottom: 10px;
         img {
             max-height: 100%;
             object-fit: contain;
+            margin: auto;
         }
     }
     &__content {
@@ -207,16 +247,15 @@
         margin-top: auto;
     }
     @media (max-width: $bp1) {
-        .main-btn {
-            width: 100%;
-            max-width: 255px;
-            padding: 12px;
-        }
         &__content {
             width: 100%;
         }
     }
+    @media (max-width: $bp2) {
+        padding: 16px;
+    }
     @media (max-width: $bp5) {
+        padding: 20px;
         h5 {
             font-size: 20px;
         }

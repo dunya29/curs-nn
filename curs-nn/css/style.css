@@ -2278,27 +2278,22 @@ p a:hover {
   margin: 124px 0 0 -3.5%;
 }
 
-.clubs .accordion__content {
-  padding: 25px;
+.item-about h5 {
+  cursor: default;
+}
+
+.clubs .accordion--football .accordion__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  border-radius: 16px;
-  background: var(--pale-blue-color);
 }
 
-.clubs .accordion__content .item-team {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-width: calc(50% - 30px);
-  margin: 15px;
+.clubs .accordion--football .clubs__content {
+  margin-right: 30px;
 }
 
-.clubs .accordion__content .item-team--span-2 {
-  min-width: calc(100% - 30px);
+.clubs .accordion--football .clubs__content:last-child {
+  margin-right: 0;
 }
 
 .clubs__items {
@@ -2373,18 +2368,34 @@ p a:hover {
   height: 100%;
 }
 
-.item-team {
-  padding: 20px;
+.clubs__content {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  border-radius: 16px;
+  background: var(--pale-blue-color);
+}
+
+.clubs__content .item-team {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: calc(50% - 30px);
+  margin: 15px;
+}
+
+.clubs__content .item-team--span-2 {
+  min-width: calc(100% - 30px);
+}
+
+.item-team {
+  padding: 20px;
   border-radius: 16px;
   border: 2px solid var(--soft-blue-color);
   background: var(--white-color);
@@ -2393,6 +2404,12 @@ p a:hover {
 .item-team h5 {
   color: var(--dark-blue-color);
   margin-bottom: 12px;
+}
+
+.item-team .main-btn {
+  width: 100%;
+  max-width: 255px;
+  padding: 12px;
 }
 
 .item-team__logo {
@@ -2404,6 +2421,7 @@ p a:hover {
   max-height: 100%;
   -o-object-fit: contain;
   object-fit: contain;
+  margin: auto;
 }
 
 .item-team__content {
@@ -3269,13 +3287,13 @@ p a:hover {
 }
 
 @media (min-width: 1030.98px) {
+  .clubs .accordion__header {
+    display: none;
+  }
+
   .clubs .accordion__body {
     height: 100%;
     display: block !important;
-  }
-
-  .clubs .accordion__header {
-    display: none;
   }
 
   .clubs__blocks {
@@ -3722,17 +3740,8 @@ p a:hover {
     transform: rotate(4deg);
   }
 
-  .clubs .accordion__content {
-    padding: 10px;
-  }
-
-  .clubs .accordion__content .item-team {
-    min-width: calc(50% - 20px);
-    margin: 10px;
-  }
-
-  .clubs .accordion__content .item-team--span-2 {
-    min-width: calc(100% - 20px);
+  .clubs .accordion--football .clubs__content {
+    margin-right: 20px;
   }
 
   .clubs__items {
@@ -3753,10 +3762,17 @@ p a:hover {
     height: 24px;
   }
 
-  .item-team .main-btn {
-    width: 100%;
-    max-width: 255px;
-    padding: 12px;
+  .clubs__content {
+    padding: 10px;
+  }
+
+  .clubs__content .item-team {
+    min-width: calc(50% - 20px);
+    margin: 10px;
+  }
+
+  .clubs__content .item-team--span-2 {
+    min-width: calc(100% - 20px);
   }
 
   .item-team__content {
@@ -3907,6 +3923,10 @@ p a:hover {
     font-size: 14px;
   }
 
+  .clubs .accordion--football .clubs__content {
+    margin-right: 16px;
+  }
+
   .clubs__tab {
     margin-bottom: 16px;
   }
@@ -3915,17 +3935,21 @@ p a:hover {
     gap: 16px;
   }
 
-  .clubs .accordion__content {
+  .clubs__content {
     padding: 6px;
   }
 
-  .clubs .accordion__content .item-team {
+  .clubs__content .item-team {
     min-width: calc(50% - 12px);
     margin: 6px;
   }
 
-  .clubs .accordion__content .item-team--span-2 {
+  .clubs__content .item-team--span-2 {
     min-width: calc(100% - 12px);
+  }
+
+  .item-team {
+    padding: 16px;
   }
 
   .events .swiper-nav {
@@ -4063,6 +4087,10 @@ p a:hover {
     margin-bottom: 0;
   }
 
+  .clubs .accordion--football .clubs__content {
+    margin-right: 20px;
+  }
+
   .clubs .accordion__header {
     padding: 12px 20px;
     display: -webkit-box;
@@ -4079,7 +4107,7 @@ p a:hover {
   }
 
   .clubs .accordion__content {
-    margin-top: 20px;
+    margin: 20px 0 8px;
   }
 
   .clubs__items {
@@ -4333,19 +4361,31 @@ p a:hover {
     max-width: 345px;
   }
 
-  .clubs .accordion__content {
+  .clubs .accordion--football .accordion__content {
+    display: block;
+  }
+
+  .clubs .accordion--football .clubs__content {
+    margin: 20px 0 0;
+  }
+
+  .clubs__content {
     padding: 12px;
   }
 
-  .clubs .accordion__content .item-team,
-  .clubs .accordion__content .item-team--span-2 {
+  .clubs__content .item-team,
+  .clubs__content .item-team--span-2 {
     min-width: 100%;
     margin: 0 0 12px;
   }
 
-  .clubs .accordion__content .item-team:last-child,
-  .clubs .accordion__content .item-team--span-2:last-child {
+  .clubs__content .item-team:last-child,
+  .clubs__content .item-team--span-2:last-child {
     margin-bottom: 0;
+  }
+
+  .item-team {
+    padding: 20px;
   }
 
   .item-team h5 {

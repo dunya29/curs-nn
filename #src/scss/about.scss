@@ -140,6 +140,9 @@
         transform: rotate(6deg);
         margin: 124px 0 0 -3.5%;
     }
+    h5 {
+        cursor: default;
+    }
     @media (min-width: $bp4) {
         &:hover {
             background: var(--white-color);

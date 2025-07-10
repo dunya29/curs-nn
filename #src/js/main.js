@@ -473,8 +473,6 @@ if (introVideo) {
     })
     introTl.to(introVideo, {
         scale: 1.7,
-        yPercent: 20
-
     })
     introTl.to(document.querySelector('.intro .media-cover-bg'), {
         y: 0,

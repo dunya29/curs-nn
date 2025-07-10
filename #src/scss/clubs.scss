@@ -221,6 +221,9 @@
 }
 .item-team {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 16px;
     border: 2px solid var(--soft-blue-color);
     background: var(--white-color);
@@ -232,6 +235,7 @@
         width: 100%;
         max-width: 255px;
         padding: 12px;
+        margin: auto auto 0;
     }
     &__logo {
         height: 128px;
@@ -239,17 +243,14 @@
         img {
             max-height: 100%;
             object-fit: contain;
-            margin: auto;
         }
     }
     &__content {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
         text-align: center;
-        margin-top: auto;
-    }
-    @media (max-width: $bp1) {
-        &__content {
-            width: 100%;
-        }
     }
     @media (max-width: $bp2) {
         padding: 16px;

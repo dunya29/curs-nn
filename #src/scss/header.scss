@@ -16,9 +16,6 @@
             }
         }
     }
-    .item-contact {
-        color: var(--white-color);
-    }
     &--main {
         .header__logo {
             pointer-events: none;
@@ -56,9 +53,6 @@
         ul {
             li {
                 overflow: hidden;
-                a {
-                    color: var(--white-color);
-                }
             }
         }
     }
@@ -117,6 +111,7 @@
             width: 110px;
             height: 134px;
             padding: 14px 17px;
+            z-index: 2;
         }
         &__nav {
             position: fixed;
@@ -131,22 +126,23 @@
             opacity: 0;
             pointer-events: none;
             transition: 0.3s linear;
+            z-index: 1;
             &.open {
                 visibility: visible;
                 opacity: 1;
                 pointer-events: auto;
                 .header__menu li a {
                     transform: translateY(0);
-                    transition: all .5s 0.3s linear;
+                    transition: all 0.5s 0.3s linear;
                     svg {
                         opacity: 1;
-                        transition: all .5s 0.8s linear;
+                        transition: all 0.5s 0.8s linear;
                     }
                 }
                 .header__contacts--mob .item-contact {
                     filter: blur(0);
                     opacity: 1;
-                    transition: all .5s 0.3s linear;
+                    transition: all 0.5s 0.3s linear;
                 }
             }
             .container {
@@ -212,8 +208,7 @@
         &__logo {
             width: 74px;
             height: 88px;
-            padding: 14px;
-            z-index: 1;
+            padding: 10px;
         }
         &__contacts--desktop {
             .item-contact {
@@ -250,6 +245,7 @@
     @media (max-width: $bp1) {
         display: block;
         position: relative;
+        z-index: 1;
         flex: 0 0 26px;
         width: 26px;
         height: 26px;

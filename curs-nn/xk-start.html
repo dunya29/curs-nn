@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="image/x-icon" rel="shortcut icon" href="img/favicon/favicon.ico">
+    <link type="image/png" sizes="32x32" rel="icon" href="img/favicon/favicon-32x32.png">
+    <link type="image/png" sizes="192x192" rel="icon" href="img/favicon/android-icon-192x192.png">
+    <link sizes="120x120" rel="apple-touch-icon" href="img/favicon/apple-icon-120x120.png">
+    <link sizes="180x180" rel="apple-touch-icon" href="img/favicon/apple-icon-180x180.png">
+    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preload" href="fonts/Manrope-Medium.woff2" as="font" type="font/woff2" crossorigin> 
+    <link href="css/air-datepicker.css" type="text/css" rel="stylesheet">
+    <link href="css/style.min.css" type="text/css" rel="stylesheet">
+    <title>ХК «Старт» </title>
+</head>
+
+    <body class="no-scroll">
+        <div class="preloader">
+    <div class="preloader__item">
+        <img src="img/svg/hockey-stadion.svg" alt>
+    </div>
+    <div class="preloader__item">
+        <img src="img/svg/football-stadion.svg" alt>
+    </div>
+    <div class="preloader__item">
+        <img src="img/svg/basketball-stadion.svg" alt>
+    </div>
+</div>
+        <div class="wrap">
+            <!--header-->
+
+    
+    <header class="header fixed-block">
+        
+        <div class="container">
+            <div class="header__inner">
+                <a href="main.html" class="header__logo">
+                    <svg><use xlink:href="img/svg/sprite.svg#logo"></use></svg>
+                </a>
+                <div class="header__nav">
+                    <div class="header__nav-inner">
+                        <div class="container">
+                            <nav class="header__menu">
+                                <ul>
+                                    <li><a href="#">
+                                        <span>Об организации</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Афиша</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Наши клубы</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Новости</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Спецпроекты</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                </ul>
+                            </nav>
+                            <div class="header__contacts header__contacts--mob">
+                                <a href="tel:+13565848798" class="item-contact">
+                                    <svg><use xlink:href="img/svg/sprite.svg#phone"></use></svg>
+                                    <span>+1 (356) 584-87-98</span>
+                                </a>
+                                <a href="mailto:info@nn-sport.ru" class="item-contact">
+                                    <svg><use xlink:href="img/svg/sprite.svg#message"></use></svg>
+                                    <span>info@nn-sport.ru</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__right">
+                    <div class="header__contacts header__contacts--desktop">
+                        <a href="tel:+13565848798" class="item-contact item-contact--phone">
+                            <svg><use xlink:href="img/svg/sprite.svg#phone"></use></svg>
+                            <span>+1 (356) 584-87-98</span>
+                        </a>
+                        <a href="mailto:info@nn-sport.ru" class="item-contact">
+                            <svg><use xlink:href="img/svg/sprite.svg#message"></use></svg>
+                            <span>info@nn-sport.ru</span>
+                        </a>
+                    </div>
+                </div>
+                <div role="button" class="icon-menu" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+            <!--main-->
+            <main class="main">
+                <!--intro-->
+                <section class="intro club-intro">
+                    <div class="media-cover intro__bg">
+                        <span class="media-cover-bg"></span>
+                        <picture>
+                            <source srcset="img/content/xk-start-intro.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/xk-start-intro.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/xk-start-intro-mob.webp" type="image/webp">
+                            <source srcset="img/content/xk-start-intro-mob.jpg">
+                            <img src="img/content/xk-start-intro.jpg" alt loading="lazy" data-animation="scaleUp">
+                        </picture>
+                    </div>
+                    <div class="container intro__container">
+                        <!--breadcrumbs-->
+<div class="breadcrumbs">
+    <div class="container">
+        <ul>
+            <li><a href="#" class="link">Главная</a></li>
+            <li>ХК «Старт» </li>
+        </ul>
+    </div>
+</div>
+                        <div class="intro__content">
+                            <img class="club-intro__logo" src="img/svg/clubs/xk-start.svg" alt>
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">ХК «Старт» </h1>
+                            <a href="#affiche-sec" class="btn main-btn js-anchor"><span>Смотреть расписание игр</span></a>
+                        </div>
+                    </div>
+                </section>
+                <!--club-info-->
+                <div class="section section--dark club-info">
+                    <div class="container">
+                        <div class="stat-block grid-3col mb-120" data-animation="fadeUp">
+                            <div class="stat-block__item">
+                                <img src="img/svg/data.svg" alt>
+                                <p class="h4">Дата основания</p>
+                                <p class="h5">1932 год</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/competition.svg" alt>
+                                <p class="h4">Соревнования</p>
+                                <p class="h5">Суперлига</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/stadion.svg" alt>
+                                <p class="h4">Домашняя арена</p>
+                                <p class="h5">Стадион Труд</p>
+                            </div>
+                        </div>
+                        <div class="mb-120 club-info__main" data-animation="fadeUp">
+                            <div class="page-content grid-2col club-info__main-top">
+                                <h3>Клуб основан в 1932 году и является старейшим спортивным клубом Нижнего Новгорода. Нынешнее название носит с сезона 1960/61 годов.
+                                </h3>
+                                <div class="col-2">
+                                    <p>В период с 1951 по 1964 годы, а также в сезоне 1970/71 выступал в зональных и финальных (1958, 1960, 1963, 1964, 1971 годов) турнирах
+                                        чемпионатов РСФСР.</p>
+                                    <p>С сезона 1964/65 является постоянным участником чемпионатов СССР (за исключением сезона 1970/71).</p>
+                                </div>
+                            </div>
+                            <div class="grid-2col">
+                                <div class="page-content">
+                                    <p>Во второй группе класса «А» чемпионата СССР — 1964—1967, 1969/70, 1971—1973. В первой лиге чемпионата СССР — 1974/75. В 1967—1969 годах
+                                        и в
+                                        сезоне 1973/74 выступал в первой группе класса «А». В сезоне 1967/68 выступал в высшей лиге Чемпионата СССР. В сезоне 1975/76 вернулся
+                                        в
+                                        элитный дивизион, где выступает по настоящее время.</p>
+                                    <p>Летом 1965 года в команде произошла смена тренера. «Старт» возглавил мастер спорта Юрий Ефимович Фокин который за год до этого прибыл в
+                                        Горький из Алма-Аты.</p>
+                                    <p>Все наивысшие достижения команды в элите российского (советского) хоккея с мячом непосредственно связаны с именем Заслуженного тренера
+                                        СССР
+                                        и России Юрия Фокина. Именно под его руководством «Старт» трижды (в 1980, 1995 и 2002 годах) завоевывал серебряные медали, трижды (в
+                                        1996,
+                                        1998 и 2000 года) бронзовые медали и однажды Кубок СССР(в 1983 году). Во времена Советского Союза Юрий Фокин работал вторым тренером в
+                                        сборной команде страны, а в сезоне 2004 года — главным тренером сборной России.</p>
+                                    <p>С сезона 1960/61 годов команда обрела свое нынешнее название — «Старт». Кроме того, один сезон перед этим команда носила название
+                                        «Труд».</p>
+                                    <p>С сезона 2007/08 на протяжении семи сезонов «Старт» возглавлял его бывший игрок, двукратный чемпион мира — Алексей Дьяков. Один из
+                                        лучших
+                                        бомбардиров в истории нижегородского хоккея с мячом 16 сезонов провел в Швеции, получил там гражданство. Его блестящая игра за клубы
+                                        «Несшье» и «Мутала» сделала Дьякова широко известным не только в России, но и в Скандинавии.</p>
+                                </div>
+                                <div class="club-info__main-images">
+                                    <div class="media-el">
+                                        <picture>
+                                            <source srcset="img/content/xk-start-info-1.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                            <source srcset="img/content/xk-start-info-1.jpg" media="(min-width: 1450.98px)">
+                                            <source srcset="img/content/xk-start-info-1-1280.webp" type="image/webp" media="(min-width: 767.98px)">
+                                            <source srcset="img/content/xk-start-info-1-1280.jpg" media="(min-width: 767.98px)">
+                                            <source srcset="img/content/xk-start-info-1-mob.webp" type="image/webp">
+                                            <source srcset="img/content/xk-start-info-1-mob.jpg">
+                                            <img src="img/content/xk-start-info-1.jpg" alt loading="lazy">
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-120 page-content width-6col" data-animation="fadeUp">
+                            <h3>С сезона 2014/15 в команде сменился тренерский штаб. Главным тренером стал Эдуард Саксонов, прежде работавший со «Старт-2».</h3>
+                            <p>Помогали ему его партнеры по команде 1990-х — начала 2000-х годов Вячеслав Рябов и Юрий Логинов Председатель правления — Юрий Ерофеев. А с
+                                середины сезона 2015/16 главным тренером «Старта» был Игорь Чирикни. В том сезоне команда заняла наивысшее за свою «новейшую» историю место —
+                                7-е</p>
+                        </div>
+                        <div class="grid-2col club-info__main" data-animation="fadeUp">
+                            <div class="page-content">
+                                <h3>В середине сезона 2016/17 вновь произошла смена главного тренера — им стал МСМК и серебряный призер чемпионата мира Андрей Бегунов. С
+                                    сезона 2017/18 Вячеслав Рябов работает в должности спортивного директора клуба, а с лета 2016 года еще является президентом ФХСМНО.</h3>
+                                <p>В середине сезона 2017/18 пост главного тренера «Старта» вновь занял Алексей Дьяков вернувшийся из московского «Динамо», а его помощником
+                                    стал Эдуард Саксонов.</p>
+                                <p>В сезоне 2018/19 обыграв действующего чемпиона Швеции — «Эдсбюн» и в четвертьфинале сенсационно разгромив красноярский «Енисей» — 0:4
+                                    нижегородский «Старт» впервые в своей истории вышел в полуфинал Кубка Мира.</p>
+                                <p>В середине сезона 2018/19 пост главного тренера «Старта» вновь занял Андрей Бегунов вернувшийся из «Старт-2», а его помощником стал Юрий
+                                    Гаврилов, ранее занимавший пост тренера-консультанта.</p>
+                                <p>В сезоне 2019/20 пост главного тренера «Старта» сохранил Андрей Бегунов, его помощником стал Александр Епифанов возглавляющий сборную
+                                    Германии. В «Старте-2» вместе с Александром Вихаревым продолжает работать Эдуард Саксонов и Юрий Гаврилов в роли тренера-консультанта.</p>
+                                <p>С сезона 2023/24 главный тренер "Старта" - Андрей Рушкин, тренер - Андрей Бегунов.</p>
+                            </div>
+                            <div class="club-info__main-images">
+                                <div class="media-el">
+                                    <picture>
+                                        <source srcset="img/content/xk-start-info-2.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/xk-start-info-2.jpg" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/xk-start-info-2-1280.webp" type="image/webp" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/xk-start-info-2-1280.jpg" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/xk-start-info-1-mob.webp" type="image/webp">
+                                        <source srcset="img/content/xk-start-info-1-mob.jpg">
+                                        <img src="img/content/xk-start-info-1.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--structure-->
+                <section class="section section--dark structure">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Структура Клуба</h2>
+                        </div>
+                        <div class="structure__row">
+                            <div class="structure__img">
+                                <div class="media-contain">
+                                    <picture><source srcset="img/structure-hockey.webp" type="image/webp"><img src="img/structure-hockey.png" alt></picture>
+                                </div>
+                            </div>
+                            <div class="structure__items child-2">
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/xk-start.svg" alt></div>
+                                    <p class="h4">ХК «Старт»</p>
+                                </div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/xk-start.svg" alt></div>
+                                    <p class="h4">ХК «Старт-2»</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--image-block-->
+                <div class="section section--dark image-block" data-animation="fadeUp">
+                    <div class="container">
+                        <picture>
+                            <source srcset="img/content/xk-start.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/xk-start.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/xk-start-mob.webp" type="image/webp">
+                            <source srcset="img/content/xk-start-mob.jpg">
+                            <img src="img/content/xk-start.jpg" alt loading="lazy">
+                        </picture>
+                    </div>
+                </div>
+                <!--club-achieve-->
+                <section class="section club-achieve">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Достижения клуба</h2>
+                        </div>
+                        <section class="club-achieve__sec" data-animation="fadeUp">
+                            <h3>Национальные награды</h3>
+                            <ul class="club-achieve__list">
+                                <li>Обладатель I Кубка «Волга-Спорт-Арены» 2015, Обладатель Кубка Главы Республики Коми 1998,</li>
+                                <li>Серебряный призёр Чемпионата России 1994/95, 2001/02, Серебряный призёр чемпионата СССР 1979/80, Бронзовый призёр Чемпионата России 1995/96, 1997/98, 1999/2000,</li>
+                                <li>Победитель I лиги чемпионата СССР 1975, Серебряный призер чемпионата СССР класс А II группы 1964</li>
+                                <li>Обладатель Кубка СССР 1982/83, Финалист Кубка СССР 1985/86, Финалист Кубка России1997/98</li>
+                                <li>Чемпион РСФСР 1963/64, Серебряный призер Чемпионата РСФСР 1962/63, Бронзовый призер Чемпионата РСФСР 1960/61</li>
+                            </ul>
+                        </section>
+                        <section class="club-achieve__sec club-achieve__sec--inter" data-animation="fadeUp">
+                            <h3>Международные награды</h3>
+                            <ul class="club-achieve__list">
+                                <li>Третье место на Кубке Мира 2018/19</li>
+                                <li>Обладатель Кубка Фалуна 2008</li>
+                                <li>Обладатель Кубка «Porvoo Borgå 650 Bandy Cup» 1996</li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+                <!--affiche-->
+<section class="section section--light affiche" id="affiche-sec">
+    <div class="container">
+        <div class="sec-top">
+            <h2 class="blur-text" data-animation="blurFadeUp">Расписание игр</h2>
+        </div>
+        <div class="affiche__action">
+            <div class="filter affiche__filter">
+                <form class="filter__form">
+                    <input type="hidden" data-datepicker-value>
+                    <div class="dropdown">
+                        <div class="dropdown__header" data-animation="fadeRight">
+                            <span>Место проведения</span>
+                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                        </div>
+                        <div class="dropdown__body">
+                            <div class="custom-scroll">
+                                <label class="item-checkbox">
+                                    <input type="checkbox" data-id="filter[18]">
+                                    <span>Домашняя игра</span>
+                                </label>
+                                <label class="item-checkbox">
+                                    <input type="checkbox" data-id="filter[19]">
+                                    <span>Выезд</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown__header" data-animation="fadeRight">
+                            <span>Календарь</span>
+                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                        </div>
+                        <div class="dropdown__body">
+                            <div class="custom-scroll">
+                                <div class="datepicker"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="filter__selected">
+                    <ul class="filter__selected-items"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="affiche__wrapper">
+            <div class="affiche__items">
+                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div>
+                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div>
+                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div>
+                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div>
+            </div>
+        </div>
+        <div class="sec-bottom">
+            <a href="#" class="btn secondary-btn" target="_blank">
+                <span>Смотреть все</span>
+            </a>
+        </div>
+    </div>
+</section>
+                 <!--news-->
+<section class="section section--dark news">
+    <div class="container">
+        <div class="sec-top">
+            <h2 class="blur-text" data-animation="blurFadeUp">Новости</h2>
+        </div>
+        <div class="news__wrapper">
+            <div class="news__items">
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/volleyball.svg" alt="Волейбол">
+                Волейбол
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/futsal.svg" alt="Футзал">
+                Футзал
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/basketball.svg" alt="Баскетбол">
+                Баскетбол
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/bandy.svg" alt="Хоккей с мячом">
+                Хоккей с мячом
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/volleyball.svg" alt="Волейбол">
+                Волейбол
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/volleyball.svg" alt="Волейбол">
+                Волейбол
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/hockey.svg" alt="Хоккей">
+                Хоккей
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/volleyball.svg" alt="Волейбол">
+                Волейбол
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+            </div>
+            
+<!--pagination-->
+<div class="page-navigation">
+    <nav class="pagination">
+        <a class="pagination__btn prev disabled" href="#">
+            <svg><use href="img/svg/sprite.svg#chevron-left"></use></svg>
+            <span>Назад</span>
+        </a>
+        <a class="pagination__link current" href="#">1</a>
+        <a class="pagination__link" href="#">2</a>
+        <span class="pagination__item">...</span>
+        <a class="pagination__link" href="#">14</a>
+        <a class="pagination__link" href="#">15</a>
+        <a class="pagination__link" href="#">16</a>
+        <span class="pagination__item">...</span>
+        <a class="pagination__link" href="#">19</a>
+        <a class="pagination__link" href="#">20</a>
+        <a class="pagination__btn next" href="#">
+            <span>Дальше</span>
+            <svg><use href="img/svg/sprite.svg#chevron-right"></use></svg>
+        </a>
+    </nav>
+</div>
+
+        </div>
+    </div>
+</section>
+            </main>
+            <!--footer-->
+
+    
+    <footer class="footer">
+        
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__main">
+                    <div class="footer__logo">
+                        <img src="img/svg/logo-txt.svg" alt>
+                    </div>
+                    <div class="footer__contacts">
+                        <a href="tel:+13565848798" class="item-contact">
+                            <svg><use xlink:href="img/svg/sprite.svg#phone"></use></svg>
+                            <span>+1 (356) 584-87-98</span>
+                        </a>
+                        <a href="mailto:info@nn-sport.ru" class="item-contact">
+                            <svg><use xlink:href="img/svg/sprite.svg#message"></use></svg>
+                            <span>info@nn-sport.ru</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__navs">
+                    <nav class="footer__nav">
+                        <p class="footer__nav-header">Навигация</p>
+                        <ul>
+                            <li><a href="#">Об организации</a></li>
+                            <li><a href="#">Афиша</a></li>
+                            <li><a href="#">Наши клубы</a></li>
+                            <li><a href="#">Новости</a></li>
+                            <li><a href="#">Спецпроекты</a></li>
+                        </ul>
+                    </nav>
+                    <nav class="footer__nav">
+                        <p><p class="footer__nav-header">Спецпроекты</p></p>
+                        <ul>
+                            <li><a href="#">Волейбол на Выксе</a></li>
+                            <li><a href="#">Выставка одной картины</a></li>
+                            <li><a href="#">Спецпроект к 9 Мая</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">© 2025. Центр управления и развития спорта в Нижегородской области</p>
+                <div class="footer__info">
+                    <a href="#">Реквизиты организации</a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+            <!--modal-->
+<modal class="custom-scroll modal">
+    <div class="modal__content">
+        <button type="button" class="btn btn-cross modal__close"></button>
+        <div class="custom-scroll">
+            <div class="modal__top"></div>
+        </div>
+    </div>
+</modal>
+        </div>
+        <!--scripts-->
+<script src="js/libs/gsap.min.js"></script>
+<script src="js/libs/ScrollTrigger.min.js"></script>
+<script src="js/libs/inputmask.min.js"></script>
+<script src="js/libs/swiper.min.js"></script>
+<script src="js/libs/air-datepicker.min.js"></script>
+<script src="js/libs/html2pdf.min.js"></script>
+<script src="js/main.js"></script>
+    </body>
+
+</html>

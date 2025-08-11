@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    @@include('_head.html', {
+    "title": "ВК АСК"
+    })
+
+    <body class="no-scroll">
+        @@include('_preloader.html')
+        <div class="wrap">
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main">
+                <!--intro-->
+                <section class="intro club-intro">
+                    <div class="media-cover intro__bg">
+                        <span class="media-cover-bg"></span>
+                        <picture>
+                            <source srcset="img/content/vk-ack-intro.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/vk-ack-intro.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/vk-ack-intro-mob.webp" type="image/webp">
+                            <source srcset="img/content/vk-ack-intro-mob.jpg">
+                            <img src="img/content/vk-ack-intro.jpg" alt loading="lazy" data-animation="scaleUp">
+                        </picture>
+                    </div>
+                    <div class="container intro__container">
+                        @@include('_breadcrumbs.html', { 'page': 'ВК АСК'})
+                        <div class="intro__content">
+                            <img class="club-intro__logo" src="img/svg/clubs/vk-ack.svg" alt>
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">ВК АСК</h1>
+                            <a href="#affiche-sec" class="btn main-btn js-anchor"><span>Смотреть расписание игр</span></a>
+                        </div>
+                    </div>
+                </section>
+                <!--club-info-->
+                <div class="section section--dark club-info">
+                    <div class="container">
+                        <div class="stat-block grid-3col mb-120" data-animation="fadeUp">
+                            <div class="stat-block__item">
+                                <img src="img/svg/data.svg" alt>
+                                <p class="h4">Дата основания</p>
+                                <p class="h5">Лето 2016 года</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/competition.svg" alt>
+                                <p class="h4">Соревнования</p>
+                                <p class="h5">Суперлига, Кубок России</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/stadion.svg" alt>
+                                <p class="h4">Домашняя арена</p>
+                                <p class="h5">ФОК «Заречье»</p>
+                            </div>
+                        </div>
+                        <div class="grid-2col mb-120 club-info__main" data-animation="fadeUp">
+                            <div class="page-content">
+                                <h3>Мужская профессиональная волейбольная команда АСК, молодой коллектив из Нижегородской области, который появился в 2016 году и начал свое
+                                    выступление в Высшей лиге «Б».</h3>
+                                <p>В сезоне 2016/2017 нижегородцы выиграли 38 из 40 проведённых матчей, стали победителями турнира и добились права выступать в Высшей лиге
+                                    «А».</p>
+                                <p>Команда на половину состояла из местных воспитанников, некоторые из которых уже имели опыт выступления в Суперлиге.</p>
+                                <p>Сезон 2018/19 АСК провела на максимальном уровне и завоевала первое место по итогам чемпионата. Команда Игоря Шулепова одержала победу в 38
+                                    из 48 встреч, но главной оказалась самая последняя игра сезона против «Нефтяника» из Оренбурга. К ней обе команды подошли с равным
+                                    количеством побед. В решающей встрече нижегородцы выиграли в четырех сетах и завоевали путевку в Суперлигу.</p>
+                            </div>
+                            <div class="club-info__main-images">
+                                <div class="media-el">
+                                    <picture>
+                                        <source srcset="img/content/vk-ack-info.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/vk-ack-info.jpg" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/vk-ack-info-1280.webp" type="image/webp">
+                                        <source srcset="img/content/vk-ack-info-1280.jpg">
+                                        <img src="img/content/vk-ack-info.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-content width-8col" data-animation="fadeUp">
+                            <h3>Сезон 2018/19 АСК провела на максимальном уровне и завоевала первое место по итогам чемпионата. Команда Игоря Шулепова одержала победу в 38 из
+                                48 встреч, но главной оказалась самая последняя игра сезона против «Нефтяника» из Оренбурга. К ней обе команды подошли с равным количеством
+                                побед. В решающей встрече нижегородцы выиграли в четырех сетах и завоевали путевку в Суперлигу.</h3>
+                            <p>Руководством клуба было принято решение назначить на освободившийся пост нижегородца, местного воспитанника Андрея Дранишникова, который стал
+                                самым молодым наставником Суперлиги на тот момент (31 год).</p>
+                            <p>Под его руководством в первый сезон команда финишировала на девятой строчке, а в следующем сезоне 2022/2023 команда повторила свой успех,
+                                пробившись в плей-офф и войдя в восьмерку сильнейших волейбольных команд страны.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--club-achieve-->
+                <section class="section club-achieve">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Достижения клуба</h2>
+                        </div>
+                        <section class="club-achieve__sec" data-animation="fadeUp">
+                            <h3>Национальные награды</h3>
+                            <ul class="club-achieve__list">
+                                <li>Чемпион Высшей лиги «Б» в сезоне 2016/2017</li>
+                                <li>Чемпион Высшей лиги «А» в сезоне 2018/2019</li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+                <!--image-block-->
+                <div class="section section--dark image-block" data-animation="fadeUp">
+                    <div class="container">
+                        <picture>
+                            <source srcset="img/content/vk-ack.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/vk-ack.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/vk-ack-mob.webp" type="image/webp">
+                            <source srcset="img/content/vk-ack-mob.jpg">
+                            <img src="img/content/vk-ack.jpg" alt loading="lazy">
+                        </picture>
+                    </div>
+                </div>
+                <!--structure-->
+                <section class="section section--dark structure">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Структура Клуба</h2>
+                        </div>
+                        <div class="structure__row">
+                            <div class="structure__img">
+                                <div class="media-contain">
+                                    <img src="img/structure-volleyball.png" alt>
+                                </div>
+                            </div>
+                            <div class="structure__items child-3">
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/vk-ack.svg" alt></div>
+                                    <p class="h4">ВК АСК</p>
+                                </div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/vk-sparta.svg" alt></div>
+                                    <p class="h4">ВК «Спарта»</p>
+                                </div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/vk-ack.svg" alt></div>
+                                    <p class="h4">ВК АСК-2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                @@include('_affiche.html')
+                @@include('_news.html')
+            </main>
+            @@include('_footer.html', {"main": false})
+            @@include('_modal.html')
+        </div>
+        @@include('_js.html')
+    </body>
+
+</html>

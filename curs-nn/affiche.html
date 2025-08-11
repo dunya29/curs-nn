@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="image/x-icon" rel="shortcut icon" href="img/favicon/favicon.ico">
+    <link type="image/png" sizes="32x32" rel="icon" href="img/favicon/favicon-32x32.png">
+    <link type="image/png" sizes="192x192" rel="icon" href="img/favicon/android-icon-192x192.png">
+    <link sizes="120x120" rel="apple-touch-icon" href="img/favicon/apple-icon-120x120.png">
+    <link sizes="180x180" rel="apple-touch-icon" href="img/favicon/apple-icon-180x180.png">
+    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preload" href="fonts/Manrope-Medium.woff2" as="font" type="font/woff2" crossorigin> 
+    <link href="css/air-datepicker.css" type="text/css" rel="stylesheet">
+    <link href="css/style.min.css" type="text/css" rel="stylesheet">
+    <title>Афиша</title>
+</head>
+
+    <body class="no-scroll">
+        <div class="wrap">
+            <!--header-->
+
+    
+    <header class="header fixed-block">
+        
+        <div class="container">
+            <div class="header__inner">
+                <a href="main.html" class="header__logo">
+                    <svg><use xlink:href="img/svg/sprite.svg#logo"></use></svg>
+                </a>
+                <div class="header__nav">
+                    <div class="header__nav-inner">
+                        <div class="container">
+                            <nav class="header__menu">
+                                <ul>
+                                    <li><a href="#">
+                                        <span>Об организации</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Афиша</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Наши клубы</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Новости</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Спецпроекты</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                </ul>
+                            </nav>
+                            <div class="header__contacts header__contacts--mob">
+                                <a href="tel:+13565848798" class="item-contact">
+                                    <svg><use xlink:href="img/svg/sprite.svg#phone"></use></svg>
+                                    <span>+1 (356) 584-87-98</span>
+                                </a>
+                                <a href="mailto:info@nn-sport.ru" class="item-contact">
+                                    <svg><use xlink:href="img/svg/sprite.svg#message"></use></svg>
+                                    <span>info@nn-sport.ru</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__right">
+                    <div class="header__contacts header__contacts--desktop">
+                        <a href="tel:+13565848798" class="item-contact item-contact--phone">
+                            <svg><use xlink:href="img/svg/sprite.svg#phone"></use></svg>
+                            <span>+1 (356) 584-87-98</span>
+                        </a>
+                        <a href="mailto:info@nn-sport.ru" class="item-contact">
+                            <svg><use xlink:href="img/svg/sprite.svg#message"></use></svg>
+                            <span>info@nn-sport.ru</span>
+                        </a>
+                    </div>
+                </div>
+                <div role="button" class="icon-menu" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+            <!--main-->
+            <main class="main main--light">
+                <div class="preloader">
+    <div class="preloader__item">
+        <img src="img/svg/hockey-stadion.svg" alt>
+    </div>
+    <div class="preloader__item">
+        <img src="img/svg/football-stadion.svg" alt>
+    </div>
+    <div class="preloader__item">
+        <img src="img/svg/basketball-stadion.svg" alt>
+    </div>
+</div>
+                <!--breadcrumbs-->
+<div class="breadcrumbs">
+    <div class="container">
+        <ul>
+            <li><a href="#" class="link">Главная</a></li>
+            <li>Афиша</li>
+        </ul>
+    </div>
+</div>
+                <!--affiche-->
+                <section class="section section--light affiche affiche-p">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">Афиша</h1>
+                        </div>
+                        <div class="affiche__action">
+                            <div class="filter affiche__filter">
+                                <form class="filter__form" onsubmit="event.preventDefault();setScheduleDate()">
+                                    <input type="hidden" data-datepicker-value>
+                                    <div class="dropdown">
+                                        <div class="dropdown__header" data-animation="fadeRight">
+                                            <span>Вид спорта</span>
+                                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                                        </div>
+                                        <div class="dropdown__body">
+                                            <div class="custom-scroll">
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[1]">
+                                                    <span>Баскетбол</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[2]">
+                                                    <span>Волейбол</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[3]">
+                                                    <span>Футзал</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[4]">
+                                                    <span>Футбол</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[5]">
+                                                    <span>Хоккей</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[6]">
+                                                    <span>Хоккей с мячом</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <div class="dropdown__header" data-animation="fadeRight">
+                                            <span>Клуб</span>
+                                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                                        </div>
+                                        <div class="dropdown__body">
+                                            <div class="custom-scroll">
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[7]">
+                                                    <span>ХК «Торпедо»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[8]">
+                                                    <span>ХК «Торпедо-Горький»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[9]">
+                                                    <span>ХК «Чайка»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[10]">
+                                                    <span>ФК «Пари Нижний Новгород»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[11]">
+                                                    <span>ФК «Химик»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[12]">
+                                                    <span>ПКМФ «Торпедо»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[13]">
+                                                    <span>ЖФК «Норманочка»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[14]">
+                                                    <span>БК «Пари Нижний Новгород»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[15]">
+                                                    <span>ВК «Спарта»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[16]">
+                                                    <span>ВК АСК</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[17]">
+                                                    <span>ХК «Старт»</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <div class="dropdown__header" data-animation="fadeRight">
+                                            <span>Место проведения</span>
+                                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                                        </div>
+                                        <div class="dropdown__body">
+                                            <div class="custom-scroll">
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[18]">
+                                                    <span>Домашняя игра</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[19]">
+                                                    <span>Выезд</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <div class="dropdown__header" data-animation="fadeRight">
+                                            <span>Календарь</span>
+                                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                                        </div>
+                                        <div class="dropdown__body">
+                                            <div class="custom-scroll">
+                                                <div class="datepicker"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="filter__selected">
+                                    <ul class="filter__selected-items"></ul>
+                                </div>
+                            </div>
+                            <button class="btn text-btn" data-print-btn="schedule" data-print-name="расписание">
+                                <svg><use xlink:href="img/svg/sprite.svg#download"></use></svg>
+                                <span>Скачать расписание</span>
+                            </button>
+                        </div>
+                        <div class="affiche__wrapper">
+                            <div class="affiche__items">
+                                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div>
+                                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div>
+                                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div> 
+                                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div>
+                            </div>
+                        </div>
+                        <div class="sec-bottom">
+                            <a href="#" class="btn secondary-btn">
+                                <span>Смотреть все</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <!--schedule-->
+<div class="schedule section--light" data-print-block="schedule">
+    <div class="schedule__top">
+        <div class="container">
+            <div class="schedule__main">
+                <h2>Расписание матчей</h2>
+                <div class="schedule__filter">
+                    <span>7 июля - 15 июля</span>
+                    <span>Совкомбанк арена</span>
+                </div>
+            </div>
+            <div class="schedule__logo">
+                <img src="img/svg/logo-txt.svg" alt="ЦУРС">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="schedule__wrapper">
+            <h3 class="h2 schedule__month">Июль</h3>
+            <div class="schedule__cols">
+                <!--col-schedule-->
+                <div class="col-schedule" data-date="2025-07-7">
+                    <div class="col-schedule__top">
+                        <div class="col-schedule__date"></div>
+                        <div class="col-schedule__day">Понедельник</div>
+                    </div>
+                    <div class="col-schedule__body">
+                        <div class="col-schedule__empty">Нет событий</div>
+                    </div>
+                </div>
+                <!--col-schedule-->
+                <div class="col-schedule" data-date="2025-07-8">
+                    <div class="col-schedule__top">
+                        <div class="col-schedule__date"></div>
+                        <div class="col-schedule__day">Вторник</div>
+                    </div>
+                    <div class="col-schedule__body">
+                        <!--item-schedule-->
+                        <div class="item-schedule">
+                            <div class="item-schedule__info">
+                                <div class="item-schedule__time">18:00</div>
+                                <div class="item-schedule__type">
+                                    <img src="img/svg/icons/football.svg" alt="Футбол">
+                                    <span>Футбол</span>
+                                </div>
+                            </div>
+                            <div class="item-schedule__logos">
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/torpedo.svg" alt>
+                                </div>
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/vk-sparta.svg" alt>
+                                </div>
+                            </div>
+                            <p class="item-schedule__clubs">ЦСКА - Торпедо</p>
+                            <p class="item-schedule__place">Нижегородский Дворец Спорта Профсоюзов</p>
+                        </div>
+                    </div>
+                </div>
+                <!--col-schedule-->
+                <div class="col-schedule" data-date="2025-07-9">
+                    <div class="col-schedule__top">
+                        <div class="col-schedule__date"></div>
+                        <div class="col-schedule__day">Среда</div>
+                    </div>
+                    <div class="col-schedule__body">
+                        <!--item-schedule-->
+                        <div class="item-schedule">
+                            <div class="item-schedule__info">
+                                <div class="item-schedule__time">18:00</div>
+                                <div class="item-schedule__type">
+                                    <img src="img/svg/icons/football.svg" alt="Футбол">
+                                    <span>Футбол</span>
+                                </div>
+                            </div>
+                            <div class="item-schedule__logos">
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/torpedo.svg" alt>
+                                </div>
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/vk-sparta.svg" alt>
+                                </div>
+                            </div>
+                            <p class="item-schedule__clubs">ЦСКА - Торпедо</p>
+                            <p class="item-schedule__place">Нижегородский Дворец Спорта Профсоюзов</p>
+                        </div>
+                    </div>
+                </div>
+                <!--col-schedule-->
+                <div class="col-schedule" data-date="2025-07-10">
+                    <div class="col-schedule__top">
+                        <div class="col-schedule__date"></div>
+                        <div class="col-schedule__day">Четверг</div>
+                    </div>
+                    <div class="col-schedule__body">
+                        <!--item-schedule-->
+                        <div class="item-schedule">
+                            <div class="item-schedule__info">
+                                <div class="item-schedule__time">18:00</div>
+                                <div class="item-schedule__type">
+                                    <img src="img/svg/icons/football.svg" alt="Футбол">
+                                    <span>Футбол</span>
+                                </div>
+                            </div>
+                            <div class="item-schedule__logos">
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/torpedo.svg" alt>
+                                </div>
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/vk-sparta.svg" alt>
+                                </div>
+                            </div>
+                            <p class="item-schedule__clubs">ЦСКА - Торпедо</p>
+                            <p class="item-schedule__place">Нижегородский Дворец Спорта Профсоюзов</p>
+                        </div>
+                    </div>
+                </div>
+                <!--col-schedule-->
+                <div class="col-schedule" data-date="2025-07-11">
+                    <div class="col-schedule__top">
+                        <div class="col-schedule__date"></div>
+                        <div class="col-schedule__day">Пятница</div>
+                    </div>
+                    <div class="col-schedule__body">
+                        <!--item-schedule-->
+                        <div class="item-schedule">
+                            <div class="item-schedule__info">
+                                <div class="item-schedule__time">18:00</div>
+                                <div class="item-schedule__type">
+                                    <img src="img/svg/icons/football.svg" alt="Футбол">
+                                    <span>Футбол</span>
+                                </div>
+                            </div>
+                            <div class="item-schedule__logos">
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/torpedo.svg" alt>
+                                </div>
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/vk-sparta.svg" alt>
+                                </div>
+                            </div>
+                            <p class="item-schedule__clubs">ЦСКА - Торпедо</p>
+                            <p class="item-schedule__place">Нижегородский Дворец Спорта Профсоюзов</p>
+                        </div>
+                    </div>
+                </div>
+                <!--col-schedule-->
+                <div class="col-schedule" data-date="2025-07-12">
+                    <div class="col-schedule__top">
+                        <div class="col-schedule__date"></div>
+                        <div class="col-schedule__day">Суббота</div>
+                    </div>
+                    <div class="col-schedule__body">
+                        <!--item-schedule-->
+                        <div class="item-schedule">
+                            <div class="item-schedule__info">
+                                <div class="item-schedule__time">18:00</div>
+                                <div class="item-schedule__type">
+                                    <img src="img/svg/icons/football.svg" alt="Футбол">
+                                    <span>Футбол</span>
+                                </div>
+                            </div>
+                            <div class="item-schedule__logos">
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/torpedo.svg" alt>
+                                </div>
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/vk-sparta.svg" alt>
+                                </div>
+                            </div>
+                            <p class="item-schedule__clubs">ЦСКА - Торпедо</p>
+                            <p class="item-schedule__place">Нижегородский Дворец Спорта Профсоюзов</p>
+                        </div>
+                    </div>
+                </div>
+                <!--col-schedule-->
+                <div class="col-schedule" data-date="2025-07-13">
+                    <div class="col-schedule__top">
+                        <div class="col-schedule__date"></div>
+                        <div class="col-schedule__day">Воскресенье</div>
+                    </div>
+                    <div class="col-schedule__body">
+                        <!--item-schedule-->
+                        <div class="item-schedule">
+                            <div class="item-schedule__info">
+                                <div class="item-schedule__time">18:00</div>
+                                <div class="item-schedule__type">
+                                    <img src="img/svg/icons/football.svg" alt="Футбол">
+                                    <span>Футбол</span>
+                                </div>
+                            </div>
+                            <div class="item-schedule__logos">
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/torpedo.svg" alt>
+                                </div>
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/vk-sparta.svg" alt>
+                                </div>
+                            </div>
+                            <p class="item-schedule__clubs">ЦСКА - Торпедо</p>
+                            <p class="item-schedule__place">Нижегородский Дворец Спорта Профсоюзов</p>
+                        </div>
+                        <!--item-schedule-->
+                        <div class="item-schedule">
+                            <div class="item-schedule__info">
+                                <div class="item-schedule__time">18:00</div>
+                                <div class="item-schedule__type">
+                                    <img src="img/svg/icons/bandy.svg" alt="Хоккей с мячом">
+                                    <span>Хоккей с мячом</span>
+                                </div>
+                            </div>
+                            <div class="item-schedule__logos">
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/torpedo.svg" alt>
+                                </div>
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/vk-sparta.svg" alt>
+                                </div>
+                            </div>
+                            <p class="item-schedule__clubs">ЦСКА - Торпедо</p>
+                            <p class="item-schedule__place">Нижегородский Дворец Спорта Профсоюзов</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-schedule" data-date="2025-07-14">
+                    <div class="col-schedule__top">
+                        <div class="col-schedule__date"></div>
+                        <div class="col-schedule__day">Вторник</div>
+                    </div>
+                    <div class="col-schedule__body">
+                        <!--item-schedule-->
+                        <div class="item-schedule">
+                            <div class="item-schedule__info">
+                                <div class="item-schedule__time">18:00</div>
+                                <div class="item-schedule__type">
+                                    <img src="img/svg/icons/football.svg" alt="Футбол">
+                                    <span>Футбол</span>
+                                </div>
+                            </div>
+                            <div class="item-schedule__logos">
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/torpedo.svg" alt>
+                                </div>
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/vk-sparta.svg" alt>
+                                </div>
+                            </div>
+                            <p class="item-schedule__clubs">ЦСКА - Торпедо</p>
+                            <p class="item-schedule__place">Нижегородский Дворец Спорта Профсоюзов</p>
+                        </div>
+                    </div>
+                </div>
+                <!--col-schedule-->
+                <div class="col-schedule" data-date="2025-07-15">
+                    <div class="col-schedule__top">
+                        <div class="col-schedule__date"></div>
+                        <div class="col-schedule__day">Среда</div>
+                    </div>
+                    <div class="col-schedule__body">
+                        <!--item-schedule-->
+                        <div class="item-schedule">
+                            <div class="item-schedule__info">
+                                <div class="item-schedule__time">18:00</div>
+                                <div class="item-schedule__type">
+                                    <img src="img/svg/icons/football.svg" alt="Футбол">
+                                    <span>Футбол</span>
+                                </div>
+                            </div>
+                            <div class="item-schedule__logos">
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/torpedo.svg" alt>
+                                </div>
+                                <div class="item-schedule__logo">
+                                    <img loading="lazy" src="img/svg/clubs/vk-sparta.svg" alt>
+                                </div>
+                            </div>
+                            <p class="item-schedule__clubs">ЦСКА - Торпедо</p>
+                            <p class="item-schedule__place">Нижегородский Дворец Спорта Профсоюзов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </main>
+            <!--footer-->
+
+    
+    <footer class="footer">
+        
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__main">
+                    <div class="footer__logo">
+                        <img src="img/svg/logo-txt.svg" alt>
+                    </div>
+                    <div class="footer__contacts">
+                        <a href="tel:+13565848798" class="item-contact">
+                            <svg><use xlink:href="img/svg/sprite.svg#phone"></use></svg>
+                            <span>+1 (356) 584-87-98</span>
+                        </a>
+                        <a href="mailto:info@nn-sport.ru" class="item-contact">
+                            <svg><use xlink:href="img/svg/sprite.svg#message"></use></svg>
+                            <span>info@nn-sport.ru</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__navs">
+                    <nav class="footer__nav">
+                        <p class="footer__nav-header">Навигация</p>
+                        <ul>
+                            <li><a href="#">Об организации</a></li>
+                            <li><a href="#">Афиша</a></li>
+                            <li><a href="#">Наши клубы</a></li>
+                            <li><a href="#">Новости</a></li>
+                            <li><a href="#">Спецпроекты</a></li>
+                        </ul>
+                    </nav>
+                    <nav class="footer__nav">
+                        <p><p class="footer__nav-header">Спецпроекты</p></p>
+                        <ul>
+                            <li><a href="#">Волейбол на Выксе</a></li>
+                            <li><a href="#">Выставка одной картины</a></li>
+                            <li><a href="#">Спецпроект к 9 Мая</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">© 2025. Центр управления и развития спорта в Нижегородской области</p>
+                <div class="footer__info">
+                    <a href="#">Реквизиты организации</a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+            <!--modal-->
+<modal class="custom-scroll modal">
+    <div class="modal__content">
+        <button type="button" class="btn btn-cross modal__close"></button>
+        <div class="custom-scroll">
+            <div class="modal__top"></div>
+        </div>
+    </div>
+</modal>
+        </div>
+        <!--scripts-->
+<script src="js/libs/gsap.min.js"></script>
+<script src="js/libs/ScrollTrigger.min.js"></script>
+<script src="js/libs/inputmask.min.js"></script>
+<script src="js/libs/swiper.min.js"></script>
+<script src="js/libs/air-datepicker.min.js"></script>
+<script src="js/libs/html2pdf.min.js"></script>
+<script src="js/main.js"></script>
+    </body>
+
+</html>

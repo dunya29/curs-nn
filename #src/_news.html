@@ -1,0 +1,21 @@
+ <!--news-->
+<section class="section section--dark news">
+    <div class="container">
+        <div class="sec-top">
+            <h2 class="blur-text" data-animation="blurFadeUp">Новости</h2>
+        </div>
+        <div class="news__wrapper">
+            <div class="news__items">
+                @@include("_news-article.html", {"type": "Волейбол", "icon": "volleyball"})
+                @@include("_news-article.html", {"type": "Футзал", "icon": "futsal"})
+                @@include("_news-article.html", {"type": "Баскетбол", "icon": "basketball"})
+                @@include("_news-article.html", {"type": "Хоккей с мячом", "icon": "bandy"})
+                @@include("_news-article.html", {"type": "Волейбол", "icon": "volleyball"})
+                @@include("_news-article.html", {"type": "Волейбол", "icon": "volleyball"})
+                @@include("_news-article.html", {"type": "Хоккей", "icon": "hockey"})
+                @@include("_news-article.html", {"type": "Волейбол", "icon": "volleyball"})
+            </div>
+            @@include('_pagination.html')
+        </div>
+    </div>
+</section>

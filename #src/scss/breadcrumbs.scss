@@ -1,31 +1,42 @@
 .breadcrumbs {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
     ul {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
         li {
-            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            opacity: 0.4;
-            &:before {
+            &:after {
                 content: "";
                 display: block;
                 width: 16px;
                 height: 16px;
-                background: url(../img/icons/chevron-r.svg) center / contain no-repeat;
+                background: var(--white-color);
+                mask: url(../img/svg/chevron-right.svg) center / 16px 16px no-repeat;
                 margin: 0 5px;
             }
-            &:first-child:before {
-                display: none;
-            }
             &:last-child {
-                opacity: 1;
+                color: var(--coral-red-color);
+                &::after {
+                    display: none;
+                }
             }
-            a {          
-                color: var(--primary-color);
+            a {
+                color: var(--white-color);
             }
         }
+    }
+}
+.breadcrumbs + .section {
+    padding-top: 70px;
+    @media (max-width: $bp1) {
+        padding-top: 54px;
+    }
+    @media (max-width: $bp2) {
+        padding-top: 22px;
     }
 }

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    @@include('_head.html', {
+    "title": "БК «Пари Нижний Новгород»"
+    })
+
+    <body class="no-scroll">
+        <div class="wrap">
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main">
+                @@include('_preloader.html')
+                <!--intro-->
+                <section class="intro club-intro">
+                    <div class="media-cover intro__bg">
+                        <span class="media-cover-bg"></span>
+                        <picture>
+                            <source srcset="img/content/bk-pari-intro.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/bk-pari-intro.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/bk-pari-intro-mob.webp" type="image/webp">
+                            <source srcset="img/content/bk-pari-intro-mob.jpg">
+                            <img src="img/content/bk-pari-intro.jpg" alt loading="lazy" data-animation="scaleUp">
+                        </picture>
+                    </div>
+                    <div class="container intro__container">
+                        @@include('_breadcrumbs.html', { 'page': 'БК «Пари Нижний Новгород»'})
+                        <div class="intro__content">
+                            <img class="club-intro__logo" src="img/svg/clubs/bk-pari.svg" alt>
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">БК «Пари Нижний Новгород»</h1>
+                            <a href="#affiche-sec" class="btn main-btn js-anchor"><span>Смотреть расписание игр</span></a>
+                        </div>
+                    </div>
+                </section>
+                <!--club-info-->
+                <div class="section section--dark club-info">
+                    <div class="container">
+                        <div class="stat-block grid-3col mb-120" data-animation="fadeUp">
+                            <div class="stat-block__item">
+                                <img src="img/svg/data.svg" alt>
+                                <p class="h4">Дата основания</p>
+                                <p class="h5">2000 год</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/competition.svg" alt>
+                                <p class="h4">Соревнования</p>
+                                <p class="h5">Единая лига ВТБ, Кубок&nbsp;России</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/stadion.svg" alt>
+                                <p class="h4">Домашняя арена</p>
+                                <p class="h5">КРК «Нагорный»</p>
+                            </div>
+                        </div>
+                        <div class="grid-2col mb-120 club-info__main" data-animation="fadeUp">
+                            <div class="page-content">
+                                <h3>В 2000 году на базе баскетбольной сборной Волжского инженерного педагогического института был создан клуб, который возглавил Александр
+                                    Хайретдинов.</h3>
+                                <p>Через год коллектив получил громкое название НБА - «Нижегородская баскетбольная академия» и начал свой поход в Высшей лиге, а еще через пять
+                                    лет нижегородцы завоевали путевку в Суперлигу Б.</p>
+                                <p>Новая страница в истории клуба началась в&nbsp;2008-м, когда президентом БК «Нижний Новгород» стал министр инвестиционной политики Нижегородской
+                                    области, Олимпийский чемпион Дмитрий Сватковский. Пост генерального менеджера занял 12-кратный чемпион России по баскетболу, чемпион
+                                    Евролиги, серебряный призер чемпионата мира по баскетболу Сергей Панов. Возглавил команду сербский специалист Зоран Лукич.</p>
+                            </div>
+                            <div class="club-info__main-images">
+                                <div class="media-el">
+                                    <picture>
+                                        <source srcset="img/content/bk-pari-info.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/bk-pari-info.jpg" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/bk-pari-info-1280.webp" type="image/webp">
+                                        <source srcset="img/content/bk-pari-info-1280.jpg">
+                                        <img src="img/content/bk-pari-info.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-content width-6col" data-animation="fadeUp">
+                            <p class="h3">На данный момент единственный профессиональный баскетбольный клуб на территории Нижегородской области, участник Единой Лиги ВТБ и
+                                международных
+                                лиг.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--club-achieve-->
+                <section class="section club-achieve">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Достижения клуба</h2>
+                        </div>
+                        <section class="club-achieve__sec" data-animation="fadeUp">
+                            <h3>Национальные награды</h3>
+                            <ul class="club-achieve__list">
+                                <li>Серебряный призер Единой лиги ВТБ и Чемпионата России в сезоне 2013/2014</li>
+                                <li>Обладатель Кубка России в сезоне 2022/2023</li>
+                                <li>½ финала Еврокубка в сезоне 2013/2014</li>
+                                <li>Чемпион Суперлиги Б в сезоне 2009/2010</li>
+                                <li>Серебряный призер Кубка России в&nbsp;сезонах 2010/2011, 2017/2018, 2018/2019, 2023/2024, 2024/2025</li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+                @@include('_affiche.html')
+                <!--club-history-->
+                <section class="section section--dark club-history col-2" data-animation="fadeUp">
+                    <div class="container">
+                        <div class="club-history__row">
+                            <div class="club-history__content">
+                                <h2 class="h3 club-history__title blur-text" data-animation="blurFadeUp">История названий</h2>
+                                <div class="page-content">
+                                    <ol>
+                                        <li>ВГИПИ (2000 – 2001)</li>
+                                        <li>НБА (2001 – 2002)</li>
+                                        <li>НБА-Сети-НН (2002 – 2004)</li>
+                                        <li>НБА-ТЭЛМА (2004 – 2006)</li>
+                                        <li>НБА-Нижний Новгород (2006 – 2009)</li>
+                                        <li>Нижний Новгород (2009 – 2022)</li>
+                                        <li>Пари Нижний Новгород (2022 – н. в.)</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--structure-->
+                <section class="section section--dark structure">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Структура Клуба</h2>
+                        </div>
+                        <div class="structure__row">
+                            <div class="structure__img">
+                                <div class="media-contain">
+                                    <img src="img/structure-basketball.png" alt>
+                                </div>
+                            </div>
+                            <div class="structure__items child-5">
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/bk-pari.svg"></div>
+                                    <p class="h4">БК «Пари Нижний Новгород»</p>
+                                </div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/bk-pari.svg"></div>
+                                    <p class="h4">БК «Пари Нижний Новгород» (М,&nbsp;U-21,&nbsp;U-19)</p>
+                                </div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/bk-pari.svg"></div>
+                                    <p class="h4">Студенческая команда</p></div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/bk-pari-young.svg"></div>
+                                    <p class="h4">«Поколение НН» – молодежный проект</p></div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/bk-pari-school.svg"></div>
+                                    <p class="h4">Школа баскетбола «Поколение»</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--image-block-->
+                <div class="section section--dark image-block" data-animation="fadeUp">
+                    <div class="container">
+                        <picture>
+                            <source srcset="img/content/bk-pari.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/bk-pari.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/bk-pari-mob.webp" type="image/webp">
+                            <source srcset="img/content/bk-pari-mob.jpg">
+                            <img src="img/content/bk-pari.jpg" alt loading="lazy">
+                        </picture>
+                    </div>
+                </div>
+                <!--fan-shop-->
+                <section class="section section--light fan-shop">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Фирменный магазин клуба</h2>
+                            <a href="#" class="btn main-btn" target="_blank"><span>Перейти в официальный магазин</span></a>
+                        </div>
+                        <div class="fan-shop__swiper">
+                            <div class="mb-40 swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Значок «Пари НН» малый", "price": "400", "img": "bk-pari-product-1"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Вымпел 23/24", "price": "600", "img": "bk-pari-product-2"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Вымпел 22/23", "price": 600, "img": "bk-pari-product-3"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Блокнот", "price": "990", "img": "bk-pari-product-4"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-nav">
+                                <button class="btn nav-btn nav-btn--prev"><svg><use xlink:href="img/svg/sprite.svg#btn-prev"></use></svg></button>
+                                <button class="btn nav-btn nav-btn--next"><svg><use xlink:href="img/svg/sprite.svg#btn-next"></use></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                @@include('_news.html')
+            </main>
+            @@include('_footer.html', {"main": false})
+            @@include('_modal.html')
+        </div>
+        @@include('_js.html')
+    </body>
+
+</html>

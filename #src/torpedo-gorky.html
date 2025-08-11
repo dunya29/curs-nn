@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    @@include('_head.html', {
+    "title": "ХК «Торпедо-Горький»"
+    })
+
+    <body class="no-scroll">
+        @@include('_preloader.html')
+        <div class="wrap">
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main">
+                <!--intro-->
+                <section class="intro club-intro">
+                    <div class="media-cover intro__bg">
+                        <span class="media-cover-bg"></span>
+                        <picture>
+                            <source srcset="img/content/torpedo-gorky-intro.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/torpedo-gorky-intro.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/torpedo-gorky-intro-mob.webp" type="image/webp">
+                            <source srcset="img/content/torpedo-gorky-intro-mob.jpg">
+                            <img src="img/content/torpedo-gorky-intro.jpg" alt loading="lazy" data-animation="scaleUp">
+                        </picture>
+                    </div>
+                    <div class="container intro__container">
+                        @@include('_breadcrumbs.html', { 'page': 'ХК «Торпедо-Горький»'})
+                        <div class="intro__content">
+                            <img class="club-intro__logo" src="img/svg/clubs/torpedo-gorky.svg" alt>
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">ХК «Торпедо-Горький»</h1>
+                            <a href="#affiche-sec" class="btn main-btn js-anchor"><span>Смотреть расписание игр</span></a>
+                        </div>
+                    </div>
+                </section>
+                <!--club-info-->
+                <div class="section section--dark club-info">
+                    <div class="container">
+                        <div class="stat-block grid-3col mb-120" data-animation="fadeUp">
+                            <div class="stat-block__item">
+                                <img src="img/svg/data.svg" alt>
+                                <p class="h4">Дата основания</p>
+                                <p class="h5">2019 год</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/competition.svg" alt>
+                                <p class="h4">Соревнования</p>
+                                <p class="h5">Высшая хоккейная лига</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/stadion.svg" alt>
+                                <p class="h4">Домашняя арена</p>
+                                <p class="h5">КРК «Нагорный»</p>
+                            </div>
+                        </div>
+                        <div class="grid-2col mb-120 club-info__main" data-animation="fadeUp">
+                            <div class="page-content">
+                                <h3>ХК «Торпедо-Горький» — команда по хоккею с шайбой, фарм-клуб ХК «Торпедо». </h3>
+                                <p> Команда основана 18 июня 2019 года. За это время команда провела два сезона в Высшей Хоккейной лиге — 2019/20.
+                                    В сезоне 2020/21 «Торпедо-Горький» не принял участие в ВХЛ из-за финансовых проблем.</p>
+                                <p>Под руководством Алексея Исакова команда снова вернулась в Лигу в сезоне 2024/25. В регулярном чемпионате ХК «Торпедо-Горький» финишировал на 7‑м месте из 33 команд. в 64 матчах набрано 84 очка при разнице шайб — 195:170.
+                                </p>
+                            </div>
+                            <div class="club-info__main-images">
+                                <div class="media-el">
+                                    <picture>
+                                        <source srcset="img/content/torpedo-gorky-info.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/torpedo-gorky-info.jpg" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/torpedo-gorky-info-1280.webp" type="image/webp">
+                                        <source srcset="img/content/torpedo-gorky-info-1280.jpg">
+                                        <img src="img/content/torpedo-gorky-info.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-content width-6col" data-animation="fadeUp">
+                            <img class="club-info__cup" src="img/svg/achieve-cup-coral.svg" alt>
+                            <p class="h3">Обладатель Кубка Чемпиона России в сезоне 2024/2025</p>
+                        </div>
+                    </div>
+                </div>
+                @@include('_affiche.html')
+                <!--image-block-->
+                <div class="section section--dark image-block" data-animation="fadeUp">
+                    <div class="container">
+                        <picture>
+                            <source srcset="img/content/torpedo-gorky.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/torpedo-gorky.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/torpedo-gorky-mob.webp" type="image/webp">
+                            <source srcset="img/content/torpedo-gorky-mob.jpg">
+                            <img src="img/content/torpedo-gorky.jpg" alt loading="lazy">
+                        </picture>
+                    </div>
+                </div>
+                <!--fan-shop-->
+                <section class="section section--light fan-shop">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Фирменный магазин клуба</h2>
+                            <a href="#" class="btn main-btn" target="_blank"><span>Перейти в официальный магазин</span></a>
+                        </div>
+                        <div class="fan-shop__swiper">
+                            <div class="mb-40 swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Шоппер", "price": "800", "img": "torpedo-gorky-product-1"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Магнит", "price": "200", "img": "torpedo-gorky-product-2"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Шайба", "price": 800, "img": "torpedo-gorky-product-3"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Кружка", "price": "550", "img": "torpedo-gorky-product-4"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-nav">
+                                <button class="btn nav-btn nav-btn--prev"><svg><use xlink:href="img/svg/sprite.svg#btn-prev"></use></svg></button>
+                                <button class="btn nav-btn nav-btn--next"><svg><use xlink:href="img/svg/sprite.svg#btn-next"></use></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                @@include('_news.html')
+            </main>
+            @@include('_footer.html', {"main": false})
+            @@include('_modal.html')
+        </div>
+        @@include('_js.html')
+    </body>
+
+</html>

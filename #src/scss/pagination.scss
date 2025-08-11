@@ -1,74 +1,86 @@
-.cat-bottom {
-    margin-top: 40px;
-}
-.cat-btn {
-    font-weight: 500;
-    color: var(--gray-color);
-    display: block;
-    padding: 14px 12px;
-    border-radius: 12px;
-    background: #E8F1FF;
-    text-align: center;
-    @media (max-width: $bp2) {
-        font-size: 16px;
-    }
+.page-navigation {
+    display: flex;
+    margin-top: 64px;
 }
 .pagination {
+    border-radius: 16px;
+    border: 1px solid var(--pale-blue-color);
+    background: var(--white-color);
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: -12px;
-    .nav-btn:first-child {
-        margin-right: 9px;
-    }
-    .nav-btn:last-child {
-        margin-left: 9px;
-    }
-    .nav-btn.disabled,.nav-btn:disabled {
-        display: none;
-    }
-    &__link, &__item {
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 1;
-        color: var(--gray-color);
-        min-width: 40px;
-        height: 40px;
-        padding: 9px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 5px;
-        transition: all .4s linear;
-        white-space: nowrap;
-        &.current, &.active {
-            color: var(--white-color);
+    margin: 0 auto;
+    &__link,
+    &__item,
+    &__btn {
+        color: var(--black-color);
+        padding: 16px 24px;
+        border-right: 1px solid var(--pale-blue-color);
+        &:last-child {
+            border-right: 0;
         }
     }
-    &__link, &__item, .nav-btn {
-        margin-bottom: 12px;
+    &__btn {
+        display: flex;
+        align-items: center;
+        svg {
+            flex: 0 0 24px;
+            width: 24px;
+            height: 24px;
+        }
+        &.prev {
+            svg {
+                margin-right: 8px;
+            }
+        }
+        &.next {
+            svg {
+                margin-left: 8px;
+            }
+        }
+        &.disabled,
+        &:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    }
+    &__link,
+    &__item {
+        transition: all 0.4s linear;
+        white-space: nowrap;
+        &.current,
+        &.active {
+            color: var(--coral-red-color);
+        }
     }
     &__item {
         pointer-events: none;
     }
-    @media (max-width: $bp4) {
-        .nav-btn:first-child {
-            margin-right: 4px;
-        }
-        .nav-btn:last-child {
-            margin-left: 4px;
-        }
-        &__link, &__item {
-            margin-left: 2px;
-            margin-right: 2px;
-        }
-    }
-    @media (max-width: $bp7) {
-        .nav-btn {
+    @media (max-width: $bp2) {
+        &__link,
+        &__item {
+            font-weight: 600;
             display: none;
+            &:nth-last-child(2) {
+                display: block;
+                padding-left: 0.2em;
+            }
+            &.current,
+            &.active {
+                color: var(--black-color);
+                padding-right: 0;
+                display: block;
+                border-right: 0;
+                &:after {
+                    content: "из";
+                    margin-left: 0.2em;
+                }
+            }
+        }
+        &__btn {
+            font-size: 0;
+            svg {
+                margin: 0!important;
+            }
         }
     }
 }

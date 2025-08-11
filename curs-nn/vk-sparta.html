@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="image/x-icon" rel="shortcut icon" href="img/favicon/favicon.ico">
+    <link type="image/png" sizes="32x32" rel="icon" href="img/favicon/favicon-32x32.png">
+    <link type="image/png" sizes="192x192" rel="icon" href="img/favicon/android-icon-192x192.png">
+    <link sizes="120x120" rel="apple-touch-icon" href="img/favicon/apple-icon-120x120.png">
+    <link sizes="180x180" rel="apple-touch-icon" href="img/favicon/apple-icon-180x180.png">
+    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preload" href="fonts/Manrope-Medium.woff2" as="font" type="font/woff2" crossorigin> 
+    <link href="css/air-datepicker.css" type="text/css" rel="stylesheet">
+    <link href="css/style.min.css" type="text/css" rel="stylesheet">
+    <title>ВК «Спарта»</title>
+</head>
+
+    <body class="no-scroll">
+        <div class="preloader">
+    <div class="preloader__item">
+        <img src="img/svg/hockey-stadion.svg" alt>
+    </div>
+    <div class="preloader__item">
+        <img src="img/svg/football-stadion.svg" alt>
+    </div>
+    <div class="preloader__item">
+        <img src="img/svg/basketball-stadion.svg" alt>
+    </div>
+</div>
+        <div class="wrap">
+            <!--header-->
+
+    
+    <header class="header fixed-block">
+        
+        <div class="container">
+            <div class="header__inner">
+                <a href="main.html" class="header__logo">
+                    <svg><use xlink:href="img/svg/sprite.svg#logo"></use></svg>
+                </a>
+                <div class="header__nav">
+                    <div class="header__nav-inner">
+                        <div class="container">
+                            <nav class="header__menu">
+                                <ul>
+                                    <li><a href="#">
+                                        <span>Об организации</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Афиша</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Наши клубы</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Новости</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>Спецпроекты</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-right"></use></svg>
+                                    </a></li>
+                                </ul>
+                            </nav>
+                            <div class="header__contacts header__contacts--mob">
+                                <a href="tel:+13565848798" class="item-contact">
+                                    <svg><use xlink:href="img/svg/sprite.svg#phone"></use></svg>
+                                    <span>+1 (356) 584-87-98</span>
+                                </a>
+                                <a href="mailto:info@nn-sport.ru" class="item-contact">
+                                    <svg><use xlink:href="img/svg/sprite.svg#message"></use></svg>
+                                    <span>info@nn-sport.ru</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__right">
+                    <div class="header__contacts header__contacts--desktop">
+                        <a href="tel:+13565848798" class="item-contact item-contact--phone">
+                            <svg><use xlink:href="img/svg/sprite.svg#phone"></use></svg>
+                            <span>+1 (356) 584-87-98</span>
+                        </a>
+                        <a href="mailto:info@nn-sport.ru" class="item-contact">
+                            <svg><use xlink:href="img/svg/sprite.svg#message"></use></svg>
+                            <span>info@nn-sport.ru</span>
+                        </a>
+                    </div>
+                </div>
+                <div role="button" class="icon-menu" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+            <!--main-->
+            <main class="main">
+                <!--intro-->
+                <section class="intro club-intro">
+                    <div class="media-cover intro__bg">
+                        <span class="media-cover-bg"></span>
+                        <picture>
+                            <source srcset="img/content/vk-sparta-intro.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/vk-sparta-intro.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/vk-sparta-intro-mob.webp" type="image/webp">
+                            <source srcset="img/content/vk-sparta-intro-mob.jpg">
+                            <img src="img/content/vk-sparta-intro.jpg" alt loading="lazy" data-animation="scaleUp">
+                        </picture>
+                    </div>
+                    <div class="container intro__container">
+                        <!--breadcrumbs-->
+<div class="breadcrumbs">
+    <div class="container">
+        <ul>
+            <li><a href="#" class="link">Главная</a></li>
+            <li>ВК «Спарта»</li>
+        </ul>
+    </div>
+</div>
+                        <div class="intro__content">
+                            <img class="club-intro__logo" src="img/svg/clubs/vk-sparta.svg" alt>
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">ВК «Спарта»</h1>
+                            <a href="#affiche-sec" class="btn main-btn js-anchor"><span>Смотреть расписание игр</span></a>
+                        </div>
+                    </div>
+                </section>
+                <!--club-info-->
+                <div class="section section--dark club-info">
+                    <div class="container">
+                        <div class="stat-block grid-3col mb-120" data-animation="fadeUp">
+                            <div class="stat-block__item">
+                                <img src="img/svg/data.svg" alt>
+                                <p class="h4">Дата основания</p>
+                                <p class="h5">2000 год</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/competition.svg" alt>
+                                <p class="h4">Соревнования</p>
+                                <p class="h5">Высшая Лига «Б»</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/stadion.svg" alt>
+                                <p class="h4">Домашняя арена</p>
+                                <p class="h5">ФОК «Заречье»</p>
+                            </div>
+                        </div>
+                        <div class="grid-2col mb-120 club-info__main" data-animation="fadeUp">
+                            <div class="page-content">
+                                <h3>Женская волейбольная команда «Спарта» (Нижний Новгород) была создана в 2000 году. В сезоне 2001/02 дебютировала в чемпионате России.</h3>
+                                <p>С 2005 выступала в высшей лиге «Б» чемпионата России. В сезоне 2009/10 нижегородская команда заняла 2 место в высшей лиге «Б», а затем 3-е в
+                                    переходном турнире команд высших лиг «А» и «Б», войдя тем самым в объединённую высшую лигу «А» чемпионата России 2010/11.</p>
+                                <p>Если в сезоне 2011—2012 «Спарта» практически до последних туров была среди претендентов на выход в суперлигу, то в последних трёх
+                                    чемпионатах (2012/13—2014/15) нижегородская команда выступала неудачно, занимая места в самом низу турнирных таблиц.</p>
+                                <p>По итогам чемпионата России в высшей лиге «А» 2015/16 команда заняла 3 место. После этого «Спарта» подала заявку на участие в суперлиге, но
+                                    заявка была отклонена и сезон 2016/17 команда вновь провела в высшей лиге «А».</p>
+                                <p>Чемпионат 2018/19 «Спарта» завершила победителем чемпионата России среди команд высшей лиги «А» и получила право на серию переходных матчей
+                                    за путёвку в суперлигу с командой главного дивизиона — ВК «Протоном» , но уступила ему в трёх играх.</p>
+                            </div>
+                            <div class="club-info__main-images">
+                                <div class="media-el">
+                                    <picture>
+                                        <source srcset="img/content/vk-sparta-info-1.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/vk-sparta-info-1.jpg" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/vk-sparta-info-1-1280.webp" type="image/webp" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/vk-sparta-info-1-1280.jpg" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/vk-sparta-info-1-mob.webp" type="image/webp">
+                                        <source srcset="img/content/vk-sparta-info-1-mob.jpg">
+                                        <img src="img/content/vk-sparta-info-1.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-content mb-120 width-6col" data-animation="fadeUp">
+                            <p class="h3">В 2019 году волейбольный клуб «Спарта» стал лауреатом премии Нижегородской области «Лучшие в спорте» в номинации «Спортивная команда
+                                года».</p>
+                        </div>
+                        <div class="grid-2col mb-120 club-info__main" data-animation="fadeUp">
+                            <div class="page-content">
+                                <h3>В сезоне 2019/20 нижегородская команда стала 3-й в высшей лиге «А» и после отказа «Сахалина» от выступлений в суперлиге получила путёвку в
+                                    главный дивизион чемпионата России.</h3>
+                                <p>В своём дебютном сезоне в ведущем дивизионе «Спарта» заняла 12 место среди 14 команд. Также впервые была сформирована молодёжная команда
+                                    «Спарта»-2, взявшая старт в Молодёжной лиге, где в итоге стала 13-й.</p>
+                                <p>Под руководством Слободана Радивоевича в сезоне 2021—2022 команда «Спарта» заняла 13 место в Чемпионате. В следующем сезоне 2022—2023
+                                    «Спарта» улучшила свои позиции, финишировав на 12 месте.</p>
+                                <p>По итогам сезона 2024/25 ВК «Спарта» покинула женскую Супергигу, по спортивному принципу.</p>
+                            </div>
+                            <div class="club-info__main-images">
+                                <div class="media-el">
+                                    <picture>
+                                        <source srcset="img/content/vk-sparta-info-2.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/vk-sparta-info-2.jpg" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/vk-sparta-info-2-1280.webp" type="image/webp" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/vk-sparta-info-2-1280.jpg" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/vk-sparta-info-2-mob.webp" type="image/webp">
+                                        <source srcset="img/content/vk-sparta-info-2-mob.jpg">
+                                        <img src="img/content/vk-sparta-info-2.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--club-achieve-->
+                <section class="section club-achieve">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Достижения клуба</h2>
+                        </div>
+                        <section class="club-achieve__sec" data-animation="fadeUp">
+                            <h3>Национальные награды</h3>
+                            <ul class="club-achieve__list">
+                                <li>Первое место в ЧР среди команд высшей лиги «А» по итогам сезона 2018/19.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+                <!--affiche-->
+<section class="section section--light affiche" id="affiche-sec">
+    <div class="container">
+        <div class="sec-top">
+            <h2 class="blur-text" data-animation="blurFadeUp">Расписание игр</h2>
+        </div>
+        <div class="affiche__action">
+            <div class="filter affiche__filter">
+                <form class="filter__form">
+                    <input type="hidden" data-datepicker-value>
+                    <div class="dropdown">
+                        <div class="dropdown__header" data-animation="fadeRight">
+                            <span>Место проведения</span>
+                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                        </div>
+                        <div class="dropdown__body">
+                            <div class="custom-scroll">
+                                <label class="item-checkbox">
+                                    <input type="checkbox" data-id="filter[18]">
+                                    <span>Домашняя игра</span>
+                                </label>
+                                <label class="item-checkbox">
+                                    <input type="checkbox" data-id="filter[19]">
+                                    <span>Выезд</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown__header" data-animation="fadeRight">
+                            <span>Календарь</span>
+                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                        </div>
+                        <div class="dropdown__body">
+                            <div class="custom-scroll">
+                                <div class="datepicker"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="filter__selected">
+                    <ul class="filter__selected-items"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="affiche__wrapper">
+            <div class="affiche__items">
+                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div>
+                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div>
+                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div>
+                <!--item-affiche-->
+<div class="item-affiche" data-animation="fadeUp">
+    <div class="item-affiche__date">
+        <span>04 мая, понедельник</span>
+        <span class="item-affiche__time">19:30</span>
+    </div>
+    <div class="item-affiche__clubs">
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+        <span class="item-affiche__club-separator">Х</span>
+        <div class="item-affiche__club">
+            <div class="item-affiche__club-logo">
+                <img src="img/svg/clubs/torpedo.svg" alt="ХК «Торпедо»">
+            </div>
+            <p class="item-affiche__club-name">ХК «Торпедо»</p>
+        </div>
+    </div>
+    <div class="item-affiche__tour">КХЛ, 5 тур</div>
+    <div class="item-affiche__place">
+        <span class="item-affiche__place-city">Нижний Новгород</span>
+        <div class="item-affiche__place-stadion">КРК «Нагорный»</div>        
+    </div>
+    <div class="item-affiche__btns">
+        <button class="btn main-btn"><span>Купить билеты</span></button>
+        <button class="btn text-btn">
+            <svg><use xlink:href="img/svg/sprite.svg#calendar"></use></svg>
+            <span>Добавить в календарь</span>
+        </button>
+    </div>
+</div>
+            </div>
+        </div>
+        <div class="sec-bottom">
+            <a href="#" class="btn secondary-btn" target="_blank">
+                <span>Смотреть все</span>
+            </a>
+        </div>
+    </div>
+</section>
+                 <!--news-->
+<section class="section section--dark news">
+    <div class="container">
+        <div class="sec-top">
+            <h2 class="blur-text" data-animation="blurFadeUp">Новости</h2>
+        </div>
+        <div class="news__wrapper">
+            <div class="news__items">
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/volleyball.svg" alt="Волейбол">
+                Волейбол
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/futsal.svg" alt="Футзал">
+                Футзал
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/basketball.svg" alt="Баскетбол">
+                Баскетбол
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/bandy.svg" alt="Хоккей с мячом">
+                Хоккей с мячом
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/volleyball.svg" alt="Волейбол">
+                Волейбол
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/volleyball.svg" alt="Волейбол">
+                Волейбол
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/hockey.svg" alt="Хоккей">
+                Хоккей
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+                <!--news-article-->
+<article class="news-article" data-animation="fadeUp">
+    <div class="news-article__preview">
+        <a href="#" class="media-cover">
+            <picture><source srcset="img/content/news-3.webp" type="image/webp"><img loading="lazy" src="img/content/news-3.jpg" alt></picture>
+        </a>
+        <div class="page-tags">
+            <a href="#" class="page-tags__item">
+                <img src="img/svg/icons/volleyball.svg" alt="Волейбол">
+                Волейбол
+            </a>
+        </div>
+    </div>
+    <div class="news-article__content">
+        <h5><a href="#">Сила команды: как доверие решает исход волейбольного матча</a></h5>
+        <span class="news-article__date">28.04.2025</span>
+    </div>
+</article>
+            </div>
+            
+<!--pagination-->
+<div class="page-navigation">
+    <nav class="pagination">
+        <a class="pagination__btn prev disabled" href="#">
+            <svg><use href="img/svg/sprite.svg#chevron-left"></use></svg>
+            <span>Назад</span>
+        </a>
+        <a class="pagination__link current" href="#">1</a>
+        <a class="pagination__link" href="#">2</a>
+        <span class="pagination__item">...</span>
+        <a class="pagination__link" href="#">14</a>
+        <a class="pagination__link" href="#">15</a>
+        <a class="pagination__link" href="#">16</a>
+        <span class="pagination__item">...</span>
+        <a class="pagination__link" href="#">19</a>
+        <a class="pagination__link" href="#">20</a>
+        <a class="pagination__btn next" href="#">
+            <span>Дальше</span>
+            <svg><use href="img/svg/sprite.svg#chevron-right"></use></svg>
+        </a>
+    </nav>
+</div>
+
+        </div>
+    </div>
+</section>
+            </main>
+            <!--footer-->
+
+    
+    <footer class="footer">
+        
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__main">
+                    <div class="footer__logo">
+                        <img src="img/svg/logo-txt.svg" alt>
+                    </div>
+                    <div class="footer__contacts">
+                        <a href="tel:+13565848798" class="item-contact">
+                            <svg><use xlink:href="img/svg/sprite.svg#phone"></use></svg>
+                            <span>+1 (356) 584-87-98</span>
+                        </a>
+                        <a href="mailto:info@nn-sport.ru" class="item-contact">
+                            <svg><use xlink:href="img/svg/sprite.svg#message"></use></svg>
+                            <span>info@nn-sport.ru</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__navs">
+                    <nav class="footer__nav">
+                        <p class="footer__nav-header">Навигация</p>
+                        <ul>
+                            <li><a href="#">Об организации</a></li>
+                            <li><a href="#">Афиша</a></li>
+                            <li><a href="#">Наши клубы</a></li>
+                            <li><a href="#">Новости</a></li>
+                            <li><a href="#">Спецпроекты</a></li>
+                        </ul>
+                    </nav>
+                    <nav class="footer__nav">
+                        <p><p class="footer__nav-header">Спецпроекты</p></p>
+                        <ul>
+                            <li><a href="#">Волейбол на Выксе</a></li>
+                            <li><a href="#">Выставка одной картины</a></li>
+                            <li><a href="#">Спецпроект к 9 Мая</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">© 2025. Центр управления и развития спорта в Нижегородской области</p>
+                <div class="footer__info">
+                    <a href="#">Реквизиты организации</a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+            <!--modal-->
+<modal class="custom-scroll modal">
+    <div class="modal__content">
+        <button type="button" class="btn btn-cross modal__close"></button>
+        <div class="custom-scroll">
+            <div class="modal__top"></div>
+        </div>
+    </div>
+</modal>
+        </div>
+        <!--scripts-->
+<script src="js/libs/gsap.min.js"></script>
+<script src="js/libs/ScrollTrigger.min.js"></script>
+<script src="js/libs/inputmask.min.js"></script>
+<script src="js/libs/swiper.min.js"></script>
+<script src="js/libs/air-datepicker.min.js"></script>
+<script src="js/libs/html2pdf.min.js"></script>
+<script src="js/main.js"></script>
+    </body>
+
+</html>

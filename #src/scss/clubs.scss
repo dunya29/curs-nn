@@ -40,12 +40,12 @@
         h4 {
             color: var(--dark-blue-color);
         }
-        svg {
-            fill: var(--coral-red-color);
-            flex: 0 0 32px;
+        img {
+            flex-shrink: 0;
             width: 32px;
             height: 32px;
             margin-right: 8px;
+            filter: invert(40%) sepia(47%) saturate(3427%) hue-rotate(338deg) brightness(113%) contrast(101%);
         }
     }
     &__tab-icon {
@@ -118,8 +118,7 @@
             margin-bottom: 20px;
         }
         &__title {
-            svg {
-                flex: 0 0 24px;
+            img {
                 width: 24px;
                 height: 24px;
             }
@@ -177,7 +176,7 @@
                 }
             }
             &__header {
-                padding: 12px 20px;
+                padding: 16px 20px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -252,13 +251,16 @@
         flex-direction: column;
         text-align: center;
     }
-    @media (max-width: $bp2) {
+    @media (max-width: $bp1) {
         padding: 16px;
+        h5 {
+            font-size: 20px;
+        }
     }
     @media (max-width: $bp5) {
         padding: 20px;
-        h5 {
-            font-size: 20px;
+        .main-btn {
+            max-width: 100%;
         }
     }
 }

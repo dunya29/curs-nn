@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    @@include('_head.html', {
+    "title": "ВК «Спарта»"
+    })
+
+    <body class="no-scroll">
+        @@include('_preloader.html')
+        <div class="wrap">
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main">
+                <!--intro-->
+                <section class="intro club-intro">
+                    <div class="media-cover intro__bg">
+                        <span class="media-cover-bg"></span>
+                        <picture>
+                            <source srcset="img/content/vk-sparta-intro.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/vk-sparta-intro.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/vk-sparta-intro-mob.webp" type="image/webp">
+                            <source srcset="img/content/vk-sparta-intro-mob.jpg">
+                            <img src="img/content/vk-sparta-intro.jpg" alt loading="lazy" data-animation="scaleUp">
+                        </picture>
+                    </div>
+                    <div class="container intro__container">
+                        @@include('_breadcrumbs.html', { 'page': 'ВК «Спарта»'})
+                        <div class="intro__content">
+                            <img class="club-intro__logo" src="img/svg/clubs/vk-sparta.svg" alt>
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">ВК «Спарта»</h1>
+                            <a href="#affiche-sec" class="btn main-btn js-anchor"><span>Смотреть расписание игр</span></a>
+                        </div>
+                    </div>
+                </section>
+                <!--club-info-->
+                <div class="section section--dark club-info">
+                    <div class="container">
+                        <div class="stat-block grid-3col mb-120" data-animation="fadeUp">
+                            <div class="stat-block__item">
+                                <img src="img/svg/data.svg" alt>
+                                <p class="h4">Дата основания</p>
+                                <p class="h5">2000 год</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/competition.svg" alt>
+                                <p class="h4">Соревнования</p>
+                                <p class="h5">Высшая Лига «Б»</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/stadion.svg" alt>
+                                <p class="h4">Домашняя арена</p>
+                                <p class="h5">ФОК «Заречье»</p>
+                            </div>
+                        </div>
+                        <div class="grid-2col mb-120 club-info__main" data-animation="fadeUp">
+                            <div class="page-content">
+                                <h3>Женская волейбольная команда «Спарта» (Нижний Новгород) была создана в 2000 году. В сезоне 2001/02 дебютировала в чемпионате России.</h3>
+                                <p>С 2005 выступала в высшей лиге «Б» чемпионата России. В сезоне 2009/10 нижегородская команда заняла 2 место в высшей лиге «Б», а затем 3-е в
+                                    переходном турнире команд высших лиг «А» и «Б», войдя тем самым в объединённую высшую лигу «А» чемпионата России 2010/11.</p>
+                                <p>Если в сезоне 2011—2012 «Спарта» практически до последних туров была среди претендентов на выход в суперлигу, то в последних трёх
+                                    чемпионатах (2012/13—2014/15) нижегородская команда выступала неудачно, занимая места в самом низу турнирных таблиц.</p>
+                                <p>По итогам чемпионата России в высшей лиге «А» 2015/16 команда заняла 3 место. После этого «Спарта» подала заявку на участие в суперлиге, но
+                                    заявка была отклонена и сезон 2016/17 команда вновь провела в высшей лиге «А».</p>
+                                <p>Чемпионат 2018/19 «Спарта» завершила победителем чемпионата России среди команд высшей лиги «А» и получила право на серию переходных матчей
+                                    за путёвку в суперлигу с командой главного дивизиона — ВК «Протоном» , но уступила ему в трёх играх.</p>
+                            </div>
+                            <div class="club-info__main-images">
+                                <div class="media-el">
+                                    <picture>
+                                        <source srcset="img/content/vk-sparta-info-1.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/vk-sparta-info-1.jpg" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/vk-sparta-info-1-1280.webp" type="image/webp" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/vk-sparta-info-1-1280.jpg" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/vk-sparta-info-1-mob.webp" type="image/webp">
+                                        <source srcset="img/content/vk-sparta-info-1-mob.jpg">
+                                        <img src="img/content/vk-sparta-info-1.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-content mb-120 width-6col" data-animation="fadeUp">
+                            <p class="h3">В 2019 году волейбольный клуб «Спарта» стал лауреатом премии Нижегородской области «Лучшие в спорте» в номинации «Спортивная команда
+                                года».</p>
+                        </div>
+                        <div class="grid-2col mb-120 club-info__main" data-animation="fadeUp">
+                            <div class="page-content">
+                                <h3>В сезоне 2019/20 нижегородская команда стала 3-й в высшей лиге «А» и после отказа «Сахалина» от выступлений в суперлиге получила путёвку в
+                                    главный дивизион чемпионата России.</h3>
+                                <p>В своём дебютном сезоне в ведущем дивизионе «Спарта» заняла 12 место среди 14 команд. Также впервые была сформирована молодёжная команда
+                                    «Спарта»-2, взявшая старт в Молодёжной лиге, где в итоге стала 13-й.</p>
+                                <p>Под руководством Слободана Радивоевича в сезоне 2021—2022 команда «Спарта» заняла 13 место в Чемпионате. В следующем сезоне 2022—2023
+                                    «Спарта» улучшила свои позиции, финишировав на 12 месте.</p>
+                                <p>По итогам сезона 2024/25 ВК «Спарта» покинула женскую Супергигу, по спортивному принципу.</p>
+                            </div>
+                            <div class="club-info__main-images">
+                                <div class="media-el">
+                                    <picture>
+                                        <source srcset="img/content/vk-sparta-info-2.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/vk-sparta-info-2.jpg" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/vk-sparta-info-2-1280.webp" type="image/webp" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/vk-sparta-info-2-1280.jpg" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/vk-sparta-info-2-mob.webp" type="image/webp">
+                                        <source srcset="img/content/vk-sparta-info-2-mob.jpg">
+                                        <img src="img/content/vk-sparta-info-2.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--club-achieve-->
+                <section class="section club-achieve">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Достижения клуба</h2>
+                        </div>
+                        <section class="club-achieve__sec" data-animation="fadeUp">
+                            <h3>Национальные награды</h3>
+                            <ul class="club-achieve__list">
+                                <li>Первое место в ЧР среди команд высшей лиги «А» по итогам сезона 2018/19.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+                @@include('_affiche.html')
+                @@include('_news.html')
+            </main>
+            @@include('_footer.html', {"main": false})
+            @@include('_modal.html')
+        </div>
+        @@include('_js.html')
+    </body>
+
+</html>

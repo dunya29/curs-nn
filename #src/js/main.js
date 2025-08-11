@@ -1,9 +1,10 @@
-if (document.querySelector(".preloader")) {
+const preloader = document.querySelector(".preloader")
+if (preloader) {
     enableScroll()
     disableScroll()
     setTimeout(() => {
         enableScroll()
-        document.body.classList.add('loaded');
+        preloader.classList.add('loaded');
     }, 1400);
 }
 const header = document.querySelector(".header")
@@ -18,9 +19,9 @@ let mm = gsap.matchMedia()
 let animSpd = 400
 let bp = {
     largeDesktop: 1450.98,
-    desktop: 1148.98,
+    desktop: 1200.98,
     laptop: 1030.98,
-    tablet: 700.98,
+    tablet: 767.98,
     phone: 575.98
 }
 //get path to sprite id
@@ -351,6 +352,165 @@ function readMoreFunc() {
     }, 0);
 }
 readMoreFunc()
+// custom fancybox
+function initfancyModal(fancyItem) {
+    let mediaSrc = []
+    let objectFit = fancyItem.getAttribute("data-fit") ? fancyItem.getAttribute("data-fit") : "media-contain"
+    let val = fancyItem.getAttribute("data-fancy")
+    let thumb = fancyItem.hasAttribute("data-thumb")
+    document.querySelectorAll("[data-fancy]").forEach(el => {
+        if (!el.closest(".swiper-slide-duplicate") && el.getAttribute("data-fancy") === val) {
+            let obj = {
+                src: el.getAttribute("data-src"),
+                type: el.getAttribute("data-type") || 'image',
+                caption: el.getAttribute("data-caption") || ''
+            }
+            if (el.getAttribute("data-type") === 'video' && el.getAttribute("data-poster")) {
+                obj.poster = el.getAttribute("data-poster")
+            }
+            mediaSrc.push(obj)
+        }
+    })
+    let initialSl = mediaSrc.findIndex(el => el.src === fancyItem.getAttribute("data-src"))
+    document.querySelector(".footer").insertAdjacentHTML('afterend', `
+                <div class="custom-scroll modal fancy-modal ${val + '-modal'}">
+                    <div class="fancy-modal__content">
+                        <button type="button" class="btn-cross modal__close"></button>
+                        <div class="modal__top">
+                            <h2>${mediaSrc[initialSl].caption}</h2>
+                        </div>
+                        <div class="fancy-modal__mainswiper">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    ${mediaSrc.map((el, i) => `<div class="swiper-slide">
+                                        <div class="${objectFit}">
+                                            ${el.type === 'video' ? `<video ${i === initialSl ? `src='${el.src}'` : `data-src='${el.src}'`} ${el.poster ? `poster='${el.poster}'` : ''} loop autoplay playsinline mute controls></video>` : `<img src=${el.src} alt="" >`}                                                
+                                        </div>
+                                    </div>`).join("")}
+                                </div>
+                            </div>
+                            ${mediaSrc.length > 1 ? `<div class="nav-btns">
+                                <button type="button" class="nav-btn nav-btn--prev">${sprite('btn-prev')}</button>
+                                <button type="button" class="nav-btn nav-btn--next">${sprite('btn-next')}</button>
+                            </div>` : ""}
+                        </div>
+                        ${thumb && mediaSrc.length > 1 ? `<div class="fancy-modal__thumbswiper">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    ${mediaSrc.map(el => `<div class="swiper-slide">
+                                        <div class="${objectFit} ${el.type === 'video' ? 'video' : ''}">
+                                            ${el.type === 'video' ? `<img ${el.poster ? `src='${el.poster}'` : ''}>` : `<img src=${el.src} alt="">`}                                                
+                                        </div>
+                                    </div>`).join("")}
+                                </div>
+                            </div>
+                        </div>` : ""}
+                    </div>
+                </div>
+            `);
+    const fancyModal = document.querySelector(".fancy-modal")
+    let fancyThumbSwiper
+    if (thumb && mediaSrc.length > 1) {
+        fancyThumbSwiper = new Swiper(fancyModal.querySelector(".fancy-modal__thumbswiper .swiper"), {
+            slidesPerView: 3,
+            spaceBetween: 12,
+            observer: true,
+            observeParents: true,
+            watchSlidesProgress: true,
+            initialSlide: initialSl,
+            navigation: {
+                prevEl: fancyModal.querySelector(".nav-btn--prev"),
+                nextEl: fancyModal.querySelector(".nav-btn--next"),
+            },
+            breakpoints: {
+                575.98: {
+                    slidesPerView: 4,
+                }
+            },
+            speed: 800
+        })
+    }
+    let fancyMainSwiper = new Swiper(fancyModal.querySelector(".fancy-modal__mainswiper .swiper"), {
+        slidesPerView: 1,
+        observer: true,
+        observeParents: true,
+        watchSlidesProgress: true,
+        initialSlide: initialSl,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true
+        },
+        thumbs: {
+            swiper: fancyThumbSwiper || null,
+        },
+        navigation: {
+            prevEl: fancyModal.querySelector(".nav-btn--prev"),
+            nextEl: fancyModal.querySelector(".nav-btn--next"),
+        },
+        speed: 300,
+    })
+    fancyMainSwiper.on("slideChange", e => {
+        fancyModal.querySelector(".modal__top h2").textContent = mediaSrc[fancyMainSwiper.activeIndex].caption
+        if (fancyModal.querySelector("video")) {
+            fancyModal.querySelectorAll("video").forEach(item => item.pause())
+        }
+        let lazyEl = fancyMainSwiper.slides[fancyMainSwiper.activeIndex].querySelector('[data-src]');
+        let videoEl = fancyMainSwiper.slides[fancyMainSwiper.activeIndex].querySelector('video');
+        if (lazyEl) {
+            lazyEl.setAttribute("src", lazyEl.getAttribute("data-src"))
+            lazyEl.removeAttribute("data-src")
+        } else if (!lazyEl && videoEl) {
+            videoEl.play()
+        }
+    })
+    openModal(fancyModal)
+    fancyModal.querySelectorAll(".modal__close").forEach(btn => {
+        btn.addEventListener("click", e => {
+            closeModal(fancyModal)
+            setTimeout(() => {
+                fancyModal.remove()
+            }, animSpd);
+        })
+    })
+}
+const fancyBlock = document.querySelectorAll(".fancy-block")
+if (fancyBlock.length) {
+    fancyBlock.forEach(block => {
+        block.addEventListener("click", e => {
+            const fancyItems = block.querySelectorAll("[data-fancy]")
+            if (fancyItems.length) {
+                fancyItems.forEach(fancyItem => {
+                    if (fancyItem.contains(e.target)) {
+                        initfancyModal(fancyItem)
+                    }
+                })
+            }
+        })
+    });
+}
+//anchorLinks
+const anchorLinks = document.querySelectorAll(".js-anchor")
+if (anchorLinks.length) {
+    document.querySelectorAll(".js-anchor").forEach(item => {
+        item.addEventListener("click", e => {
+            let idx = item.getAttribute("href").indexOf("#")
+            const href = item.getAttribute("href").substring(idx)
+            let dest = document.querySelector(href)
+            if (dest) {
+                e.preventDefault()
+                let destPos = dest.getBoundingClientRect().top < 0 ? dest.getBoundingClientRect().top - header.clientHeight : dest.getBoundingClientRect().top
+                if (iconMenu.classList.contains("active")) {
+                    iconMenu.click()
+                    setTimeout(() => {
+                        window.scrollTo({ top: scrollPos() + destPos, behavior: 'smooth' })
+                    }, 300);
+                } else {
+                    window.scrollTo({ top: scrollPos() + destPos, behavior: 'smooth' })
+                }
+            }
+        })
+    })
+}
 //blur-text animation
 const blurTexts = document.querySelectorAll(".blur-text");
 if (blurTexts) {
@@ -393,43 +553,34 @@ if (blurTexts) {
                 });
             }
         });
-        /* let tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: title,
-                start: "top+=200 bottom",
-                invalidateOnRefresh: true,
-            },
-        });
-        tl.fromTo(title.querySelectorAll(".char"),
-            {
-                opacity: 0,
-                filter: "blur(10px)",
-            },
-            {
-                opacity: 1,
-                filter: "blur(0px)",
-            }
-        ); */
     });
 }
 // fadeUp animation
-function animate() {
-    if (document.querySelectorAll('[data-animation]').length) {
-        document.querySelectorAll('[data-animation]').forEach(item => {
-            if (!item.classList.contains("animated")) {
-                let itemTop = item.getBoundingClientRect().top + scrollPos();
-                let itemPoint = Math.abs(window.innerHeight - item.offsetHeight * 0.1);
-                let itemScrolled = itemPoint > 100 ? itemPoint : 100
-                if (scrollPos() > itemTop - itemScrolled) {
-                    let animName = item.getAttribute("data-animation")
-                    item.classList.add(animName);
-                    item.classList.add("animated");
-                }
+let isAnimating = false
+async function animate() {
+    const elements = document.querySelectorAll('[data-animation]');
+    for (let i = 0; i < elements.length; i++) {
+        const item = elements[i];
+        const itemTop = item.getBoundingClientRect().top;
+        const itemPoint = Math.abs(window.innerHeight - item.offsetHeight * 0.1);
+        const itemScrolled = itemPoint > 100 ? itemPoint : 100;
+        if (itemTop - itemScrolled < 0) {
+            const animName = item.getAttribute("data-animation");
+            if (preloader && !preloader.classList.contains("loaded")) {
+                await new Promise(resolve => setTimeout(resolve, 1400));
             }
-
-        })
+            while (isAnimating) {
+                await new Promise(resolve => setTimeout(resolve, 50));
+            }
+            isAnimating = true;
+            item.classList.add(animName);
+            item.removeAttribute("data-animation");
+            if (itemTop > 0) {
+                await new Promise(resolve => setTimeout(resolve, 200));
+            }
+            isAnimating = false;
+        }
     }
-
 }
 animate()
 window.addEventListener("scroll", animate)
@@ -456,14 +607,93 @@ if (iconMenu && headerNav) {
         }
     })
 }
+const filter = document.querySelectorAll(".filter")
+let filterObj
+// filter
+if (filter.length) {
+    filterObj = {
+        checkInp: function (inp) {
+            inp.checked = true
+            inp.setAttribute("checked", true)
+        },
+        uncheckInp: function (inp) {
+            inp.checked = false
+            inp.removeAttribute("checked")
+        },
+        setSelected: function (inp, filterSelected) {
+            let txt = inp.parentNode.querySelector("span:last-child").textContent
+            let idx = inp.getAttribute("data-id")
+            let inpName = inp.getAttribute("data-name")
+            let selectedTxt = inpName ? inpName + " " + txt.toLowerCase() : txt
+            filterSelected.insertAdjacentHTML("afterbegin", `<li data-target="${idx}">${selectedTxt}<button class="btn-cross"></button></li>`)
+        },
+        removeSelected: function (id, filterSelected) {
+            if (filterSelected.querySelector(`[data-target="${id}"]`)) {
+                filterSelected.querySelector(`[data-target="${id}"]`).remove()
+            }
+        },
+        selectedOnClick: function (e, filter, filterSelected) {
+            filterSelected.querySelectorAll("li").forEach(item => {
+                if (item.querySelector(".btn-cross").contains(e.target)) {
+                    let dataTarget = item.getAttribute("data-target")
+                    filter.querySelector(`label input[data-id='${dataTarget}']`).click()
+                }
+            })
+        },
+    }
+    filter.forEach(filt => {
+        const filterSelected = filt.querySelector(".filter__selected-items")
+        if (filterSelected) {
+            filt.querySelectorAll("label input").forEach(item => {
+                if (item.checked) {
+                    filterObj.setSelected(item, filterSelected)
+                }
+            })
+            filt.addEventListener("click", e => {
+                if (filt.querySelector("label input")) {
+                    filt.querySelectorAll("label input").forEach(inp => {
+                        if (inp.contains(e.target)) {
+                            let id = inp.getAttribute("data-id")
+                            if (inp.type === 'checkbox') {
+                                inp.checked ? filterObj.setSelected(inp, filterSelected) : filterObj.removeSelected(id, filterSelected)
+                            } else if (inp.type === 'radio') {
+                                filt.querySelectorAll(`input[name='${inp.name}']`).forEach(inp => filterObj.removeSelected(inp.getAttribute("data-id"), filterSelected))
+                                filterObj.setSelected(inp, filterSelected)
+                            }
+                        }
+                    })
+                }
+            })
+            filterSelected.addEventListener("click", e => filterObj.selectedOnClick(e, filt, filterSelected,))
+        }
+    })
+}
+const datepicker = document.querySelectorAll(".datepicker")
+// datepicker
+if (datepicker) {
+    datepicker.forEach(item => {
+        new AirDatepicker(item, {
+            range: true,
+            multipleDatesSeparator: ' - ',
+            onSelect({ formattedDate }) {
+                let filterForm = item.closest('.filter__form')
+                if (filterForm) {
+                    filterForm.querySelector('input[data-datepicker-value]').setAttribute('data-datepicker-value', formattedDate)
+                    filterForm.submit()
+                }
+            }
+        })
+    })
+
+}
 //intro
-const introVideo = document.querySelector(".intro video")
-if (introVideo) {
+const introBg = document.querySelector(".intro .media-cover-bg")
+if (introBg) {
     let introTl = gsap.timeline({
         ease: "none",
         duration: 1,
         scrollTrigger: {
-            trigger: introVideo,
+            trigger: document.querySelector(".intro"),
             start: "top top",
             end: "bottom start",
             scrub: true,
@@ -471,10 +701,7 @@ if (introVideo) {
             scrubs: true
         },
     })
-    introTl.to(introVideo, {
-        scale: 1.7,
-    })
-    introTl.to(document.querySelector('.intro .media-cover-bg'), {
+    introTl.to(introBg, {
         y: 0,
     })
 }
@@ -524,65 +751,6 @@ const eventsWrapper = document.querySelector(".events__wrapper")
 const eventsMod = document.querySelector("#event-modal")
 const eventsModContentWrapper = document.querySelector("[data-event-mod-content]")
 const eventsCol = document.querySelectorAll(".events .swiper-slide")
-const eventsFilter = document.querySelector(".events__filter")
-const eventsCalendar = document.querySelector(".events .datepicker")
-const filterSelected = document.querySelector(".filter-selected__items")
-let eventsDatepicker
-let eventsFilterObj
-// events filter
-if (eventsFilter && filterSelected) {
-    eventsFilterObj = {
-        checkInp: function (inp) {
-            inp.checked = true
-            inp.setAttribute("checked", true)
-        },
-        uncheckInp: function (inp) {
-            inp.checked = false
-            inp.removeAttribute("checked")
-        },
-        setSelected: function (inp) {
-            let txt = inp.parentNode.querySelector("span:last-child").textContent
-            let idx = inp.getAttribute("data-id")
-            let inpName = inp.getAttribute("data-name")
-            let selectedTxt = inpName ? inpName + " " + txt.toLowerCase() : txt
-            filterSelected.insertAdjacentHTML("afterbegin", `<li data-target="${idx}">${selectedTxt}<button class="btn-cross"></button></li>`)
-        },
-        removeSelected: function (id) {
-            if (filterSelected.querySelector(`[data-target="${id}"]`)) {
-                filterSelected.querySelector(`[data-target="${id}"]`).remove()
-            }
-        },
-        selectedOnClick: function (e) {
-            filterSelected.querySelectorAll("li").forEach(item => {
-                if (item.querySelector(".btn-cross").contains(e.target)) {
-                    let dataTarget = item.getAttribute("data-target")
-                    eventsFilter.querySelector(`label input[data-id='${dataTarget}']`).click()
-                }
-            })
-        },
-    }
-    eventsFilter.querySelectorAll("label input").forEach(item => {
-        if (item.checked) {
-            eventsFilterObj.setSelected(item)
-        }
-    })
-    eventsFilter.addEventListener("click", e => {
-        if (eventsFilter.querySelector("label input")) {
-            eventsFilter.querySelectorAll("label input").forEach(inp => {
-                if (inp.contains(e.target)) {
-                    let id = inp.getAttribute("data-id")
-                    if (inp.type === 'checkbox') {
-                        inp.checked ? eventsFilterObj.setSelected(inp) : eventsFilterObj.removeSelected(id)
-                    } else if (inp.type === 'radio') {
-                        eventsFilter.querySelectorAll(`input[name='${inp.name}']`).forEach(inp => eventsFilterObj.removeSelected(inp.getAttribute("data-id")))
-                        eventsFilter.setSelected(inp)
-                    }
-                }
-            })
-        }
-    })
-    filterSelected.addEventListener("click", e => eventsFilterObj.selectedOnClick(e))
-}
 //events swiper
 function initEventsSwiper() {
     const eventsSwiper = document.querySelector('.events .swiper')
@@ -603,7 +771,7 @@ function initEventsSwiper() {
                     slidesPerView: 4,
                     spaceBetween: 30,
                 },
-                1148.98: {
+                1200.98: {
                     slidesPerView: 3,
                     spaceBetween: 20,
                 },
@@ -611,7 +779,7 @@ function initEventsSwiper() {
                     slidesPerView: 3,
                     spaceBetween: 16,
                 },
-                700.98: {
+                767.98: {
                     slidesPerView: 2,
                     spaceBetween: 16,
                 },
@@ -640,14 +808,6 @@ if (eventsWrapper) {
         })
     })
 }
-//events datepicker
-if (eventsCalendar) {
-    eventsDatepicker = new AirDatepicker(eventsCalendar, {
-        onSelect() {
-            eventsFilter.submit()
-        }
-    })
-}
 //events animation
 if (eventsWrapper && eventsCol.length) {
     let eventsTl = gsap.timeline({
@@ -667,15 +827,15 @@ if (eventsWrapper && eventsCol.length) {
         }, i * 0.2);
     })
 }
-//news swiper
-const newsSwiperEl = document.querySelector(".news__swiper")
-if (newsSwiperEl) {
-    let newsSwiper
+//main-news swiper
+const mainNewsSwiperEl = document.querySelector(".main-news__swiper")
+if (mainNewsSwiperEl) {
+    let mainNewsSwiper
     let isInitialized
-    function initNewsSwiper() {
+    function initMainNewsSwiper() {
         if (window.innerWidth <= bp.laptop && !isInitialized) {
             isInitialized = true
-            newsSwiper = new Swiper(newsSwiperEl.querySelector(".swiper"), {
+            mainNewsSwiper = new Swiper(mainNewsSwiperEl.querySelector(".swiper"), {
                 slidesPerView: 1,
                 spaceBetween: 16,
                 observer: true,
@@ -688,7 +848,7 @@ if (newsSwiperEl) {
                     }
                 },
                 pagination: {
-                    el: newsSwiperEl.querySelector(".swiper-pagination"),
+                    el: mainNewsSwiperEl.querySelector(".swiper-pagination"),
                     type: "bullets",
                     clickable: true,
                 },
@@ -696,25 +856,25 @@ if (newsSwiperEl) {
             });
         } else if (window.innerWidth > bp.laptop && isInitialized) {
             isInitialized = false
-            newsSwiper.destroy()
+            mainNewsSwiper.destroy()
         }
     }
-    initNewsSwiper()
-    window.addEventListener("resize", initNewsSwiper)
+    initMainNewsSwiper()
+    window.addEventListener("resize", initMainNewsSwiper)
 }
-//news animation
-const newsSlide = document.querySelectorAll('.news__slide')
-if (newsSlide.length) {
-    let newsTl = gsap.timeline({
+//main-news animation
+const mainNewsSlide = document.querySelectorAll('.main-news__slide')
+if (mainNewsSlide.length) {
+    let mainNewsTl = gsap.timeline({
         scrollTrigger: {
-            trigger: newsSwiperEl,
+            trigger: mainNewsSwiperEl,
             start: "top center",
             invalidateOnRefresh: true,
             toggleActions: "play none play none",
         },
     });
-    newsSlide.forEach((item, i) => {
-        newsTl.from(item, {
+    mainNewsSlide.forEach((item, i) => {
+        mainNewsTl.from(item, {
             y: 50,
             opacity: 0,
             ease: "back.out",
@@ -723,54 +883,173 @@ if (newsSlide.length) {
 
     })
 }
-//projectsSwiper
-const projectsSwiper = document.querySelector(".projects .swiper")
-if (projectsSwiper) {
-    new Swiper(projectsSwiper, {
-        slidesPerView: 1,
-        spaceBetween: 16,
-        observer: true,
-        observeParents: true,
-        centeredSlides: true,
-        watchSlidesProgress: true,
-        initialSlide: projectsSwiper.querySelectorAll(".swiper-slide").length > 2 ? 1 : 0,
-        effect: "coverflow",
-        coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 110,
-            modifier: 1,
-            slideShadows: true
-        },
-        navigation: {
-            prevEl: document.querySelector(".projects .nav-btn--prev"),
-            nextEl: document.querySelector(".projects .nav-btn--next"),
-        },
-        breakpoints: {
-            1450.98: {
-                slidesPerView: 1.48,
-                spaceBetween: 80,
+//gallerySwiper
+const gallerySwiper = document.querySelectorAll(".gallery__swiper")
+if (gallerySwiper.length) {
+    gallerySwiper.forEach(item => {
+        new Swiper(item.querySelector(".swiper"), {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            observer: true,
+            observeParents: true,
+            centeredSlides: true,
+            watchSlidesProgress: true,
+            initialSlide: item.querySelectorAll(".swiper-slide").length > 2 ? 1 : 0,
+            effect: "coverflow",
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 110,
+                modifier: 1,
+                slideShadows: true
             },
-            1030.98: {
-                slidesPerView: 1.185,
-                spaceBetween: 80,
+            navigation: {
+                prevEl: item.querySelector(".nav-btn--prev"),
+                nextEl: item.querySelector(".nav-btn--next"),
             },
-            700.98: {
-                slidesPerView: 1,
-                spaceBetween: 60,
+            breakpoints: {
+                1450.98: {
+                    slidesPerView: 1.48,
+                    spaceBetween: 80,
+                },
+                1030.98: {
+                    slidesPerView: 1.185,
+                    spaceBetween: 80,
+                },
+                767.98: {
+                    slidesPerView: 1,
+                    spaceBetween: 60,
+                },
             },
-            479.98: {
-                slidesPerView: 1.4,
-                spaceBetween: 40,
-            },
-        },
-        speed: 800
+            speed: 800
+        })
     })
+
 }
 // actual news popup
 const newsPopup = document.querySelector(".news-popup")
 if (newsPopup) {
     newsPopup.querySelector(".news-popup__close").addEventListener("click", () => newsPopup.classList.add("hidden"))
 }
-
-
+//fan-shop swiper
+const fanShopSwiper = document.querySelector('.fan-shop__swiper')
+if (fanShopSwiper) {
+    new Swiper(fanShopSwiper.querySelector(".swiper"), {
+        slidesPerView: "auto",
+        spaceBetween: 16,
+        observer: true,
+        observeParents: true,
+        watchSlidesProgress: true,
+        navigation: {
+            prevEl: fanShopSwiper.querySelector(".nav-btn--prev"),
+            nextEl: fanShopSwiper.querySelector(".nav-btn--next"),
+        },
+        breakpoints: {
+            1450.98: {
+                slidesPerView: fanShopSwiper.classList.contains("fan-shop__swiper--sm") ? 3 : 4,
+                spaceBetween: 30,
+            },
+            1200.98: {
+                slidesPerView: fanShopSwiper.classList.contains("fan-shop__swiper--sm") ? 3 : 4,
+                spaceBetween: 20,
+            },
+            1030.98: {
+                slidesPerView: fanShopSwiper.classList.contains("fan-shop__swiper--sm") ? 3 : 4,
+                spaceBetween: 16,
+            },
+            767.98: {
+                slidesPerView: 3,
+                spaceBetween: 16,
+            },
+        },
+        speed: 800,
+    });
+}
+//swiper 1el
+const swiper1 = document.querySelectorAll(".swiper1")
+if (swiper1.length) {
+    swiper1.forEach(item => {
+        new Swiper(item.querySelector(".swiper"), {
+            slidesPerView: 1,
+            observer: true,
+            observeParents: true,
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true
+            },
+            pagination: {
+                el: item.querySelector(".swiper-pagination"),
+                type: "bullets",
+                clickable: true,
+            },
+            speed: 300,
+        })
+    })
+}
+//club achieve items count
+const clubAchieveList = document.querySelectorAll('.club-achieve__list')
+if (clubAchieveList.length) {
+    clubAchieveList.forEach(list => {
+        const items = list.querySelectorAll("li")
+        if (items.length > 2) {
+            list.classList.add("col-2")
+        }
+    })
+}
+//print
+const dataPrintBtn = document.querySelectorAll("[data-print-btn]")
+if (dataPrintBtn.length) {
+    dataPrintBtn.forEach(btn => {
+        btn.addEventListener("click", async() => {
+            const printBlock = document.querySelector(`[data-print-block='${btn.getAttribute("data-print-btn")}']`)
+            let printName = btn.getAttribute("data-print-name")
+            if (printBlock) {
+                const opt = {
+                    filename: printName ? printName + ".pdf" : 'document.pdf',
+                    html2canvas: {
+                        scale: 4,
+                        useCORS: true,
+                        letterRendering: true,
+                        logging: false,   
+                        scrollY: 0,     
+                    },
+                    jsPDF: {
+                        unit: 'mm',
+                        format: 'a4',
+                        orientation: 'portrait'
+                    }
+                };
+                html2pdf().set(opt).from(printBlock).save(); 
+            }
+        })
+    })
+}
+let daysOfWeek = [
+    'Воскресенье',
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота'
+];
+function setScheduleDate() {
+    const colSchedule = document.querySelectorAll(".col-schedule")
+    colSchedule.forEach(col => {
+        let thisDate = col.getAttribute("data-date")
+        let date = new Date(thisDate).getDate()
+        let day = new Date(thisDate).getDay()
+        const dateEl = col.querySelector(".col-schedule__date")
+        const dayEl = col.querySelector(".col-schedule__day")
+        if (thisDate) {
+            if (dateEl) {
+                dateEl.innerHTML = date
+            }
+            if (dayEl) {
+                dayEl.innerHTML = daysOfWeek[day]
+                col.classList.add('col-schedule--'+ day)
+            }
+        }
+    })
+}
+setScheduleDate()

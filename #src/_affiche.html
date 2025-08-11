@@ -1,0 +1,60 @@
+<!--affiche-->
+<section class="section section--light affiche" id="affiche-sec">
+    <div class="container">
+        <div class="sec-top">
+            <h2 class="blur-text" data-animation="blurFadeUp">Расписание игр</h2>
+        </div>
+        <div class="affiche__action">
+            <div class="filter affiche__filter">
+                <form class="filter__form">
+                    <input type="hidden" data-datepicker-value>
+                    <div class="dropdown">
+                        <div class="dropdown__header" data-animation="fadeRight">
+                            <span>Место проведения</span>
+                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                        </div>
+                        <div class="dropdown__body">
+                            <div class="custom-scroll">
+                                <label class="item-checkbox">
+                                    <input type="checkbox" data-id="filter[18]">
+                                    <span>Домашняя игра</span>
+                                </label>
+                                <label class="item-checkbox">
+                                    <input type="checkbox" data-id="filter[19]">
+                                    <span>Выезд</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown__header" data-animation="fadeRight">
+                            <span>Календарь</span>
+                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                        </div>
+                        <div class="dropdown__body">
+                            <div class="custom-scroll">
+                                <div class="datepicker"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="filter__selected">
+                    <ul class="filter__selected-items"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="affiche__wrapper">
+            <div class="affiche__items">
+                @@include('_item-affiche.html')
+                @@include('_item-affiche.html')
+                @@include('_item-affiche.html')
+                @@include('_item-affiche.html')
+            </div>
+        </div>
+        <div class="sec-bottom">
+            <a href="#" class="btn secondary-btn" target="_blank">
+                <span>Смотреть все</span>
+            </a>
+        </div>
+    </div>
+</section>

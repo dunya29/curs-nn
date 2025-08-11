@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    @@include('_head.html', {
+    "title": "«МХК «Чайка» "
+    })
+
+    <body>
+        <div class="wrap">
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main">
+                <!--@@include('_preloader.html') -->
+                <!--intro-->
+                <section class="intro club-intro">
+                    <div class="media-cover intro__bg">
+                        <span class="media-cover-bg"></span>
+                        <picture>
+                            <source srcset="img/content/chaika-intro.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/chaika-intro.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/chaika-intro-mob.webp" type="image/webp">
+                            <source srcset="img/content/chaika-intro-mob.jpg">
+                            <img src="img/content/chaika-intro.jpg" alt loading="lazy" data-animation="scaleUp">
+                        </picture>
+                    </div>
+                    <div class="container intro__container">
+                        @@include('_breadcrumbs.html', { 'page': '«МХК «Чайка» '})
+                        <div class="intro__content">
+                            <img class="club-intro__logo" src="img/svg/clubs/chaika.svg" alt>
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">«МХК «Чайка» </h1>
+                            <a href="#affiche-sec" class="btn main-btn js-anchor"><span>Смотреть расписание игр</span></a>
+                        </div>
+                    </div>
+                </section>
+                <!--club-info-->
+                <div class="section section--dark club-info">
+                    <div class="container">
+                        <div class="stat-block grid-3col mb-120" data-animation="fadeUp">
+                            <div class="stat-block__item">
+                                <img src="img/svg/data.svg" alt>
+                                <p class="h4">Дата основания</p>
+                                <p class="h5">2009 год</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/competition.svg" alt>
+                                <p class="h4">Соревнования</p>
+                                <p class="h5">Молодежная хоккейная лига</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/stadion.svg" alt>
+                                <p class="h4">Домашняя арена</p>
+                                <p class="h5">ДС им. В.С. Коноваленко</p>
+                            </div>
+                        </div>
+                        <div class="page-content width-6col" data-animation="fadeUp">
+                            <h3>МХК «Чайка» — команда по хоккею с шайбой, молодежная команда из&nbsp;Нижнего Новгорода.</h3>
+                            <p>Образована на основе фарм-клуба нижегородского «Торпедо» «Торпедо-2». С 2009 года выступает в&nbsp;Молодежной хоккейной лиге.</p>
+                            <p>В своём дебютном матче в чемпионате МХЛ хоккеисты нижегородской «Чайки» на выезде потерпели поражение от московского МХК «Спартак» — 2:7. В
+                                составе волжан шайбы забросили — И. Баскаков и Н. Булычёв.</p>
+                            <p>Интересный факт: с сезона 2016 по 2019 в составе «Чайки» выступал одноименный хоккеист Артем Чайка.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--club-achieve-->
+                <section class="section club-achieve">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Достижения клуба</h2>
+                        </div>
+                        <section class="club-achieve__sec" data-animation="fadeUp">
+                            <h3>Национальные награды</h3>
+                            <ul class="club-achieve__list">
+                                <li>Двукратный обладатель Кубка Харламова в сезона 2014/15, 2022/2023</li>
+                                <li>Чемпион Востока (2021)</li>
+                                <li>Серебряный призёр МХЛ (2016)</li>
+                                <li>Бронзовый призёр МХЛ (2024).</li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+                @@include('_affiche.html')
+                <!--image-block-->
+                <div class="section section--dark image-block" data-animation="fadeUp">
+                    <div class="container">
+                        <picture>
+                            <source srcset="img/content/chaika.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/chaika.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/chaika-mob.webp" type="image/webp">
+                            <source srcset="img/content/chaika-mob.jpg">
+                            <img src="img/content/chaika.jpg" alt loading="lazy">
+                        </picture>
+                    </div>
+                </div>
+                <!--fan-shop-->
+                <section class="section section--light fan-shop">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Фирменный магазин клуба</h2>
+                            <a href="#" class="btn main-btn" target="_blank"><span>Перейти в официальный магазин</span></a>
+                        </div>
+                        <div class="fan-shop__swiper fan-shop__swiper--sm">
+                            <div class="mb-40 swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Значок", "price": "300", "img": "chaika-product-1"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Шарф", "price": "800", "img": "chaika-product-2"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Шайба", "price": 500, "img": "chaika-product-3"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-nav">
+                                <button class="btn nav-btn nav-btn--prev"><svg><use xlink:href="img/svg/sprite.svg#btn-prev"></use></svg></button>
+                                <button class="btn nav-btn nav-btn--next"><svg><use xlink:href="img/svg/sprite.svg#btn-next"></use></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                @@include('_news.html')
+            </main>
+            @@include('_footer.html', {"main": false})
+            @@include('_modal.html')
+        </div>
+        @@include('_js.html')
+    </body>
+
+</html>

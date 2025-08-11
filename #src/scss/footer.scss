@@ -14,10 +14,14 @@
         pointer-events: none;
     }
     .item-contact {
-        color: var(--white-color);
         margin-bottom: 12px;
         &:last-child {
             margin-bottom: 0;
+        }
+    }
+    &--main {
+        .footer__logo {
+            pointer-events: none;
         }
     }
     &__top,
@@ -26,20 +30,27 @@
         grid-template-columns: 8fr 4fr;
         gap: 30px;
     }
+    &__logo {
+        margin-bottom: 30px;
+        img {
+            width: 190px;
+            height: 124px;
+        }
+    }
     &__contacts {
         display: flex;
         align-items: flex-start;
         flex-direction: column;
     }
-    &__navs {
+    &__navs, &__info {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 30px;
     }
     &__nav {
         &-header {
+            font-size: 20px;
             font-weight: 600;
-            color: var(--white-color);
             margin-bottom: 20px;
         }
         ul {
@@ -47,9 +58,6 @@
                 margin-bottom: 16px;
                 &:last-child {
                     margin-bottom: 0;
-                }
-                a {
-                    color: var(--white-color);
                 }
             }
         }
@@ -63,7 +71,7 @@
         }
         a {
             &:hover {
-               color: var(--white-color)
+                color: var(--white-color);
             }
         }
     }
@@ -77,7 +85,7 @@
         &__bottom {
             margin-top: 108px;
         }
-        &__navs {
+        &__navs, &__info{
             gap: 20px;
         }
         &__nav {
@@ -87,7 +95,7 @@
         }
     }
     @media (max-width: $bp2) {
-        &__navs {
+        &__navs, &__info {
             gap: 16px;
         }
         &__nav {
@@ -107,19 +115,46 @@
             gap: 16px;
         }
         &__bottom {
+            grid-template-columns: 1fr;
             margin-top: 60px;
+        }
+        &__info {
+            grid-template-columns: 1fr;
+        }
+        &__copy {
+            order: 1;
         }
     }
     @media (max-width: $bp4) {
-        &__top,
-        &__bottom {
+        &__top {
             grid-template-columns: 1fr;
+        }
+        &__top {
+            gap: 24px;
+        }
+        &__main {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            align-items: center;
+            gap: 16px;
+        }
+        &__logo {
+            margin-bottom: 0;
+            img {
+                width: 138px;
+                height: 90px;
+            }
+        }
+        &__navs {
+            grid-template-columns: 1fr 1.15fr;
         }
         &__bottom {
             margin-top: 24px;
         }
-        &__copy {
-            order: 1;
+    }
+    @media (max-width: $bp7)  {
+        &__main {
+            grid-template-columns: 1fr;
         }
     }
 }

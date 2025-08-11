@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    @@include('_head.html', {
+    "title": "Спецпроекты"
+    })
+
+    <body class="no-scroll">
+        @@include('_preloader.html')
+        <div class="wrap">
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main">
+                @@include('_breadcrumbs.html', { 'page': 'Спецпроекты'})
+                <!--projects-->
+                <section class="section section--dark projects">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">Спецпроекты</h1>
+                        </div>
+                        <div class="projects__items">
+                            <a href="#" class="item-project" data-animation="fadeUp">
+                                <div class="media-cover">
+                                    <picture>
+                                        <source srcset="img/content/project-1.webp" type="image/webp" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/project-1.jpg" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/project-1-mob.webp" type="image/webp">
+                                        <source srcset="img/content/project-1-mob.jpg">
+                                        <img src="img/content/project-1.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="item-project__content">
+                                    <div class="item-project__main">
+                                        <h4>Спецпроект к 9 Мая</h4>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="item-project" data-animation="fadeUp">
+                                <div class="media-cover">
+                                    <picture>
+                                        <source srcset="img/content/project-3.webp" type="image/webp" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/project-3.jpg" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/project-3-mob.webp" type="image/webp">
+                                        <source srcset="img/content/project-3-mob.jpg">
+                                        <img src="img/content/project-3.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="item-project__content">
+                                    <div class="item-project__main">
+                                        <h4>Выставка одной картины</h4>
+                                        <span class="item-project__date">27 декабря - 4 февраля 2025 г.</span>
+                                    </div>
+                                    <div class="item-project__cup">
+                                        <img loading="lazy" src="img/svg/cup.svg" alt>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="item-project" data-animation="fadeUp">
+                                <div class="media-cover">
+                                    <picture>
+                                        <source srcset="img/content/project-2.webp" type="image/webp" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/project-2.jpg" media="(min-width: 767.98px)">
+                                        <source srcset="img/content/project-2-mob.webp" type="image/webp">
+                                        <source srcset="img/content/project-2-mob.jpg">
+                                        <img src="img/content/project-2.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="item-project__content">
+                                    <div class="item-project__main">
+                                        <h4>Волейбол в Выксе</h4>
+                                        <span class="item-project__date">7 декабря 2024 г.</span>
+                                    </div>
+                                    <div class="item-project__cup">
+                                        <img loading="lazy" src="img/svg/cup.svg" alt>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="item-project" data-animation="fadeUp">
+                                <div class="media-cover">
+                                    <picture>
+                                        <source srcset="img/project-awards.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                        <source srcset="img/project-awards.jpg" media="(min-width: 1450.98px)">
+                                        <source srcset="img/project-awards-1280.webp" type="image/webp" media="(min-width: 767.98px)">
+                                        <source srcset="img/project-awards-1280.jpg" media="(min-width: 767.98px)">
+                                        <source srcset="img/project-awards-mob.webp" type="image/webp">
+                                        <source srcset="img/project-awards-mob.jpg">
+                                        <img src="img/project-awards.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="item-project__content">
+                                    <div class="item-project__main">
+                                        <h4>Наши награды</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('_footer.html', {"main": false})
+            @@include('_modal.html')
+        </div>
+        @@include('_js.html')
+    </body>
+
+</html>

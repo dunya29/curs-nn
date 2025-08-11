@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    @@include('_head.html', {
+    "title": "Новости"
+    })
+
+    <body>
+        <!--   @@include('_preloader.html') -->
+        <div class="wrap">
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main">
+                @@include('_breadcrumbs.html', { 'page': 'Новости'})
+                <!--news-->
+                <section class="section section--dark news news-p">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">Новости</h1>
+                        </div>
+                        <div class="filter news__filter">
+                            <form class="filter__form">
+                                <input type="hidden" data-datepicker-value>
+                                <div class="dropdown">
+                                    <div class="dropdown__header" data-animation="fadeRight">
+                                        <span>Вид спорта</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                                    </div>
+                                    <div class="dropdown__body">
+                                        <div class="custom-scroll">
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[1]">
+                                                <span>Баскетбол</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[2]">
+                                                <span>Волейбол</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[3]">
+                                                <span>Футзал</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[4]">
+                                                <span>Футбол</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[5]">
+                                                <span>Хоккей</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[6]">
+                                                <span>Хоккей с мячом</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown">
+                                    <div class="dropdown__header" data-animation="fadeRight">
+                                        <span>Клуб</span>
+                                        <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                                    </div>
+                                    <div class="dropdown__body">
+                                        <div class="custom-scroll">
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[7]">
+                                                <span>ХК «Торпедо»</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[8]">
+                                                <span>ХК «Торпедо-Горький»</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[9]">
+                                                <span>ХК «Чайка»</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[10]">
+                                                <span>ФК «Пари Нижний Новгород»</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[11]">
+                                                <span>ФК «Химик»</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[12]">
+                                                <span>ПКМФ «Торпедо»</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[13]">
+                                                <span>ЖФК «Норманочка»</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[14]">
+                                                <span>БК «Пари Нижний Новгород»</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[15]">
+                                                <span>ВК «Спарта»</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[16]">
+                                                <span>ВК АСК</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox" data-id="filter[17]">
+                                                <span>ХК «Старт»</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="filter__selected">
+                                <ul class="filter__selected-items"></ul>
+                            </div>
+                        </div>
+                        <div class="news__wrapper">
+                            <div class="news__items">
+                                @@include("_news-article.html", {"type": "Волейбол", "icon": "volleyball"})
+                                @@include("_news-article.html", {"type": "Футзал", "icon": "futsal"})
+                                @@include("_news-article.html", {"type": "Баскетбол", "icon": "basketball"})
+                                @@include("_news-article.html", {"type": "Хоккей с мячом", "icon": "bandy"})
+                                @@include("_news-article.html", {"type": "Волейбол", "icon": "volleyball"})
+                                @@include("_news-article.html", {"type": "Волейбол", "icon": "volleyball"})
+                                @@include("_news-article.html", {"type": "Хоккей", "icon": "hockey"})
+                                @@include("_news-article.html", {"type": "Волейбол", "icon": "volleyball"})
+                            </div>
+                            @@include('_pagination.html')
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('_footer.html', {"main": false})
+            @@include('_modal.html')
+        </div>
+        @@include('_js.html')
+    </body>
+
+</html>

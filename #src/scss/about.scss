@@ -26,6 +26,13 @@
     &__inner {
         text-align: center;
     }
+    &__cards {
+        h3,
+        .h3 {
+            font-family: var(--font-family-secondary);
+            font-weight: 700;
+        }
+    }
     &__items {
         margin: 32px 0 24px;
         display: flex;
@@ -33,19 +40,11 @@
         justify-content: center;
     }
     &__txt {
-        max-width: calc(100% / 12 * 8 - 10px);
-        margin: 0 auto 54px;
         transform: translateX(-40px);
         opacity: 0;
         transition: 0.7s cubic-bezier(0, 0, 0.2, 1);
-        &:last-child {
-            margin-bottom: 0;
-        }
         span {
             color: var(--coral-red-color);
-        }
-        &--small {
-            max-width: calc(100% / 12 * 6 - 10px);
         }
     }
     &__ribbons {
@@ -74,19 +73,14 @@
         }
     }
     @media (max-width: $bp1) {
-        &__txt {
-            max-width: calc(100% / 12 * 7 - 10px);
-            &--small {
-                max-width: calc(100% / 12 * 6 - 10px);
-            }
+        .width-8col {
+            max-width: 640px;
         }
     }
     @media (max-width: $bp2) {
         &__txt {
-            max-width: 645px;
-            margin-bottom: 40px;
-            &--small {
-                max-width: 550px;
+            .h3 {
+                font-size: 16px!important;
             }
         }
         &__items {
@@ -94,9 +88,6 @@
         }
     }
     @media (max-width: $bp4) {
-        &__container {
-            // opacity: 1;
-        }
         &__items {
             display: grid;
             grid-template-columns: 1fr;
@@ -105,6 +96,9 @@
         &__ribbons {
             transform: scaleY(2);
             opacity: 0.2;
+        }
+        &__txt {
+            text-align: center;
         }
     }
 }
@@ -120,9 +114,9 @@
     &:before {
         content: "";
         display: block;
-        width: 60px;
-        height: 60px;
-        background: url(../img/svg/about-check.svg) center / contain no-repeat;
+        width: 48px;
+        height: 48px;
+        background: url(../img/svg/list-check.svg) center / contain no-repeat;
         margin-bottom: 20px;
     }
     &:nth-child(3n + 1) {
@@ -156,8 +150,8 @@
             max-width: 290px;
         }
         &:before {
-            width: 36px;
-            height: 36px;
+            width: 35px;
+            height: 35px;
             margin-bottom: 12px;
         }
         &:nth-child(3n + 1) {

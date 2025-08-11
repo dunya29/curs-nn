@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    @@include('_head.html', {
+    "title": "ФК «Пари Нижний Новгород»"
+    })
+
+    <body class="no-scroll">
+        <div class="wrap">
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main">
+                @@include('_preloader.html')
+                <!--intro-->
+                <section class="intro club-intro">
+                    <div class="media-cover intro__bg">
+                        <span class="media-cover-bg"></span>
+                        <picture>
+                            <source srcset="img/content/fk-pari-intro.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/fk-pari-intro.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/fk-pari-intro-mob.webp" type="image/webp">
+                            <source srcset="img/content/fk-pari-intro-mob.jpg">
+                            <img src="img/content/fk-pari-intro.jpg" alt loading="lazy" data-animation="scaleUp">
+                        </picture>
+                    </div>
+                    <div class="container intro__container">
+                        @@include('_breadcrumbs.html', { 'page': 'ФК «Пари Нижний Новгород»'})
+                        <div class="intro__content">
+                            <img class="club-intro__logo" src="img/svg/clubs/fk-pari.svg" alt>
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">ФК «Пари Нижний Новгород»</h1>
+                            <a href="#affiche-sec" class="btn main-btn js-anchor"><span>Смотреть расписание игр</span></a>
+                        </div>
+                    </div>
+                </section>
+                <!--club-info-->
+                <div class="section section--dark club-info">
+                    <div class="container">
+                        <div class="grid-3col mb-120 stat-block" data-animation="fadeUp">
+                            <div class="stat-block__item">
+                                <img src="img/svg/data.svg" alt>
+                                <p class="h4">Дата основания</p>
+                                <p class="h5">1 июня 2015 года</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/competition.svg" alt>
+                                <p class="h4">Соревнования</p>
+                                <p class="h5">Российская премьер лига, Кубок России</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/stadion.svg" alt>
+                                <p class="h4">Домашняя арена</p>
+                                <p class="h5">стадион «Нижний Новгород»</p>
+                            </div>
+                        </div>
+                        <div class="grid-2col mb-120 club-info__main" data-animation="fadeUp">
+                            <div class="page-content">
+                                <h3>Истоки основанного в 2015 году футбольного клуба «Волга-Олимпиец» берут свое начало от команды «Волга-Олимпиец», состоявшей из
+                                    воспитанников нижегородского футбола, выступавшей на любительском уровне.</h3>
+                                <p>В связи с реорганизацией НП ФК «Волга-Олимпиец» в 2016 году в автономную некоммерческую организацию «Футбольный клуб «Олимпиец» ФК
+                                    «Волга-Олимпиец» был переименован в ФК «Олимпиец». Сезон 2017/2018 команда завершает сезон четырехматчевой беспроигрышной серией, тем самым
+                                    выполнив задачу по сохранению места в ФНЛ, финишировав в середине турнирной таблицы.</p>
+                                <p>По итогам сезона 2020/2021 уже обновленная команда «Нижний Новгород» завоевывает путевку в российскую Премьер-лигу. Свой дебют в РПЛ
+                                    нижегородская команда начала с победы над ФК «Сочи».</p>
+                            </div>
+                            <div class="club-info__main-images" data-animation="fadeUp">
+                                <div class="media-el">
+                                    <picture>
+                                        <source srcset="img/content/fk-pari-info.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/fk-pari-info.jpg" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/fk-pari-info-1280.webp" type="image/webp">
+                                        <source srcset="img/content/fk-pari-info-1280.jpg">
+                                        <img src="img/content/fk-pari-info.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-content width-6col" data-animation="fadeUp">
+                            <p class="h3">Весной 2023 года команду возглавил известный футболист и тренер Сергей Юран, которому удалось сохранить прописку в РПЛ.</p>
+                            <p>Летом этого же года на посту генерального директора Равиля Измайлова сменил Давид&nbsp;Валерьевич&nbsp;Мелик-Гусейнов. </p>
+                        </div>
+                    </div>
+                </div>
+                @@include('_affiche.html')
+                <!--image-block-->
+                <div class="section section--dark image-block" data-animation="fadeUp">
+                    <div class="container">
+                        <picture>
+                            <source srcset="img/content/fk-pari.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/fk-pari.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/fk-pari-mob.webp" type="image/webp">
+                            <source srcset="img/content/fk-pari-mob.jpg">
+                            <img src="img/content/fk-pari.jpg" alt loading="lazy">
+                        </picture>
+                    </div>
+                </div>
+                <!--club-history-->
+                <section class="section section--dark club-history" data-animation="fadeUp">
+                    <div class="container">
+                        <div class="club-history__row">
+                            <div class="club-history__content">
+                                <h2 class="h3 club-history__title blur-text" data-animation="blurFadeUp">История названий</h2>
+                                <div class="page-content">
+                                    <ol>
+                                        <li>«Волга-Олимпиец» (2015 – 2016)</li>
+                                        <li>«Олимпиец» (2016 – 2018)</li>
+                                        <li>«Нижний Новгород» (2018 – 2022)</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="media-el">
+                                <picture>
+                                    <source srcset="img/content/fk-pari-history.webp" type="image/webp" media="(min-width: 767.98px)">
+                                    <source srcset="img/content/fk-pari-history.jpg" media="(min-width: 767.98px)">
+                                    <source srcset="img/content/fk-pari-history-mob.webp" type="image/webp">
+                                    <source srcset="img/content/fk-pari-history-mob.jpg">
+                                    <img class="club-history__img" src="img/content/fk-pari-history.jpg" alt loading="lazy">
+                                </picture>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--structure-->
+                <section class="section section--dark structure">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Структура Клуба</h2>
+                        </div>
+                        <div class="structure__row">
+                            <div class="structure__img">
+                                <div class="media-contain">
+                                    <img src="img/structure-football.png" alt>
+                                </div>
+                            </div>
+                            <div class="structure__items child-3">
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/fk-pari.svg" alt></div>
+                                    <p class="h4">ФК «Пари Нижний Новгород»</p>
+                                </div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/fk-pari.svg" alt></div>
+                                    <p class="h4">ФК «Пари Нижний Новгород» (М)</p>
+                                </div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/fk-pari.svg" alt></div>
+                                    <p class="h4">Академия «Пари НН»</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--fan-shop-->
+                <section class="section section--light fan-shop">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Фирменный магазин клуба</h2>
+                            <a href="#" class="btn main-btn" target="_blank"><span>Перейти в официальный магазин</span></a>
+                        </div>
+                        <div class="fan-shop__swiper">
+                            <div class="mb-40 swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Шарф трикотажный", "price": "1000", "img": "fk-pari-product-1"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Бейсболка", "price": "1500", "img": "fk-pari-product-2"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Плед с вышивкой", "price": false, "img": "fk-pari-product-3"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Чехол сувенирный IPhone", "price": "900", "img": "fk-pari-product-4"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-nav">
+                                <button class="btn nav-btn nav-btn--prev"><svg><use xlink:href="img/svg/sprite.svg#btn-prev"></use></svg></button>
+                                <button class="btn nav-btn nav-btn--next"><svg><use xlink:href="img/svg/sprite.svg#btn-next"></use></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                @@include('_news.html')
+            </main>
+            @@include('_footer.html', {"main": false})
+            @@include('_modal.html')
+        </div>
+        @@include('_js.html')
+    </body>
+
+</html>

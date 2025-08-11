@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    @@include('_head.html', {
+    "title": "Афиша"
+    })
+
+    <body class="no-scroll">
+        <div class="wrap">
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main main--light">
+                @@include('_preloader.html')
+                @@include('_breadcrumbs.html', { 'page': 'Афиша'})
+                <!--affiche-->
+                <section class="section section--light affiche affiche-p">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">Афиша</h1>
+                        </div>
+                        <div class="affiche__action">
+                            <div class="filter affiche__filter">
+                                <form class="filter__form" onsubmit="event.preventDefault();setScheduleDate()">
+                                    <input type="hidden" data-datepicker-value>
+                                    <div class="dropdown">
+                                        <div class="dropdown__header" data-animation="fadeRight">
+                                            <span>Вид спорта</span>
+                                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                                        </div>
+                                        <div class="dropdown__body">
+                                            <div class="custom-scroll">
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[1]">
+                                                    <span>Баскетбол</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[2]">
+                                                    <span>Волейбол</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[3]">
+                                                    <span>Футзал</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[4]">
+                                                    <span>Футбол</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[5]">
+                                                    <span>Хоккей</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[6]">
+                                                    <span>Хоккей с мячом</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <div class="dropdown__header" data-animation="fadeRight">
+                                            <span>Клуб</span>
+                                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                                        </div>
+                                        <div class="dropdown__body">
+                                            <div class="custom-scroll">
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[7]">
+                                                    <span>ХК «Торпедо»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[8]">
+                                                    <span>ХК «Торпедо-Горький»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[9]">
+                                                    <span>ХК «Чайка»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[10]">
+                                                    <span>ФК «Пари Нижний Новгород»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[11]">
+                                                    <span>ФК «Химик»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[12]">
+                                                    <span>ПКМФ «Торпедо»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[13]">
+                                                    <span>ЖФК «Норманочка»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[14]">
+                                                    <span>БК «Пари Нижний Новгород»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[15]">
+                                                    <span>ВК «Спарта»</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[16]">
+                                                    <span>ВК АСК</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[17]">
+                                                    <span>ХК «Старт»</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <div class="dropdown__header" data-animation="fadeRight">
+                                            <span>Место проведения</span>
+                                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                                        </div>
+                                        <div class="dropdown__body">
+                                            <div class="custom-scroll">
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[18]">
+                                                    <span>Домашняя игра</span>
+                                                </label>
+                                                <label class="item-checkbox">
+                                                    <input type="checkbox" data-id="filter[19]">
+                                                    <span>Выезд</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <div class="dropdown__header" data-animation="fadeRight">
+                                            <span>Календарь</span>
+                                            <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                                        </div>
+                                        <div class="dropdown__body">
+                                            <div class="custom-scroll">
+                                                <div class="datepicker"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="filter__selected">
+                                    <ul class="filter__selected-items"></ul>
+                                </div>
+                            </div>
+                            <button class="btn text-btn" data-print-btn="schedule" data-print-name="расписание">
+                                <svg><use xlink:href="img/svg/sprite.svg#download"></use></svg>
+                                <span>Скачать расписание</span>
+                            </button>
+                        </div>
+                        <div class="affiche__wrapper">
+                            <div class="affiche__items">
+                                @@include('_item-affiche.html')
+                                @@include('_item-affiche.html')
+                                @@include('_item-affiche.html') 
+                                @@include('_item-affiche.html')
+                            </div>
+                        </div>
+                        <div class="sec-bottom">
+                            <a href="#" class="btn secondary-btn">
+                                <span>Смотреть все</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                @@include("_schedule.html")
+            </main>
+            @@include('_footer.html', {"main": false})
+            @@include('_modal.html')
+        </div>
+        @@include('_js.html')
+    </body>
+
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    @@include('_head.html', {
+    "title": "ХК «Торпедо»"
+    })
+
+    <body class="no-scroll">
+        @@include('_preloader.html')
+        <div class="wrap">
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main">
+                <!--intro-->
+                <section class="intro club-intro">
+                    <div class="media-cover intro__bg">
+                        <span class="media-cover-bg"></span>
+                        <picture>
+                            <source srcset="img/content/torpedo-intro.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/torpedo-intro.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/torpedo-intro-mob.webp" type="image/webp">
+                            <source srcset="img/content/torpedo-intro-mob.jpg">
+                            <img src="img/content/torpedo-intro.jpg" alt loading="lazy" data-animation="scaleUp">
+                        </picture>
+                    </div>
+                    <div class="container intro__container">
+                        @@include('_breadcrumbs.html', { 'page': 'ХК «Торпедо»'})
+                        <div class="intro__content">
+                            <img class="club-intro__logo" src="img/svg/clubs/torpedo.svg" alt>
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">ХК «Торпедо»</h1>
+                            <a href="#affiche-sec" class="btn main-btn js-anchor"><span>Смотреть расписание игр</span></a>
+                        </div>
+                    </div>
+                </section>
+                <!--club-info-->
+                <div class="section section--dark club-info">
+                    <div class="container">
+                        <div class="stat-block grid-3col mb-120" data-animation="fadeUp">
+                            <div class="stat-block__item">
+                                <img src="img/svg/data.svg" alt>
+                                <p class="h4">Дата основания</p>
+                                <p class="h5">26 декабря 1946 года</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/competition.svg" alt>
+                                <p class="h4">Соревнования</p>
+                                <p class="h5">Ледовый Дворец</p>
+                            </div>
+                            <div class="stat-block__item">
+                                <img src="img/svg/stadion.svg" alt>
+                                <p class="h4">Домашняя арена</p>
+                                <p class="h5">КХЛ</p>
+                            </div>
+                        </div>
+                        <div class="grid-2col mb-120 club-info__main" data-animation="fadeUp">
+                            <div class="page-content">
+                                <h3>История хоккейного клуба «Торпедо» начинается сразу после Второй мировой войны, когда в стране активно развивались зимние виды спорта, в
+                                    том числе и хоккей с&nbsp;шайбой.</h3>
+                                <p>Первоначально команда была основана как спортивное подразделение на базе Горьковского автозавода (ГАЗ), который тогда играл важную роль в
+                                    экономике региона и страны. Изначально клуб носил название «Торпедо-Горький».
+                                </p>
+                                <p>Первое выступление горьковской команды на союзном уровне относится к сезону 1947/48. «Торпедо» приняло участие в первом чемпионате СССР
+                                    среди команд второй группы (аналог Высшей лиги). Автозаводцы заняли в дебютном для себя сезоне четвертое место.</p>
+                                <p>В 1954 году команда дебютировала в чемпионате СССР по хоккею с шайбой, что стало важной вехой в истории клуба. В этот период клуб постепенно
+                                    рос и становился частью элиты советского хоккея.</p>
+                                <p>С сезона 1947/48 выступает в чемпионатах страны. В сильнейшей лиге в 1952—1953, 1954—1998, 1999—2002, 2003—2004, и с 2007 года.</p>
+                            </div>
+                            <div class="club-info__main-images">
+                                <div class="media-el">
+                                    <picture>
+                                        <source srcset="img/content/torpedo-info.webp" type="image/webp" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/torpedo-info.jpg" media="(min-width: 1450.98px)">
+                                        <source srcset="img/content/torpedo-info-1280.webp" type="image/webp">
+                                        <source srcset="img/content/torpedo-info-1280.jpg">
+                                        <img src="img/content/torpedo-info.jpg" alt loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-content width-6col" data-animation="fadeUp">
+                            <p class="h3">С созданием Континентальной хоккейной лиги (КХЛ) в 2008 году «Торпедо» стало одним из ее участников. С того времени команда регулярно
+                                участвует в матчах и борется за выход в плей-офф.</p>
+                            <p>Особую роль в успехах команды сыграл канадский тренер Питерис Скудра, который возглавлял «Торпедо» с 2013 по 2017 год. Под его руководством
+                                команда не только стабильно выступала в КХЛ, но и показывала агрессивный, атакующий хоккей, который привлекал внимание болельщиков. «Торпедо» и
+                                по сей день остается сильным участником КХЛ.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--club-achieve-->
+                <section class="section club-achieve">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Достижения клуба</h2>
+                        </div>
+                        <section class="club-achieve__sec" data-animation="fadeUp">
+                            <h3>Национальные награды</h3>
+                            <ul class="club-achieve__list">
+                                <li>Четвёртое место чемпионата СССР (1981—1982 и 1984—1985), выход в четвертьфинал МХЛ (1994—1995), выход в 1/8 финала суперлиги (1999—2000),
+                                    первое место на первом и на втором этапах высшей лиги (2002—2003), выход в полуфинал высшей лиги (2004—2005), выход в 1/4 финала КХЛ
+                                    (2011—2012, 2015—2016, 2022—2023)</li>
+                                <li>Обладатель призов — «Справедливой игры» 1975 года, «Грозы авторитетов» 1983 и 1985 годов, «Кубка прогресса» 1982 года.</li>
+                                <li>Обладатель Кубка РСФСР (1951)</li>
+                                <li>Победитель турнира на призы газеты «Советский спорт» 1960 года и турнира памяти Беляева 1971 и 2006 года, обладатель Кубка Губернатора
+                                    Нижегородской Области (2009, 2011, 2013, 2016), </li>
+                                <li>Серебряный призёр чемпионата СССР 1961 года. Первая немосковская команда, завоевавшая медали в чемпионате СССР и вышедшая в финал Кубка
+                                    СССР (1961).</li>
+                            </ul>
+                        </section>
+                        <section class="club-achieve__sec club-achieve__sec--inter" data-animation="fadeUp">
+                            <h3>Международные награды</h3>
+                            <ul class="club-achieve__list">
+                                <li>Обладатель «Кубка Бухареста» (1960 и 1962)</li>
+                                <li>Обладатель «Полярного Кубка» (1968, 1972 и 1974) </li>
+                                <li>Обладатель «Кубка Дуная» (1966)</li>
+                                <li>Обладатель «Кубка Горняка» (1958)</li>
+                                <li>Обладатель «Кубка Хеннингера» (1986)</li>
+                                <li>Финалист Кубка Шпенглера (1972)</li>
+                                <li>Обладатель Steel Cup (2015), Dukla Cup (2016) и обладатель Bodense Cup (2017)</li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+                <!--structure-->
+                <section class="section section--dark structure">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Структура Клуба</h2>
+                        </div>
+                        <div class="structure__row">
+                            <div class="structure__img">
+                                <div class="media-contain">
+                                    <img src="img/structure-hockey.png" alt>
+                                </div>
+                            </div>
+                            <div class="structure__items child-4">
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/torpedo.svg" alt></div>
+                                    <p class="h4">ХК «Торпедо» (КХЛ)</p>
+                                </div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/torpedo.svg" alt></div>
+                                    <p class="h4">МХК «Чайка» (МХЛ)</p>
+                                </div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/torpedo.svg" alt></div>
+                                    <p class="h4">ХК «Торпедо-Горький» (ВХЛ)</p>
+                                </div>
+                                <div class="item-structure" data-animation="fadeUp">
+                                    <div class="media-contain"><img src="img/svg/clubs/torpedo.svg" alt></div>
+                                    <p class="h4">ДЮСШ «Торпедо»</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                @@include('_affiche.html')
+                <!--image-block-->
+                <div class="section section--dark image-block" data-animation="fadeUp">
+                    <div class="container">
+                        <picture>
+                            <source srcset="img/content/torpedo.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/torpedo.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/torpedo-mob.webp" type="image/webp">
+                            <source srcset="img/content/torpedo-mob.jpg">
+                            <img src="img/content/torpedo.jpg" alt loading="lazy">
+                        </picture>
+                    </div>
+                </div>
+                <!--fan-shop-->
+                <section class="section section--light fan-shop">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Фирменный магазин клуба</h2>
+                            <a href="#" class="btn main-btn" target="_blank"><span>Перейти в официальный магазин</span></a>
+                        </div>
+                        <div class="fan-shop__swiper">
+                            <div class="mb-40 swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Рюкзак", "price": "2500", "img": "torpedo-product-1"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Свитшот", "price": "4200", "img": "torpedo-product-2"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Значок", "price": 300, "img": "torpedo-product-3"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_item-shop.html", {"name": "Худи", "price": "5700", "img": "torpedo-product-4"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-nav">
+                                <button class="btn nav-btn nav-btn--prev"><svg><use xlink:href="img/svg/sprite.svg#btn-prev"></use></svg></button>
+                                <button class="btn nav-btn nav-btn--next"><svg><use xlink:href="img/svg/sprite.svg#btn-next"></use></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                @@include('_news.html')
+            </main>
+            @@include('_footer.html', {"main": false})
+            @@include('_modal.html')
+        </div>
+        @@include('_js.html')
+    </body>
+
+</html>

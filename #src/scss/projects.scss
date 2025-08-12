@@ -285,7 +285,8 @@ a.proj-video__gall-item {
     }
 }
 .proj-features,
-.proj-goals {
+.proj-goals,
+.about-goals {
     .media-el {
         height: 100%;
         img {
@@ -631,7 +632,8 @@ a.proj-video__gall-item {
         }
     }
 }
-.proj-peculiarities {
+.proj-peculiarities,
+.priority {
     overflow: hidden;
     &__inner {
         min-height: 536px;
@@ -687,6 +689,14 @@ a.proj-video__gall-item {
         }
         h5 {
             margin-bottom: 8px;
+        }
+        ul li {
+            list-style: disc;
+            margin-left: 24px;
+            margin-bottom: 8px;
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
         &:nth-child(2n + 1) {
             &::before,
@@ -843,6 +853,56 @@ a.proj-video__gall-item {
         }
     }
 }
+.priority {
+    .sec-top {
+        h2,.h2 {
+            max-width: 882px;
+        }
+    }
+    @media (min-width: $bp1) {
+        &__inner {
+            min-height: 610px;
+        }
+        &__item {
+            min-height: 145px;
+            &:nth-child(1) {
+                top: 53px;
+            }
+            &:nth-child(2) {
+                left: calc(50% + 326px);
+            }
+            &:nth-child(3) {
+                right: calc(50% + 306px);
+            }
+            &:nth-child(4) {
+                left: calc(50% + 260px);
+            }
+        }
+    }
+    @media (min-width: $bp2) and (max-width: $bp1) {
+        .container {
+            padding-bottom: 120px;
+        }
+        &__item {
+            min-height: 145px;
+            &:nth-child(4) {
+                top: 94%;
+                bottom: auto;
+                left: 50%;
+                &:before {
+                    height: 70px;
+                    width: 2px;
+                }
+                &:before,
+                &:after {
+                    left: 150px;
+                    top: -60px;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+    }
+}
 .proj-city {
     .media-cover {
         padding-top: 53.41%;
@@ -862,7 +922,7 @@ a.proj-video__gall-item {
         }
     }
 }
-.proj-reviews {
+.reviews {
     &__item {
         min-height: 382px;
         display: flex;

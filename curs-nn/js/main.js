@@ -1,4 +1,5 @@
 const preloader = document.querySelector(".preloader")
+let preloaderHiddenTimeOut = 1400
 if (preloader) {
     enableScroll()
     disableScroll()
@@ -567,7 +568,7 @@ async function animate() {
         if (itemTop - itemScrolled < 0) {
             const animName = item.getAttribute("data-animation");
             if (preloader && !preloader.classList.contains("loaded")) {
-                await new Promise(resolve => setTimeout(resolve, 1400));
+                await new Promise(resolve => setTimeout(resolve, preloaderHiddenTimeOut));
             }
             while (isAnimating) {
                 await new Promise(resolve => setTimeout(resolve, 50));
@@ -743,6 +744,33 @@ if (aboutContainer && aboutRibbons) {
             strokeDashoffset: 0,
             ease: "none",
             duration: 1,
+        }, pathIdx * 0.2)
+    })
+}
+const introAbout = document.querySelector(".about-intro")
+const aboutLines = document.querySelector(".about-intro__lines")
+if (introAbout && aboutLines) {
+    aboutLines.querySelectorAll(".about-intro__lines-path").forEach(async (path, pathIdx) => {
+        let pathLength = path.getTotalLength()
+        path.style.strokeDasharray = pathLength + "px";
+        path.style.strokeDashoffset = pathLength + "px"
+        if (preloader && !preloader.classList.contains("loaded")) {
+            await new Promise(resolve => setTimeout(resolve, preloaderHiddenTimeOut));
+        }
+        gsap.to(path, {
+            strokeDashoffset: 0,
+            ease: "none",
+            duration: 2,
+            scrollTrigger: {
+                trigger: aboutLines,
+                start: "top+=200 bottom",
+                invalidateOnRefresh: true,
+                onEnter: () => {
+                    setTimeout(() => {
+                        introAbout.classList.add("line-animated")
+                    }, 1000);
+                }
+            },
         }, pathIdx * 0.2)
     })
 }
@@ -1000,7 +1028,7 @@ if (clubAchieveList.length) {
 const dataPrintBtn = document.querySelectorAll("[data-print-btn]")
 if (dataPrintBtn.length) {
     dataPrintBtn.forEach(btn => {
-        btn.addEventListener("click", async() => {
+        btn.addEventListener("click", async () => {
             const printBlock = document.querySelector(`[data-print-block='${btn.getAttribute("data-print-btn")}']`)
             let printName = btn.getAttribute("data-print-name")
             if (printBlock) {
@@ -1010,8 +1038,8 @@ if (dataPrintBtn.length) {
                         scale: 4,
                         useCORS: true,
                         letterRendering: true,
-                        logging: false,   
-                        scrollY: 0,     
+                        logging: false,
+                        scrollY: 0,
                     },
                     jsPDF: {
                         unit: 'mm',
@@ -1019,7 +1047,7 @@ if (dataPrintBtn.length) {
                         orientation: 'portrait'
                     }
                 };
-                html2pdf().set(opt).from(printBlock).save(); 
+                html2pdf().set(opt).from(printBlock).save();
             }
         })
     })
@@ -1047,9 +1075,16 @@ function setScheduleDate() {
             }
             if (dayEl) {
                 dayEl.innerHTML = daysOfWeek[day]
-                col.classList.add('col-schedule--'+ day)
+                col.classList.add('col-schedule--' + day)
             }
         }
     })
 }
 setScheduleDate()
+const scrollDownBtn = document.querySelector(".intro .scrollDown-btn")
+if (scrollDownBtn) {
+    scrollDownBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: document.querySelector(".intro").scrollHeight, behavior: 'smooth' })
+    })
+}

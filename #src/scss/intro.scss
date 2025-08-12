@@ -1,9 +1,19 @@
 .intro {
     position: relative;
     z-index: 1;
-    .breadrumbs {
+    .breadcrumbs {
+        margin-bottom: 20px;
         .container {
             padding: 0;
+        }
+    }
+    .scrollDown-btn {
+        width: 40px;
+        height: 40px;
+        svg {
+            fill: var(--coral-red-color);
+            width: 100%;
+            height: 100%;
         }
     }
     &__container {
@@ -56,7 +66,7 @@
             color: var(--light-gray-color);
             &.blur-text {
                 .char {
-                    transition-delay: calc(var(--char-i) * 0.03s + .6s);
+                    transition-delay: calc(var(--char-i) * 0.03s + 0.6s);
                 }
             }
         }
@@ -172,6 +182,68 @@
     @media (min-width: $bp1) {
         .intro__container {
             padding-bottom: 80px;
+        }
+    }
+}
+.about-intro {
+    &.line-animated .intro__container {
+        opacity: 1;
+        .blur-text .char {
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+    h1,
+    .h1 {
+        margin-top: 40px;
+    }
+    .intro__container {
+        opacity: 0;
+        transition: opacity 0.5s linear;
+        .blur-text .char {
+            filter: blur(10px) ;
+            opacity: 0;
+        }
+    }
+    &__logo {
+        width: 41%;
+        margin: auto;
+    }
+    &__lines {
+        height: 195%;
+        max-width: none;
+        max-height: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        pointer-events: none;
+        &-path {
+            fill: none;
+            stroke: #007af8;
+            stroke-miterlimit: 10;
+            stroke-width: 145px;
+        }
+    }
+    @media (max-width: $bp1) {
+        &__lines {
+            height: 167%;
+        }
+    }
+    @media (max-width: $bp2) {
+        &__logo {
+            width: 462px;
+        }
+    }
+    @media (max-width: $bp5) {
+        &__lines {
+            width: 200vw;
+            max-width: 200vw;
+            height: auto;
+        }
+        &__logo {
+            width: 100%;
         }
     }
 }

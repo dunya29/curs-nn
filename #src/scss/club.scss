@@ -227,10 +227,11 @@
 }
 .club-info,
 .image-block,
-.proj-why--map {
+.proj-why--map, 
+.about-goals {
     @media (min-width: $bp1) {
         .page-content {
-            p {
+            p, li {
                 font-size: 16px;
                 &.h1 {
                     font-size: 56px;

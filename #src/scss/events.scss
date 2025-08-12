@@ -157,6 +157,9 @@
             height: 36px;
             margin-right: 8px;
         }
+        span {
+            color: var(--dark-blue-color);
+        }
     }
     &__content {
         color: var(--dark-gray-color);

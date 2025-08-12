@@ -1,4 +1,5 @@
 .modal {
+    color: var(--black-color);
     visibility: hidden;
     opacity: 0;
     padding: 40px var(--container-offset);
@@ -16,13 +17,13 @@
     transition: all 0.3s 0.1s ease-out;
     &::-webkit-scrollbar {
         width: 8px;
-		background-color: var(--scrollbar-color);
+        background-color: var(--scrollbar-color);
         border-radius: 0;
-	}
-	&::-webkit-scrollbar-thumb {
-		background-color: var(--dark-blue-color);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--dark-blue-color);
         border-radius: 0;
-	}
+    }
     &.open {
         visibility: visible;
         opacity: 1;
@@ -39,7 +40,8 @@
         position: absolute;
         right: 40px;
         top: 40px;
-        &:before, &:after {
+        &:before,
+        &:after {
             height: 3px;
             background: var(--bright-blue-color);
         }
@@ -62,12 +64,12 @@
     }
     @media (max-width: $bp2) {
         &__content {
-            max-width: 700px
+            max-width: 700px;
         }
     }
     @media (max-width: $bp3) {
         &__content {
-            max-width: var(--content-width)
+            max-width: var(--content-width);
         }
     }
     @media (max-width: $bp4) {
@@ -98,10 +100,10 @@
     .modal__top {
         padding-right: 60px;
     }
-    .nav-btns {     
+    .nav-btns {
         position: absolute;
         bottom: 0;
-        right: 0
+        right: 0;
     }
     &__content {
         height: 100%;

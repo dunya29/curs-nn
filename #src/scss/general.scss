@@ -113,6 +113,14 @@ h6,
 	ol,
 	ul {
 		margin-bottom: 24px;
+		a {
+			&:hover {
+				color: var(--coral-red-color);
+			}
+		}
+		span {
+			color: var(--coral-red-color);
+		}
 	}
 	p {
 		margin-bottom: 12px;
@@ -120,6 +128,9 @@ h6,
 			&:hover {
 				color: var(--coral-red-color);
 			}
+		}
+		span {
+			color: var(--coral-red-color);
 		}
 	}
 	ol li,
@@ -800,7 +811,8 @@ figcaption {
 		}
 	}
 	@media (max-width: $bp2) {
-		h4, .h4 {
+		h4,
+		.h4 {
 			font-size: 20px;
 		}
 	}

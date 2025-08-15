@@ -790,14 +790,25 @@
             </div>
         </div>
     </footer>
-            <!--review-mod-->
+            <!--cookie-->
+<div class="cookie fixed-block" id="cookie-popup">
+    <div class="cookie__inner">
+        <div class="cookie__content">
+            <p>Наш сайт использует файлы cookie для улучшения работы, персонализации контента и проведения аналитики. Продолжая использовать сайт, вы соглашаетесь на использование cookie в соответствии с нашей <a href="#" target="_blank">Политикой конфиденциальности</a>.</p>
+        </div>
+        <div class="cookie__btns">
+            <button class="btn main-btn" onclick="unshowCookie()"><span>Ок</span></button>
+        </div>
+    </div>
+</div>
+<!--review-mod-->
 <modal class="custom-scroll modal review-mod" id="review-mod">
     <div class="modal__content">
         <button type="button" class="btn btn-cross modal__close"></button>
         <div class="modal__top">
             <h4 class="modal__title">Заполните форму ниже</h4>
         </div>
-        <form class="form">
+        <form class="form" onsubmit="event.preventDefault();formReset(this);openSuccessMod()">
             <div class="form__items">
                 <div class="form__grid">
                     <label class="item-form">
@@ -828,6 +839,28 @@
         </form>
     </div>
 </modal>
+<!--success-mod-->
+<div class="custom-scroll modal success-mod" id="success-mod">
+    <div class="modal__content">
+        <button type="button" class="btn btn-cross modal__close"></button>
+        <div class="modal__top">
+            <h4 class="modal__title"></h4>
+        </div>
+        <p></p>
+        <button type="button" class="btn main-btn modal__close"><span>Закрыть</span></button>
+    </div>
+</div>
+<!--error-mod-->
+<div class="custom-scroll modal error-mod" id="error-mod">
+    <div class="modal__content">
+        <button type="button" class="btn btn-cross modal__close"></button>
+        <div class="modal__top">
+            <h4 class="modal__title"></h4>
+        </div>
+        <p></p>
+        <button type="button" class="btn main-btn modal__close"><span>Закрыть</span></button>
+    </div>
+</div>
         </div>
         <!--scripts-->
 <script src="js/libs/gsap.min.js"></script>

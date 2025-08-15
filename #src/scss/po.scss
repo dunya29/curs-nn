@@ -39,6 +39,17 @@
             max-width: 740px;
         }
     }
+     @media (min-width: $bp2) and (max-width: $bp1) {
+        p {
+            font-size: 20px;
+        }
+     }
+     @media (max-width: $bp4) {
+        .btn {
+            width: auto;
+            min-width: 220px;
+        }
+     }
 }
 .po-feedback {
     .page-content {
@@ -54,6 +65,12 @@
             &::before {
                 content: none;
             }
+        }
+    }
+    .form__footer {
+        text-align: left;
+        .btn {
+            width: 220px;
         }
     }
     &__inner {
@@ -88,6 +105,13 @@
         }
         &__row {
             padding: 32px;
+        }
+    }
+    @media (max-width: $bp2) {
+        .page-content {
+            p,li {
+                font-size: 14px;
+            }
         }
     }
     @media (max-width: $bp4) {

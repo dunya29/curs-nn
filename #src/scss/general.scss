@@ -181,6 +181,17 @@ h6,
 	table {
 		width: 100%;
 		display: block;
+		overflow-x: auto;
+		padding-bottom: 4px;
+		margin: 24px 0 20px;
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--scrollbar-thumb-color);
+			border-radius: 8px;
+		}
+		&::-webkit-scrollbar {
+			height: 4px;
+			border-radius: 8px;
+		}
 		thead,
 		tbody {
 			display: table;
@@ -189,6 +200,40 @@ h6,
 		tr {
 			width: 100% !important;
 			height: auto !important;
+			display: flex;
+			border: 1px solid var(--dark-gray-color);
+			margin-bottom: -1px;
+		}
+		tbody {
+			tr {
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+		th {
+			background: var(--light-gray-color);
+		}
+		th,
+		td {
+			width: 360px;
+			padding: 18px 20px;
+			border-right: 1px solid var(--dark-gray-color);
+			text-align: left;
+			&:last-child {
+				border-right: 0;
+			}
+		}
+		@media (max-width: 575px) {
+			width: auto;
+			padding: 0 var(--container-offset);
+			margin: 0 calc(var(--container-offset) / -1) 24px;
+			scrollbar-width: none;
+			&::-webkit-scrollbar {
+				display: none;
+				width: 0;
+				height: 0;
+			}
 		}
 	}
 	@media (min-width: $bp1) {
@@ -623,6 +668,11 @@ figcaption {
 	@media (max-width: $bp1) {
 		&__grid {
 			gap: 20px;
+		}
+	}
+	@media (max-width: $bp2) {
+		.item-checkbox span{
+			font-size: 14px;
 		}
 	}
 	@media (max-width: $bp3) {

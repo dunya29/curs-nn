@@ -913,16 +913,15 @@ a.proj-video__gall-item {
     }
 }
 .reviews {
-    &__item {
+    .swiper {
         min-height: 382px;
+    }
+    &__item {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        blockquote {
-            max-width: calc(100% / 12 * 6 - 15px);
-        }
         .media-cover {
             width: 180px;
             height: 180px;
@@ -930,10 +929,11 @@ a.proj-video__gall-item {
         }
     }
     @media (max-width: $bp1) {
+        .width-6col,
+        .width-8col {
+            max-width: 656px;
+        }
         &__item {
-            blockquote {
-                max-width: 656px;
-            }
             .media-cover {
                 width: 120px;
                 height: 120px;

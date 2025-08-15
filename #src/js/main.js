@@ -13,8 +13,9 @@ const menuMobileBtn = document.querySelector('.menu-mobile__btn');
 const mobMenu = document.querySelector('.menu-mobile');
 const iconMenu = document.querySelector('.icon-menu');
 const modal = document.querySelectorAll(".modal")
-const successModal = document.querySelector(".success-mod")
-const errorModal = document.querySelector(".error-mod")
+const successMod = document.querySelector("#success-mod")
+const errorMod = document.querySelector("#error-mod")
+const cookiePopup = document.querySelector("#cookie-popup")
 const dropdown = document.querySelectorAll(".dropdown")
 let mm = gsap.matchMedia()
 let animSpd = 400
@@ -221,6 +222,64 @@ function modalUnshowBtns() {
     }
 }
 modalUnshowBtns()
+//setSuccessTxt
+function setSuccessTxt(title = false, txt = false, btnTxt = false) {
+    console.log(successMod.querySelector(".modal__title"))
+    successMod.querySelector(".modal__title").textContent = title ? title : "Ваша заявка принята"
+    successMod.querySelector(".main-btn span").textContent = btnTxt ? btnTxt : "Закрыть"
+    successMod.querySelector("p").textContent = txt ? txt : ''
+}
+//setErrorTxt
+function setErrorTxt(title = false, txt = false, btnTxt = false) {
+    errorMod.querySelector(".modal__title").textContent = title ? title : "Ошибка"
+    errorMod.querySelector(".main-btn span").textContent = btnTxt ? btnTxt : "Закрыть"
+    errorMod.querySelector("p").textContent = txt ? txt : ''
+}
+// openSuccessMod
+function openSuccessMod(title = false, txt = false, btnTxt = false) {
+    setSuccessTxt(title, txt, btnTxt)
+    openModal(successMod)
+}
+// openErrorMod
+function openErrorMod(title = false, txt = false, btnTxt = false) {
+    setErrorTxt(title, txt, btnTxt)
+    openModal(errorMod)
+}
+// formReset
+function formReset(form) {
+    if (form.querySelectorAll(".item-form").length > 0) {
+        form.querySelectorAll(".item-form").forEach(item => item.classList.remove("error"))
+    }
+    if (form.querySelectorAll("[data-error]").length > 0) {
+        form.querySelectorAll("[data-error]").forEach(item => item.textContent = '')
+    }
+    form.querySelectorAll("input").forEach(inp => {
+        if (!["hidden", "checkbox", "radio"].includes(inp.type)) {
+            inp.value = ""
+        }
+        if (["checkbox", "radio"].includes(inp.type) && !inp.classList.contains("required")) {
+            inp.checked = false
+        }
+    })
+    if (form.querySelector("textarea")) {
+        form.querySelector("textarea").value = ""
+    }
+    if (form.querySelector(".file-form__items")) {
+        form.querySelector(".file-form__items").innerHTML = ""
+    }
+}
+//show cookie
+function showCookie() {
+    if (cookiePopup) {
+        cookiePopup.classList.add("show")
+    }
+}
+//show cookie
+function unshowCookie() {
+    if (cookiePopup) {
+        cookiePopup.classList.remove("show")
+    }
+}
 //open dropdown
 function openDropdown(item) {
     item.classList.add("open");
@@ -665,7 +724,7 @@ if (introAbout && aboutLines) {
 }
 //events
 const eventsWrapper = document.querySelector(".events__wrapper")
-const eventsMod = document.querySelector("#event-modal")
+const eventsMod = document.querySelector("#event-mod")
 const eventsModContent = document.querySelector("[data-event-mod-content]")
 const eventsCol = document.querySelectorAll(".events .swiper-slide")
 //events swiper
@@ -985,7 +1044,7 @@ if (scrollDownBtn) {
     })
 }
 //member popup
-const memberMod = document.querySelector("#member-modal")
+const memberMod = document.querySelector("#member-mod")
 const memberModContent = document.querySelector("[data-member-mod-content]")
 const memberItems = document.querySelectorAll(".item-member")
 if (memberItems.length) {
@@ -1001,5 +1060,67 @@ if (memberItems.length) {
                 }
             }
         })
+    })
+}
+const mainMemberCol = document.querySelector(".members__col--main")
+const memFirstColLastIt = document.querySelector(".members__col--first .item-member:last-child")
+const memSecColFirstIt = document.querySelector(".members__col--second .item-member:first-child")
+const memThirdColFirstIt = document.querySelector(".members__col--third .item-member:first-child")
+const memFirstColItLines = document.querySelectorAll(".members__col--first .item-member__line")
+const memLeftLine = document.querySelector(".members__line--left")
+const memRightLine = document.querySelector(".members__line--right")
+let mainMemberColPos 
+function getMainMemberColPos() {
+    return {
+        height: mainMemberCol.clientHeight,
+        top: mainMemberCol.getBoundingClientRect().top,
+        left: mainMemberCol.getBoundingClientRect().left,
+        right: mainMemberCol.getBoundingClientRect().right,
+    }
+}
+function setMemberLeftLine() {
+    if (memFirstColLastIt && memLeftLine) {
+        let memFirstColLastItPos = {
+            width: memFirstColLastIt.clientWidth,
+            height: memFirstColLastIt.clientHeight,
+            top: memFirstColLastIt.getBoundingClientRect().top,
+            right: memFirstColLastIt.getBoundingClientRect().right
+        }
+        let memLeftLineW = mainMemberColPos.left - memFirstColLastItPos.right
+        let memLeftLineH = memFirstColLastItPos.top - mainMemberColPos.top - (memFirstColLastItPos.height / 2)
+        let memLeftLineMobH = memSecColFirstIt.getBoundingClientRect().top - mainMemberColPos.top + mainMemberColPos.height / 2 - (memSecColFirstIt.getBoundingClientRect().height / 2)
+        memLeftLine.style.width = memLeftLineW + 'px'
+        memLeftLine.style.height = window.innerWidth > bp.laptop ? memLeftLineH + 'px' : memLeftLineMobH + "px"
+        memLeftLine.style.top = mainMemberColPos.height / 2 + 'px'
+        memLeftLine.style.left = memFirstColLastItPos.width + 'px'
+        if (memFirstColItLines) {
+            memFirstColItLines.forEach(item => item.style.width = memLeftLineW / 3 + 'px')
+        }
+    } 
+}
+function setMemberRightLine() {
+    if (memThirdColFirstIt && memRightLine) {
+        let memThirdColFirstItPos = {
+            width: memThirdColFirstIt.clientWidth,
+            height: memThirdColFirstIt.clientHeight,
+            left: memThirdColFirstIt.getBoundingClientRect().left,
+            top: memThirdColFirstIt.getBoundingClientRect().top
+        }
+        let memRightLineW = memThirdColFirstItPos.left - mainMemberColPos.right
+        let memRightLineH = memThirdColFirstItPos.top - mainMemberColPos.top + mainMemberColPos.height / 2 - (memThirdColFirstItPos.height / 2) 
+        memRightLine.style.width = memRightLineW + 'px'
+        memRightLine.style.height = memRightLineH + 'px'
+        memRightLine.style.top = mainMemberColPos.height / 2 + 'px'
+        memRightLine.style.right = memThirdColFirstItPos.width + 'px'
+    } 
+}
+if (mainMemberCol) {
+    mainMemberColPos = getMainMemberColPos()
+    setMemberLeftLine()
+    setMemberRightLine()
+    window.addEventListener("resize", () => {
+        mainMemberColPos = getMainMemberColPos()
+        setMemberLeftLine()
+        setMemberRightLine()
     })
 }

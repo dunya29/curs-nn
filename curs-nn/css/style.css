@@ -5235,6 +5235,11 @@ a.proj-video__gall-item .media-cover img {
   color: var(--dark-gray-color);
 }
 
+.cookie p a {
+  color: var(--bright-blue-color);
+  text-decoration: underline;
+}
+
 .cookie .btn {
   font-size: 14px;
   padding: 10px 24px;
@@ -5242,7 +5247,7 @@ a.proj-video__gall-item .media-cover img {
 }
 
 .cookie__inner {
-  max-width: 401px;
+  max-width: 404px;
   color: var(--black-color);
   padding: 16px;
   border-radius: 12px;

@@ -1047,6 +1047,22 @@ if (scrollDownBtn) {
 const memberMod = document.querySelector("#member-mod")
 const memberModContent = document.querySelector("[data-member-mod-content]")
 const memberItems = document.querySelectorAll(".item-member")
+function adjustSizeToMultOf9(item) {
+    item.style.width = null
+    item.style.height = null
+    setTimeout(() => {
+        let widthSum = parseInt(item.clientWidth).toString().split().reduce((sum, digit) => sum + +digit, 0)
+        let heightSumm = parseInt(item.clientHeight).toString().split().reduce((sum, digit) => sum + +digit, 0)
+        while (widthSum % 9 !== 0) {
+            widthSum = widthSum - 1
+        }
+        while (heightSumm % 9 !== 0) {
+            heightSumm = heightSumm + 1
+        }
+        item.style.width = widthSum + "px"
+        item.style.height = heightSumm + "px"
+    }, 0);
+}
 if (memberItems.length) {
     memberItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -1060,6 +1076,20 @@ if (memberItems.length) {
                 }
             }
         })
+        if (!item.parentNode.classList.contains("members__team")) {
+            adjustSizeToMultOf9(item)
+        } else {
+            adjustSizeToMultOf9(item.parentNode)
+        }
+    })
+    window.addEventListener("resize", () => {
+        memberItems.forEach(item => {
+            if (!item.parentNode.classList.contains("members__team")) {
+                adjustSizeToMultOf9(item)
+            } else {
+                adjustSizeToMultOf9(item.parentNode)
+            }
+        })
     })
 }
 const mainMemberCol = document.querySelector(".members__col--main")
@@ -1069,7 +1099,7 @@ const memThirdColFirstIt = document.querySelector(".members__col--third .item-me
 const memFirstColItLines = document.querySelectorAll(".members__col--first .item-member__line")
 const memLeftLine = document.querySelector(".members__line--left")
 const memRightLine = document.querySelector(".members__line--right")
-let mainMemberColPos 
+let mainMemberColPos
 function getMainMemberColPos() {
     return {
         height: mainMemberCol.clientHeight,
@@ -1096,7 +1126,7 @@ function setMemberLeftLine() {
         if (memFirstColItLines) {
             memFirstColItLines.forEach(item => item.style.width = memLeftLineW / 3 + 'px')
         }
-    } 
+    }
 }
 function setMemberRightLine() {
     if (memThirdColFirstIt && memRightLine) {
@@ -1107,12 +1137,12 @@ function setMemberRightLine() {
             top: memThirdColFirstIt.getBoundingClientRect().top
         }
         let memRightLineW = memThirdColFirstItPos.left - mainMemberColPos.right
-        let memRightLineH = memThirdColFirstItPos.top - mainMemberColPos.top + mainMemberColPos.height / 2 - (memThirdColFirstItPos.height / 2) 
+        let memRightLineH = memThirdColFirstItPos.top - mainMemberColPos.top + mainMemberColPos.height / 2 - (memThirdColFirstItPos.height / 2)
         memRightLine.style.width = memRightLineW + 'px'
         memRightLine.style.height = memRightLineH + 'px'
         memRightLine.style.top = mainMemberColPos.height / 2 + 'px'
         memRightLine.style.right = memThirdColFirstItPos.width + 'px'
-    } 
+    }
 }
 if (mainMemberCol) {
     mainMemberColPos = getMainMemberColPos()

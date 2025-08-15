@@ -102,6 +102,16 @@ function smoothDrop(header, body, dur = false) {
         }, 0);
     }
 }
+//debounde 
+function debounce(func, delay = 100) {
+    let timeoutId;
+    return function (...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
 //tabSwitch
 function tabSwitch(nav, block) {
     nav.forEach((item, idx) => {
@@ -1047,51 +1057,6 @@ if (scrollDownBtn) {
 const memberMod = document.querySelector("#member-mod")
 const memberModContent = document.querySelector("[data-member-mod-content]")
 const memberItems = document.querySelectorAll(".item-member")
-function adjustSizeToMultOf9(item) {
-    item.style.width = null
-    item.style.height = null
-    setTimeout(() => {
-        let widthSum = parseInt(item.clientWidth).toString().split().reduce((sum, digit) => sum + +digit, 0)
-        let heightSumm = parseInt(item.clientHeight).toString().split().reduce((sum, digit) => sum + +digit, 0)
-        while (widthSum % 9 !== 0) {
-            widthSum = widthSum - 1
-        }
-        while (heightSumm % 9 !== 0) {
-            heightSumm = heightSumm + 1
-        }
-        item.style.width = widthSum + "px"
-        item.style.height = heightSumm + "px"
-    }, 0);
-}
-if (memberItems.length) {
-    memberItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const itemModContent = item.querySelector(".item-member__mod")
-            if (itemModContent) {
-                let modTitle = itemModContent.getAttribute("data-title")
-                if (memberMod && modTitle && memberModContent) {
-                    memberMod.querySelector(".modal__title").innerHTML = modTitle
-                    memberModContent.innerHTML = itemModContent.innerHTML
-                    openModal(memberMod)
-                }
-            }
-        })
-        if (!item.parentNode.classList.contains("members__team")) {
-            adjustSizeToMultOf9(item)
-        } else {
-            adjustSizeToMultOf9(item.parentNode)
-        }
-    })
-    window.addEventListener("resize", () => {
-        memberItems.forEach(item => {
-            if (!item.parentNode.classList.contains("members__team")) {
-                adjustSizeToMultOf9(item)
-            } else {
-                adjustSizeToMultOf9(item.parentNode)
-            }
-        })
-    })
-}
 const mainMemberCol = document.querySelector(".members__col--main")
 const memFirstColLastIt = document.querySelector(".members__col--first .item-member:last-child")
 const memSecColFirstIt = document.querySelector(".members__col--second .item-member:first-child")
@@ -1144,13 +1109,57 @@ function setMemberRightLine() {
         memRightLine.style.right = memThirdColFirstItPos.width + 'px'
     }
 }
-if (mainMemberCol) {
-    mainMemberColPos = getMainMemberColPos()
-    setMemberLeftLine()
-    setMemberRightLine()
-    window.addEventListener("resize", () => {
+function adjustSizeToMultOf9(item) {
+    item.style.width = null
+    item.style.height = null
+    setTimeout(() => {
+        let widthSum = parseInt(item.clientWidth).toString().split().reduce((sum, digit) => sum + +digit, 0)
+        let heightSumm = parseInt(item.clientHeight).toString().split().reduce((sum, digit) => sum + +digit, 0)
+        while (widthSum % 9 !== 0) {
+            widthSum = widthSum - 1
+        }
+        while (heightSumm % 9 !== 0) {
+            heightSumm = heightSumm + 1
+        }
+        item.style.width = widthSum + "px"
+        item.style.height = heightSumm + "px"
+    }, 0);
+}
+function memberItemDash() {
+    memberItems.forEach(item => {
+        if (!item.parentNode.classList.contains("members__team")) {
+            adjustSizeToMultOf9(item);
+        } else {
+            adjustSizeToMultOf9(item.parentNode);
+        }
+    });
+    if (mainMemberCol) {
         mainMemberColPos = getMainMemberColPos()
         setMemberLeftLine()
         setMemberRightLine()
+    }
+}
+if (memberItems.length) {
+    memberItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const itemModContent = item.querySelector(".item-member__mod")
+            if (itemModContent) {
+                let modTitle = itemModContent.getAttribute("data-title")
+                if (memberMod && modTitle && memberModContent) {
+                    memberMod.querySelector(".modal__title").innerHTML = modTitle
+                    memberModContent.innerHTML = itemModContent.innerHTML
+                    openModal(memberMod)
+                }
+            }
+        })
     })
+    memberItemDash()
+    let currWinW = window.innerWidth
+    const handleResize = debounce(() => {
+        if (currWinW != window.innerWidth) {
+            memberItemDash()
+            currWinW = window.innerWidth
+        }
+    }, 150);
+    window.addEventListener("resize", handleResize);
 }

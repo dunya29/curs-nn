@@ -284,9 +284,7 @@ a.proj-video__gall-item {
         gap: 20px;
     }
 }
-.proj-features,
-.proj-goals,
-.about-goals {
+.specs {
     .media-el {
         height: 100%;
         img {
@@ -352,9 +350,6 @@ a.proj-video__gall-item {
     }
 }
 .proj-why {
-    .text-center {
-        margin-bottom: 80px;
-    }
     &__row {
         display: grid;
         grid-template-columns: 1fr 2.05fr;
@@ -370,16 +365,8 @@ a.proj-video__gall-item {
         }
     }
     @media (max-width: $bp1) {
-        .text-center {
-            margin-bottom: 60px;
-        }
         &__row {
             gap: 20px;
-        }
-    }
-    @media (max-width: $bp2) {
-        .text-center {
-            margin-bottom: 40px;
         }
     }
     @media (max-width: $bp3) {
@@ -581,7 +568,8 @@ a.proj-video__gall-item {
         }
     }
 }
-.proj-achieve {
+.proj-achieve,
+.po-mission {
     background: url(../img/project-achieve-bg.jpg) center/cover no-repeat;
     .page-content {
         li {
@@ -621,6 +609,7 @@ a.proj-video__gall-item {
     }
     @media (max-width: $bp3) {
         &__inner {
+            max-width: 570px;
             padding: 20px;
         }
     }
@@ -855,7 +844,8 @@ a.proj-video__gall-item {
 }
 .priority {
     .sec-top {
-        h2,.h2 {
+        h2,
+        .h2 {
             max-width: 882px;
         }
     }

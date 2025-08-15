@@ -247,13 +247,13 @@
                     </div>
                 </section>
                 <!--proj-features-->
-                <section class="section section--dark proj-features" data-animation="fadeUp">
+                <section class="section section--dark specs proj-features" data-animation="fadeUp">
                     <div class="container">
                         <div class="sec-top">
                             <h2 class="blur-text" data-animation="blurFadeUp">Особенности ролика</h2>
                         </div>
-                        <div class="grid-2col proj-features__row">
-                            <div class="page-content proj-features__content">
+                        <div class="grid-2col">
+                            <div class="page-content specs__content">
                                 <ol>
                                     <li>Главный герой ролика&nbsp;— молодой горьковчанин, который встретил Великую Отечественную войну на&nbsp;футбольном поле. В&nbsp;военные
                                         годы спортсмены в&nbsp;рядах армии отправились защищать нашу Родину, а&nbsp;кто‑то ковал Победу, находясь на&nbsp;производствах.
@@ -391,13 +391,42 @@
             </div>
         </div>
     </footer>
-            <!--modal-->
-<modal class="custom-scroll modal">
+            <!--review-mod-->
+<modal class="custom-scroll modal review-mod" id="review-mod">
     <div class="modal__content">
         <button type="button" class="btn btn-cross modal__close"></button>
-        <div class="custom-scroll">
-            <div class="modal__top"></div>
+        <div class="modal__top">
+            <h4 class="modal__title">Заполните форму ниже</h4>
         </div>
+        <form class="form">
+            <div class="form__items">
+                <div class="form__grid">
+                    <label class="item-form">
+                        <span class="item-form__lbl">ФИО<span aria-hidden="true">*</span></span>
+                        <input type="text" placeholder="ФИО" aria-required="true">
+                        <span data-error></span>
+                    </label>
+                    <label class="item-form">
+                        <span class="item-form__lbl">Почта<span aria-hidden="true">*</span></span>
+                        <input type="text" placeholder="Почта" aria-required="true">
+                        <span data-error></span>
+                    </label>
+                </div>
+                <label class="item-form">
+                    <span class="item-form__lbl">Отзыв<span aria-hidden="true">*</span></span>
+                    <textarea type="text" placeholder="Отзыв" aria-required="true"
+                        oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
+                    <span data-error></span>
+                </label>
+            </div>
+            <label class="item-checkbox">
+                <input type="checkbox">
+                <span>Я даю согласие на <a href="#" target="_blank">обработку персональных данных</a></span>
+            </label>
+            <div class="form__footer">
+                <button type="submit" class="btn main-btn"><span>Отправить</span></button>
+            </div>
+        </form>
     </div>
 </modal>
         </div>

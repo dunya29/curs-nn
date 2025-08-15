@@ -49,6 +49,9 @@
     &__top {
         margin-bottom: 24px;
     }
+    &__title {
+        padding-right: 40px;
+    }
     &__content {
         width: 100%;
         max-width: 922px;
@@ -62,9 +65,17 @@
         transform: translateY(30px);
         transition: all 0.3s ease-out;
     }
+    @media (max-width: $bp1) {
+        &__title {
+            font-size: 28px;
+        }
+    }
     @media (max-width: $bp2) {
         &__content {
             max-width: 700px;
+        }
+        &__title {
+            font-size: 20px;
         }
     }
     @media (max-width: $bp3) {
@@ -87,45 +98,6 @@
         }
         &__content {
             padding: 20px;
-        }
-    }
-}
-.fancy-modal {
-    display: block;
-    background: var(--white-color);
-    .modal__close.btn-cross {
-        top: 0 !important;
-        right: 0 !important;
-    }
-    .modal__top {
-        padding-right: 60px;
-    }
-    .nav-btns {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
-    &__content {
-        height: 100%;
-        min-height: 200px;
-        max-width: var(--content-width);
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-    }
-    &__mainswiper {
-        flex: 1 1 auto;
-        display: flex;
-        position: relative;
-        .swiper {
-            width: 100%;
-            height: 100%;
-        }
-        .swiper-slide,
-        .media-contain,
-        .media-cover {
-            height: 100%;
         }
     }
 }
@@ -186,6 +158,13 @@
             &:last-child {
                 margin-bottom: 0;
             }
+        }
+    }
+}
+.review-mod {
+    @media (min-width: $bp4) {
+        .modal__content {
+            max-width: 640px;
         }
     }
 }

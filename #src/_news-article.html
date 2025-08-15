@@ -2,7 +2,13 @@
 <article class="news-article" data-animation="fadeUp">
     <div class="news-article__preview">
         <a href="#" class="media-cover">
-            <img loading="lazy" src="img/content/news-3.jpg" alt>
+            <picture>
+                <source srcset="img/content/news-3.webp" type="image/webp" media="(min-width: 1280.98px)">
+                <source srcset="img/content/news-3.jpg" media="(min-width: 1280.98px)">
+                <source srcset="img/content/news-3-1280.webp" type="image/webp">
+                <source srcset="img/content/news-3-1280.jpg">
+                <img src="img/content/news-3.jpg" alt loading="lazy" class="scaleUp">
+            </picture>
         </a>
         <div class="page-tags">
             <a href="#" class="page-tags__item">

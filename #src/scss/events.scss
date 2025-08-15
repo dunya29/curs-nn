@@ -131,14 +131,10 @@
     &__mod {
         display: none;
     }
-    &__mod-title,
     &__details,
     &__content,
     &__location {
         margin-bottom: 24px;
-    }
-    &__mod-title {
-        padding-right: 40px;
     }
     &__details {
         display: flex;
@@ -195,9 +191,6 @@
         gap: 24px;
     }
     @media (max-width: $bp1) {
-        &__mod-title {
-            font-size: 28px;
-        }
         &__det {
             .h5 {
                 font-size: 20px;
@@ -208,9 +201,6 @@
         padding: 16px 12px;
         &__clubs {
             font-size: 14px;
-        }
-        &__mod-title {
-            font-size: 20px;
         }
         &__det {
             margin-right: 24px;
@@ -234,7 +224,6 @@
     }
     @media (max-width: $bp4) {
         margin-bottom: 12px;
-        &__mod-title,
         &__details,
         &__content,
         &__location {
@@ -258,7 +247,6 @@
         }
     }
 }
-
 .filter {
     .dropdown {
         margin: 5px;

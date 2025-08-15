@@ -206,10 +206,10 @@
                     </div>
                 </section>
                 <!--proj-goals-->
-                <section class="section section--dark proj-goals" data-animation="fadeUp">
+                <section class="section section--dark specs proj-goals" data-animation="fadeUp">
                     <div class="container">
-                        <div class="grid-2col proj-goals__row">
-                            <div class="proj-goals__content">
+                        <div class="grid-2col">
+                            <div class="specs__content">
                                 <div class="sec-top">
                                     <h2 class="h4 blur-text" data-animation="blurFadeUp">Цели проекта:</h2>
                                 </div>
@@ -374,13 +374,13 @@
                     </div>
                 </section>
                 <!--proj-features-->
-                <section class="section section--dark proj-features" data-animation="fadeUp">
+                <section class="section section--dark specs proj-features" data-animation="fadeUp">
                     <div class="container">
                         <div class="sec-top">
                             <h2 class="blur-text" data-animation="blurFadeUp">ЗАДАЧИ, КОТОРЫЕ МЫ&nbsp;РЕАЛИЗОВАЛИ</h2>
                         </div>
-                        <div class="grid-2col proj-features__row">
-                            <div class="page-content proj-features__content">
+                        <div class="grid-2col">
+                            <div class="page-content specs__content">
                                 <ol>
                                     <li>Создали художественное произведение, ставшее символом единения культуры, спорта и архитектуры.</li>
                                     <li>Для НГХМ эта коллаборация также стала удачной — музей привлек новую аудиторию: посмотреть выставку пришли почти 10 тыс.
@@ -559,13 +559,42 @@
             </div>
         </div>
     </footer>
-            <!--modal-->
-<modal class="custom-scroll modal">
+            <!--review-mod-->
+<modal class="custom-scroll modal review-mod" id="review-mod">
     <div class="modal__content">
         <button type="button" class="btn btn-cross modal__close"></button>
-        <div class="custom-scroll">
-            <div class="modal__top"></div>
+        <div class="modal__top">
+            <h4 class="modal__title">Заполните форму ниже</h4>
         </div>
+        <form class="form">
+            <div class="form__items">
+                <div class="form__grid">
+                    <label class="item-form">
+                        <span class="item-form__lbl">ФИО<span aria-hidden="true">*</span></span>
+                        <input type="text" placeholder="ФИО" aria-required="true">
+                        <span data-error></span>
+                    </label>
+                    <label class="item-form">
+                        <span class="item-form__lbl">Почта<span aria-hidden="true">*</span></span>
+                        <input type="text" placeholder="Почта" aria-required="true">
+                        <span data-error></span>
+                    </label>
+                </div>
+                <label class="item-form">
+                    <span class="item-form__lbl">Отзыв<span aria-hidden="true">*</span></span>
+                    <textarea type="text" placeholder="Отзыв" aria-required="true"
+                        oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
+                    <span data-error></span>
+                </label>
+            </div>
+            <label class="item-checkbox">
+                <input type="checkbox">
+                <span>Я даю согласие на <a href="#" target="_blank">обработку персональных данных</a></span>
+            </label>
+            <div class="form__footer">
+                <button type="submit" class="btn main-btn"><span>Отправить</span></button>
+            </div>
+        </form>
     </div>
 </modal>
         </div>

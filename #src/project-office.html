@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    @@include('_head.html', {
+    "title": "О проектном офисе"
+    })
+
+    <body class="no-scroll">
+        @@include('_preloader.html')
+        <div class="wrap">
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main">
+                <!--intro-->
+                <section class="intro po-intro">
+                    <div class="media-cover intro__bg">
+                        <span class="media-cover-bg"></span>
+                        <picture>
+                            <source srcset="img/content/po-intro.webp" type="image/webp" media="(min-width: 767.98px)">
+                            <source srcset="img/content/po-intro.jpg" media="(min-width: 767.98px)">
+                            <source srcset="img/content/po-intro-mob.webp" type="image/webp">
+                            <source srcset="img/content/po-intro-mob.jpg">
+                            <img src="img/content/po-intro.jpg" alt loading="lazy" class="scaleUp">
+                        </picture>
+                    </div>
+                    <div class="container intro__container">
+                        @@include('_breadcrumbs.html', {'page': 'О проектном офисе'})
+                        <div class="intro__content">
+                            <h1 class="h1 blur-text" data-animation="blurFadeUp">О проектном офисе</h1>
+                            <button class="btn scrollDown-btn"><svg><use xlink:href="img/svg/sprite.svg#scroll-down"></use></svg></button>
+                        </div>
+                    </div>
+                </section>
+                <!--po-aims-->
+                <section class="section section--dark specs po-aims" data-animation="fadeUp">
+                    <div class="container">
+                        <div class="mb-60 page-content text-center width-8col">
+                            <p class="h3">Проектный офис объединяет усилия экспертов для популяризации физической культуры, вовлечения населения в систематические занятия
+                                спортом, а также самореализации и развития способностей граждан в сфере физической культуры и спорта.</p>
+                        </div>
+                        <h3 class="mb-32 po-aims__title">Цели организации</h3>
+                        <div class="page-content specs__content">
+                            <ol>
+                                <li>Сопровождение спортивных мероприятий на территории Нижегородской области.</li>
+                                <li>Методическое сопровождение деятельности федераций по видам спорта в Нижегородской области.</li>
+                                <li>Сопровождение физкультурно-массовых мероприятий на территории Нижегородской области.</li>
+                                <li>Научно-исследовательская деятельность в области физической культуры и спорта.</li>
+                                <li>Организация и проведение мероприятий и реализация ВФСК ГТО на территории Нижегородской области.</li>
+                                <li>Обеспечение качественной и своевременной процедуры статистического наблюдения за основными показателями развития сферы физической культуры
+                                    и
+                                    спорта в Нижегородской области.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+                <!--po-structure-->
+                <section class="section section--dark po-structure">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Структура управления</h2>
+                        </div>
+                        <div class="po-structure__cols">
+                            <div class="po-structure__col po-structure__col--main">
+                                @@include("_item-member.html", {
+                                "col2": false,
+                                "nmb": 1,
+                                "name": "ИСАЕВ АНДРЕЙ НИКОЛАЕВИЧ",
+                                "pos1": "Заместитель генерального директора — руководитель проектного офиса АНО «ЦУРС»",
+                                "pos2": false,
+                                "modTitle1":'Отдел по сопровождению физкультурно-массовых мероприятий',
+                                "modTitle2": false,
+                                "modPos2": false,
+                                "modPos1": "Направление деятельности: сопровождение физкультурно-массовых мероприятий"
+                                })
+                            </div>
+                            <div class="po-structure__col">
+                                @@include("_item-member.html", {
+                                "col2": false,
+                                "nmb": 1,
+                                "name": "КАЗАЧКОВ АНДРЕЙ МИХАЙЛОВИЧ",
+                                "pos1": "Начальник отдела правовой экспертизы",
+                                "pos2": false,
+                                "modTitle1":'Сектор аналитической работы центров тестирования ВФСК ГТО',
+                                "modTitle2": false,
+                                "modPos2": false,
+                                "modPos1": "Направление деятельности: организация и проведение мероприятий и реализации"
+                                })
+                                @@include("_item-member.html", {
+                                "col2": false,
+                                "nmb": 1,
+                                "name": "ВОРОБЬЕВ НИКОЛАЙ БОРИСОВИЧ",
+                                "pos1": "Начальник отдела учета статистических данных отрасли «Физическая Культура и&nbsp;спорт»",
+                                "pos2": false,
+                                "modTitle1":'Отдел учёта и статистических данных отрасли «Физическая культура и спорт»',
+                                "modTitle2": false,
+                                "modPos2": false,
+                                "modPos1":
+                                "Направление деятельности: обеспечение качественной и своевременной процедуры статистического наблюдения за основными показателями развития сферы физической культуры и спорта в Нижегородской области"
+                                })
+                                <!--item-member-->
+                                <div class="item-member" data-animation="fadeUp">
+                                    <div class="item-member__inner">
+                                        <h5 class="item-member__name">ГРУППА ПО ОБЕСПЕЧЕНИЮ ДЕЯТЕЛЬНОСТИ ПРОЕКТНОГО ОФИСА</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="po-structure__col po-structure__col--center">
+                                @@include("_item-member.html", {
+                                "col2": false,
+                                "nmb": false,
+                                "name": "МОСКВИН АЛЕКСЕЙ ВАЛЕНТИНОВИЧ",
+                                "pos1": "Начальник управления по&nbsp;спортивно-массовым мерприятиям",
+                                "pos2": false,
+                                "modTitle1":'Отдел по сопровождению физкультурно-массовых мероприятий',
+                                "modTitle2": false,
+                                "modPos2": false,
+                                "modPos1": "Направление деятельности: сопровождение спортивных мероприятий на территории Нижегородской области"
+                                })
+                                <div class="po-structure__col-dep po-structure__col-grid">
+                                    @@include("_item-member.html", {
+                                    "col2": false,
+                                    "nmb": 1,
+                                    "name": "КОЛЬЯКОВА ТАТЬЯНА АЛЕКСАНДРОВНА",
+                                    "pos1": "Начальник отдела по сопровождению спортивных мероприятий",
+                                    "pos2": false,
+                                    "modTitle1":'Отдел по сопровождению спортивных мероприятий',
+                                    "modTitle2": false,
+                                    "modPos2": false,
+                                    "modPos1": "Направление деятельности: организация и проведение мероприятий и реализации"
+                                    })
+                                    @@include("_item-member.html", {
+                                    "col2": false,
+                                    "nmb": 1,
+                                    "name": "БЕБИХОВА НАТАЛЬЯ ЕВГЕНЬЕВНА",
+                                    "pos1": "Начальник отдела по сопровождению физкультурно-массовых мероприятий",
+                                    "pos2": false,
+                                    "modTitle1":'Отдел по сопровождению физкультурно-массовых мероприятий',
+                                    "modTitle2": false,
+                                    "modPos2": false,
+                                    "modPos1": "Направление деятельности: организация и проведение мероприятий и реализации"
+                                    })
+                                    @@include("_item-member.html", {
+                                    "col2": false,
+                                    "nmb": 1,
+                                    "name": "АРУТЮНОВА КСЕНИЯ СЕРГЕЕВНА",
+                                    "pos1": "Начальник отдела по специальным проектоам",
+                                    "pos2": false,
+                                    "modTitle1":'Отдел специальных проектов',
+                                    "modTitle2": false,
+                                    "modPos2": false,
+                                    "modPos1": "Направление деятельности: осуществление специальных проектов"
+                                    })
+                                    @@include("_item-member.html", {
+                                    "col2": false,
+                                    "nmb": 1,
+                                    "name": "КОНОВА АНАСТАСИЯ БОРИСОВНА",
+                                    "pos1": "Начальник медиа отдела",
+                                    "pos2": false,
+                                    "modTitle1":'Медиа отдел',
+                                    "modTitle2": false,
+                                    "modPos2": false,
+                                    "modPos1": "Направление деятельности: информационно-коммуникационное сопровождение отрасли физической культуры и спорта"
+                                    })
+                                    @@include("_item-member.html", {
+                                    "col2": true,
+                                    "nmb": false,
+                                    "name": "СКИТНЕВСКАЯ ЛАРИСА ВИТАЛЬЕВНА",
+                                    "pos1": "Начальник сектора по методическому сопровождению федераций по видам спорта",
+                                    "pos2": "Начальник сектора научно-исследовательской работы",
+                                    "modTitle1":'Медиа отдел',
+                                    "modTitle2": false,
+                                    "modPos2": false,
+                                    "modPos1": "Направление деятельности: информационно-коммуникационное сопровождение отрасли физической культуры и спорта"
+                                    })
+                                </div>
+                            </div>
+                            <div class="po-structure__col">
+                                @@include("_item-member.html", {
+                                "col2": false,
+                                "nmb": 1,
+                                "name": "БОРОВИКОВА НАТАЛЬЯ ЮРЬЕВНА",
+                                "pos1": "Начальник управления по внедрению комплекса ВФСК ГТО",
+                                "pos2": false,
+                                "modTitle1":'Отдел по сопровождению физкультурно-массовых мероприятий',
+                                "modTitle2": false,
+                                "modPos2": false,
+                                "modPos1": "Направление деятельности: сопровождение физкультурно-массовых мероприятий"
+                                })
+                                <div class="po-structure__col-dep">
+                                    @@include("_item-member.html", {
+                                    "col2": false,
+                                    "nmb": 1,
+                                    "name": "БАЖАНОВА ЕКАТЕРИНА ДМИТРИЕВНА",
+                                    "pos1": "Начальник сектора аналитической работы центров тестирования ВФСК ГТО",
+                                    "pos2": false,
+                                    "modTitle1":'Сектор аналитической работы центров тестирования ВФСК ГТО',
+                                    "modTitle2": false,
+                                    "modPos2": false,
+                                    "modPos1": "Направление деятельности: организация и проведение мероприятий и реализации"
+                                    })
+                                    @@include("_item-member.html", {
+                                    "col2": false,
+                                    "nmb": 1,
+                                    "name": "СМИРНОВ ВЯЧЕСЛАВ АЛЕКСАНДРОВИЧ",
+                                    "pos1": "Начальник отдела по организации и проведению мероприятий и реализации ВФСК ГТО",
+                                    "pos2": false,
+                                    "modTitle1":'Отдел по проведению мероприятий и реализации ВФСК ГТО',
+                                    "modTitle2": false,
+                                    "modPos2": false,
+                                    "modPos1": "Направление деятельности: организация и проведение мероприятий и реализации"
+                                    })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--po-mission-->
+                <section class="section po-mission" data-animation="fadeUp">
+                    <div class="container">
+                        <div class="po-mission__inner">
+                            <div class="sec-top">
+                                <h2 class="blur-text" data-animation="blurFadeUp">Миссия</h2>
+                            </div>
+                            <div class="page-content">
+                                <p>Создание интегрированной экосистемы для развития спорта и популяризации здорового образа жизни в Нижнем Новгороде, с последующим расширением
+                                    инициатив на федеральном уровне, направленных на формирование активного и здорового общества через инновационные программы, партнерства и
+                                    образовательные проекты.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--news-->
+                <section class="section section--dark news">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Новости</h2>
+                        </div>
+                        <div class="news__wrapper">
+                            <div class="news__items">
+                                @@include("_news-article.html", {"type": "Волейбол", "icon": "volleyball"})
+                                @@include("_news-article.html", {"type": "Футзал", "icon": "futsal"})
+                                @@include("_news-article.html", {"type": "Баскетбол", "icon": "basketball"})
+                            </div>
+                            <div class="sec-bottom" data-animation="fadeUp">
+                                <a href="#" class="btn main-btn"><span>Смотреть все новости</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--po-gto-->
+                <section class="section section--light po-gto" data-animation="fadeUp">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">где сдать гто?</h2>
+                        </div>
+                        <div class="switch-block">
+                            <div class="tabs">
+                                <span class="active" data-tab="po-gto-map">Карта</span>
+                                <span data-tab="po-gto-list">Список</span>
+                            </div>
+                            <div class="po-gto__blocks">
+                                <div class="po-gto__block po-gto__block--map active" data-block="po-gto-map">
+                                    <div class="map po-gto__map" id="gto-map"></div>
+                                </div>
+                                <div class="po-gto__block po-gto__block--list" data-block="po-gto-list">
+                                    <div class="po-gto__list">
+                                        <form class="form mb-32 search-form gto-search">
+                                            <div class="search-form__inner">
+                                                <div class="search-form__inp">
+                                                    <input type="text" placeholder="Поиск">
+                                                </div>
+                                                <button type="reset" class="btn-cross search-form__reset" aria-label="Очистить поиск"></button>
+                                            </div>
+
+                                        </form>
+                                        <ul class="custom-scroll">
+                                            <li class="item-gto" data-gto-id="1">
+                                                <h3 class="item-gto__title">Автозаводский «Северная звезда»</h3>
+                                                <p class="item-gto__address">г. Нижний Новгород, ул. Львовская 26Б</p>
+                                                <a href="#" target="_blank" class="text-btn">Ссылка</a>
+                                            </li>
+                                            <li class="item-gto" data-gto-id="2">
+                                                <h3 class="item-gto__title">Автозаводский «Южная звезда»</h3>
+                                                <p class="item-gto__address">г. Нижний Новгород, ул. Львовская 26Б</p>
+                                                <a href="#" target="_blank" class="text-btn">Ссылка</a>
+                                            </li>
+                                            <li class="item-gto" data-gto-id="3">
+                                                <h3 class="item-gto__title">Автозаводский «Северная звезда»</h3>
+                                                <p class="item-gto__address">г. Нижний Новгород, ул. Львовская 26Б</p>
+                                                <a href="#" target="_blank" class="text-btn">Ссылка</a>
+                                            </li>
+                                            <li class="item-gto" data-gto-id="4">
+                                                <h3 class="item-gto__title">Автозаводский «Северная звезда»</h3>
+                                                <p class="item-gto__address">г. Нижний Новгород, ул. Львовская 26Б</p>
+                                                <a href="#" target="_blank" class="text-btn">Ссылка</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--po-feedback-->
+                <section class="section po-feedback">
+                    <div class="container">
+                        <div class="sec-top">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Взаимодействие с нами</h2>
+                        </div>
+                        <div class="po-feedback__inner">
+                            <div class="grid-2col po-feedback__row">
+                                <div class="po-feedback__content">
+                                    <h3 class="po-feedback__subtitle">Хотите стать партнером ЦУРС?</h3>
+                                    <h4>Заполните форму, и мы с вами свяжемся.</h4>
+                                    <div class="page-content">
+                                        <p>Наша цель - создание цифровой экосистемы для выявления, развития и сопровождения спортивных талантов по всей стране — от школьников
+                                            до
+                                            молодых профессионалов.</p>
+                                        <p>Мы ожидаем подключение спортивных федераций, инвесторов и представителей бизнеса в качестве партнёров для обеспечения интеграции
+                                            системы
+                                            в действующую инфраструктуру.</p>
+                                        <p>Благодаря совместному сотрудничеству: </p>
+                                        <ul>
+                                            <li>Формируется единая база перспективных спортсменов</li>
+                                            <li>Осуществляется сопровождение отборов и повышение качества подготовки на всех уровнях — от регионов до национальных
+                                                сборных.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <form class="form">
+                                    <div class="form__items">
+                                        <div class="form__grid">
+                                            <label class="item-form">
+                                                <span class="item-form__lbl">ФИО<span aria-hidden="true">*</span></span>
+                                                <input type="text" placeholder="ФИО" aria-required="true">
+                                                <span data-error></span>
+                                            </label>
+                                            <label class="item-form">
+                                                <span class="item-form__lbl">Организация<span aria-hidden="true">*</span></span>
+                                                <input type="text" placeholder="Организация" aria-required="true">
+                                                <span data-error></span>
+                                            </label>
+                                        </div>
+                                        <div class="form__grid">
+                                            <label class="item-form">
+                                                <span class="item-form__lbl">Почта<span aria-hidden="true">*</span></span>
+                                                <input type="text" placeholder="Почта" aria-required="true">
+                                                <span data-error></span>
+                                            </label>
+                                            <label class="item-form">
+                                                <span class="item-form__lbl">Телефон</span>
+                                                <input type="tel" placeholder="Телефон">
+                                            </label>
+                                        </div>
+                                        <label class="item-form">
+                                            <span class="item-form__lbl">Отзыв<span aria-hidden="true">*</span></span>
+                                            <textarea type="text" placeholder="Отзыв" aria-required="true"
+                                                oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
+                                            <span data-error></span>
+                                        </label>
+                                    </div>
+                                    <label class="item-checkbox">
+                                        <input type="checkbox">
+                                        <span>Я даю согласие на <a href="#" target="_blank">обработку персональных данных</a></span>
+                                    </label>
+                                    <div class="form__footer">
+                                        <button type="submit" class="btn main-btn"><span>Отправить</span></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--po-review-->
+                <section class="section section--light po-review" data-animation="fadeUp">
+                    <div class="container">
+                        <div class="sec-top">
+                            <img src="img/svg/list-check-2.svg" alt class="icon">
+                            <h2 class="blur-text" data-animation="blurFadeUp">Стал частью наших событий? Поделись впечатлениями!</h2>
+                        </div>
+                        <div class="page-content text-center width-8col">
+                            <p>Ваше мнение — это наш путь к совершенству! Ждём вашу обратную связь!</p>
+                        </div>
+                        <div class="sec-bottom">
+                            <button class="btn main-btn mod-open-btn" data-modal="review-mod"><span>Оставить отзыв</span></button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('_footer.html', {"main": false})
+            <!--modal member-modal-->
+            <modal class="custom-scroll modal member-modal" id="member-modal">
+                <div class="modal__content">
+                    <button type="button" class="btn btn-cross modal__close"></button>
+                    <div class="modal__top">
+                        <h4 class="modal__title"></h4>
+                    </div>
+                    <div class="member-modal__content" data-member-mod-content></div>
+                </div>
+            </modal>
+            @@include('_modal.html')
+        </div>
+        @@include('_map.html')
+        @@include('_js.html')
+    </body>
+
+</html>

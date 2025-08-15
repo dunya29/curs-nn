@@ -353,141 +353,31 @@ function readMoreFunc() {
     }, 0);
 }
 readMoreFunc()
-// custom fancybox
-function initfancyModal(fancyItem) {
-    let mediaSrc = []
-    let objectFit = fancyItem.getAttribute("data-fit") ? fancyItem.getAttribute("data-fit") : "media-contain"
-    let val = fancyItem.getAttribute("data-fancy")
-    let thumb = fancyItem.hasAttribute("data-thumb")
-    document.querySelectorAll("[data-fancy]").forEach(el => {
-        if (!el.closest(".swiper-slide-duplicate") && el.getAttribute("data-fancy") === val) {
-            let obj = {
-                src: el.getAttribute("data-src"),
-                type: el.getAttribute("data-type") || 'image',
-                caption: el.getAttribute("data-caption") || ''
-            }
-            if (el.getAttribute("data-type") === 'video' && el.getAttribute("data-poster")) {
-                obj.poster = el.getAttribute("data-poster")
-            }
-            mediaSrc.push(obj)
-        }
-    })
-    let initialSl = mediaSrc.findIndex(el => el.src === fancyItem.getAttribute("data-src"))
-    document.querySelector(".footer").insertAdjacentHTML('afterend', `
-                <div class="custom-scroll modal fancy-modal ${val + '-modal'}">
-                    <div class="fancy-modal__content">
-                        <button type="button" class="btn-cross modal__close"></button>
-                        <div class="modal__top">
-                            <h2>${mediaSrc[initialSl].caption}</h2>
-                        </div>
-                        <div class="fancy-modal__mainswiper">
-                            <div class="swiper">
-                                <div class="swiper-wrapper">
-                                    ${mediaSrc.map((el, i) => `<div class="swiper-slide">
-                                        <div class="${objectFit}">
-                                            ${el.type === 'video' ? `<video ${i === initialSl ? `src='${el.src}'` : `data-src='${el.src}'`} ${el.poster ? `poster='${el.poster}'` : ''} loop autoplay playsinline mute controls></video>` : `<img src=${el.src} alt="" >`}                                                
-                                        </div>
-                                    </div>`).join("")}
-                                </div>
-                            </div>
-                            ${mediaSrc.length > 1 ? `<div class="nav-btns">
-                                <button type="button" class="nav-btn nav-btn--prev">${sprite('btn-prev')}</button>
-                                <button type="button" class="nav-btn nav-btn--next">${sprite('btn-next')}</button>
-                            </div>` : ""}
-                        </div>
-                        ${thumb && mediaSrc.length > 1 ? `<div class="fancy-modal__thumbswiper">
-                            <div class="swiper">
-                                <div class="swiper-wrapper">
-                                    ${mediaSrc.map(el => `<div class="swiper-slide">
-                                        <div class="${objectFit} ${el.type === 'video' ? 'video' : ''}">
-                                            ${el.type === 'video' ? `<img ${el.poster ? `src='${el.poster}'` : ''}>` : `<img src=${el.src} alt="">`}                                                
-                                        </div>
-                                    </div>`).join("")}
-                                </div>
-                            </div>
-                        </div>` : ""}
-                    </div>
-                </div>
-            `);
-    const fancyModal = document.querySelector(".fancy-modal")
-    let fancyThumbSwiper
-    if (thumb && mediaSrc.length > 1) {
-        fancyThumbSwiper = new Swiper(fancyModal.querySelector(".fancy-modal__thumbswiper .swiper"), {
-            slidesPerView: 3,
-            spaceBetween: 12,
-            observer: true,
-            observeParents: true,
-            watchSlidesProgress: true,
-            initialSlide: initialSl,
-            navigation: {
-                prevEl: fancyModal.querySelector(".nav-btn--prev"),
-                nextEl: fancyModal.querySelector(".nav-btn--next"),
-            },
-            breakpoints: {
-                575.98: {
-                    slidesPerView: 4,
-                }
-            },
-            speed: 800
-        })
-    }
-    let fancyMainSwiper = new Swiper(fancyModal.querySelector(".fancy-modal__mainswiper .swiper"), {
-        slidesPerView: 1,
-        observer: true,
-        observeParents: true,
-        watchSlidesProgress: true,
-        initialSlide: initialSl,
-        effect: "fade",
-        fadeEffect: {
-            crossFade: true
-        },
-        thumbs: {
-            swiper: fancyThumbSwiper || null,
-        },
-        navigation: {
-            prevEl: fancyModal.querySelector(".nav-btn--prev"),
-            nextEl: fancyModal.querySelector(".nav-btn--next"),
-        },
-        speed: 300,
-    })
-    fancyMainSwiper.on("slideChange", e => {
-        fancyModal.querySelector(".modal__top h2").textContent = mediaSrc[fancyMainSwiper.activeIndex].caption
-        if (fancyModal.querySelector("video")) {
-            fancyModal.querySelectorAll("video").forEach(item => item.pause())
-        }
-        let lazyEl = fancyMainSwiper.slides[fancyMainSwiper.activeIndex].querySelector('[data-src]');
-        let videoEl = fancyMainSwiper.slides[fancyMainSwiper.activeIndex].querySelector('video');
-        if (lazyEl) {
-            lazyEl.setAttribute("src", lazyEl.getAttribute("data-src"))
-            lazyEl.removeAttribute("data-src")
-        } else if (!lazyEl && videoEl) {
-            videoEl.play()
-        }
-    })
-    openModal(fancyModal)
-    fancyModal.querySelectorAll(".modal__close").forEach(btn => {
-        btn.addEventListener("click", e => {
-            closeModal(fancyModal)
-            setTimeout(() => {
-                fancyModal.remove()
-            }, animSpd);
-        })
+//mask input
+const inp = document.querySelectorAll('input[type=tel]')
+if (inp) {
+    inp.forEach(item => {
+        Inputmask({ "mask": "+7 999 999-99-99" }).mask(item);
     })
 }
-const fancyBlock = document.querySelectorAll(".fancy-block")
-if (fancyBlock.length) {
-    fancyBlock.forEach(block => {
-        block.addEventListener("click", e => {
-            const fancyItems = block.querySelectorAll("[data-fancy]")
-            if (fancyItems.length) {
-                fancyItems.forEach(fancyItem => {
-                    if (fancyItem.contains(e.target)) {
-                        initfancyModal(fancyItem)
-                    }
-                })
-            }
+// search form
+const searchForm = document.querySelectorAll(".search-form")
+function showSearchResBtn(item) {
+    if (item.querySelector("input").value.length > 0) {
+        item.querySelector(".search-form__reset").classList.add("show")
+    } else {
+        item.querySelector(".search-form__reset").classList.remove("show")
+    }
+}
+if (searchForm) {
+    searchForm.forEach(item => {
+        showSearchResBtn(item)
+        item.querySelector("input").addEventListener("input", () => showSearchResBtn(item))
+        item.addEventListener("reset", () => {
+            item.querySelector("input").setAttribute("value", '')
+            showSearchResBtn(item)
         })
-    });
+    })
 }
 //anchorLinks
 const anchorLinks = document.querySelectorAll(".js-anchor")
@@ -558,10 +448,9 @@ if (blurTexts) {
 }
 // fadeUp animation
 let isAnimating = false
-async function animate() {
+function animate() {
     const elements = document.querySelectorAll('[data-animation]');
-    for (let i = 0; i < elements.length; i++) {
-        const item = elements[i];
+    elements.forEach(async item => {
         const itemTop = item.getBoundingClientRect().top;
         const itemPoint = Math.abs(window.innerHeight - item.offsetHeight * 0.1);
         const itemScrolled = itemPoint > 100 ? itemPoint : 100;
@@ -581,7 +470,7 @@ async function animate() {
             }
             isAnimating = false;
         }
-    }
+    });
 }
 animate()
 window.addEventListener("scroll", animate)
@@ -777,7 +666,7 @@ if (introAbout && aboutLines) {
 //events
 const eventsWrapper = document.querySelector(".events__wrapper")
 const eventsMod = document.querySelector("#event-modal")
-const eventsModContentWrapper = document.querySelector("[data-event-mod-content]")
+const eventsModContent = document.querySelector("[data-event-mod-content]")
 const eventsCol = document.querySelectorAll(".events .swiper-slide")
 //events swiper
 function initEventsSwiper() {
@@ -823,17 +712,23 @@ initEventsSwiper()
 //events onclick
 if (eventsWrapper) {
     eventsWrapper.addEventListener("click", e => {
-        const itemEvents = document.querySelectorAll(".item-event")
-        itemEvents.forEach(item => {
-            if (item.contains(e.target)) {
-                const itemModContent = item.querySelector(".item-event__mod")
-                if (itemModContent) {
-                    eventsModContentWrapper.innerHTML = itemModContent.innerHTML
-                    readMoreFunc()
-                    openModal(eventsMod)
+        const itemEvents = eventsWrapper.querySelectorAll(".item-event")
+        if (itemEvents.length) {
+            itemEvents.forEach(item => {
+                if (item.contains(e.target)) {
+                    const itemModContent = item.querySelector(".item-event__mod")
+                    if (itemModContent) {
+                        let modTitle = itemModContent.getAttribute("data-title")
+                        if (eventsMod && modTitle && eventsModContent) {
+                            eventsMod.querySelector(".modal__title").innerHTML = modTitle
+                            eventsModContent.innerHTML = itemModContent.innerHTML
+                            readMoreFunc()
+                            openModal(eventsMod)
+                        }
+                    }
                 }
-            }
-        })
+            })
+        }
     })
 }
 //events animation
@@ -1085,6 +980,26 @@ const scrollDownBtn = document.querySelector(".intro .scrollDown-btn")
 if (scrollDownBtn) {
     scrollDownBtn.addEventListener("click", () => {
         window.scrollTo({
-            top: document.querySelector(".intro").scrollHeight, behavior: 'smooth' })
+            top: document.querySelector(".intro").scrollHeight, behavior: 'smooth'
+        })
+    })
+}
+//member popup
+const memberMod = document.querySelector("#member-modal")
+const memberModContent = document.querySelector("[data-member-mod-content]")
+const memberItems = document.querySelectorAll(".item-member")
+if (memberItems.length) {
+    memberItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const itemModContent = item.querySelector(".item-member__mod")
+            if (itemModContent) {
+                let modTitle = itemModContent.getAttribute("data-title")
+                if (memberMod && modTitle && memberModContent) {
+                    memberMod.querySelector(".modal__title").innerHTML = modTitle
+                    memberModContent.innerHTML = itemModContent.innerHTML
+                    openModal(memberMod)
+                }
+            }
+        })
     })
 }

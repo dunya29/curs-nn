@@ -106,42 +106,42 @@
                             <div class="clubs__tabs">
                                 <div class="clubs__tab active" data-tab="1" data-animation="fadeUp">
                                     <div class="clubs__title">
-                                        <img src="img/svg/icons/hockey.svg" alt="">
+                                        <img src="img/svg/icons/hockey.svg" alt>
                                         <h4>Хоккей</h4>
                                     </div>
                                     <svg class="clubs__tab-icon"><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
                                 </div>
                                 <div class="clubs__tab" data-tab="2" data-animation="fadeUp">
                                     <div class="clubs__title">
-                                        <img src="img/svg/icons/football.svg" alt="">
+                                        <img src="img/svg/icons/football.svg" alt>
                                         <h4>Футбол</h4>
                                     </div>
                                     <svg class="clubs__tab-icon"><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
                                 </div>
                                 <div class="clubs__tab" data-tab="3" data-animation="fadeUp">
                                     <div class="clubs__title">
-                                        <img src="img/svg/icons/futsal.svg" alt="">
+                                        <img src="img/svg/icons/futsal.svg" alt>
                                         <h4>Футзал</h4>
                                     </div>
                                     <svg class="clubs__tab-icon"><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
                                 </div>
                                 <div class="clubs__tab" data-tab="4" data-animation="fadeUp">
                                     <div class="clubs__title">
-                                        <img src="img/svg/icons/basketball.svg" alt="">
+                                        <img src="img/svg/icons/basketball.svg" alt>
                                         <h4>Баскетбол</h4>
                                     </div>
                                     <svg class="clubs__tab-icon"><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
                                 </div>
                                 <div class="clubs__tab" data-tab="5" data-animation="fadeUp">
                                     <div class="clubs__title">
-                                        <img src="img/svg/icons/volleyball.svg" alt="">
+                                        <img src="img/svg/icons/volleyball.svg" alt>
                                         <h4>Волейбол</h4>
                                     </div>
                                     <svg class="clubs__tab-icon"><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
                                 </div>
                                 <div class="clubs__tab" data-tab="6" data-animation="fadeUp">
                                     <div class="clubs__title">
-                                        <img src="img/svg/icons/bandy.svg" alt="">
+                                        <img src="img/svg/icons/bandy.svg" alt>
                                         <h4>Хоккей с мячом</h4>
                                     </div>
                                     <svg class="clubs__tab-icon"><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
@@ -634,12 +634,14 @@
                 </section>
             </main>
             @@include('_footer.html', {"main": true})
-            <!--modal-->
+            <!--modal event-modal-->
             <modal class="custom-scroll modal event-modal" id="event-modal">
                 <div class="modal__content">
                     <button type="button" class="btn btn-cross modal__close"></button>
-                    <div class="custom-scroll" data-event-mod-content>
+                    <div class="modal__top">
+                        <h4 class="modal__title"></h4>
                     </div>
+                    <div class="event-modal__content" data-event-mod-content></div>
                 </div>
             </modal>
             @@include('_modal.html')

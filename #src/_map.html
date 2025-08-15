@@ -1,0 +1,136 @@
+<script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
+<script>
+    let gto = [
+        {
+            id: 1,
+            coords: [56.269911, 43.883205]
+        },
+        {
+            id: 2,
+            coords: [56.269096, 43.881327]
+        },
+        {
+            id: 3,
+            coords: [56.271660, 43.883609]
+        },
+        {
+            id: 4,
+            coords: [56.269051, 43.888217]
+        }
+    ]
+</script>
+<script>
+    const gtoScroll = document.querySelector(".po-gto__list .custom-scroll")
+    const gtoListTab = document.querySelector("[data-tab='po-gto-list']")
+    const gtoItems = document.querySelectorAll("[data-gto-id]")
+    const gtoModal =  document.querySelector("#gto-modal")
+    const gtoSearch =  document.querySelector(".gto-search")
+    let center = [56.326797, 44.006516];  
+    let gtoMap
+    let geoObjects = [] 
+    let activePlacemark 
+    let gtoTimeout
+    let maxZoom = 15
+    function setmapDefaults(map) {
+        map.controls.remove('rulerControl');
+        map.margin.setDefaultMargin(100);
+    }   
+    function placemarkOnClick(gtoId) {
+        clearTimeout(gtoTimeout)
+        const gtoItem = document.querySelector(`[data-gto-id='${gtoId}']`)
+        if (gtoScroll && gtoItem) {
+            gtoItem.click()
+            if (gtoListTab) {
+                gtoListTab.click()
+            }
+            gtoTimeout = setTimeout(() => {                 
+                let scrollDiff = gtoItem.getBoundingClientRect().top - gtoScroll.getBoundingClientRect().top ;
+                gtoScroll.scrollTop = parseInt(gtoScroll.scrollTop + scrollDiff )
+            }, 600) 
+        }        
+    } 
+    function resetActive() {
+        gtoItems.forEach(item => item.classList.remove("active"))
+        geoObjects.forEach(item => {
+            item.options.set({
+                iconImageHref: 'img/svg/map-mark.svg',
+                iconImageSize: [22, 28],
+                iconImageOffset: [-14, -14],
+            }) 
+        })
+    }
+    function gtoMapInit() {
+        gtoMap = new ymaps.Map('gto-map', {
+            center: center,
+            zoom: 6
+        });
+        setmapDefaults(gtoMap) 
+        gto.forEach((item,i) => {
+            geoObjects[i] = new ymaps.Placemark(item.coords, 
+                {}, 
+                {
+                    iconLayout: "default#image",
+                    iconImageHref: "img/svg/map-mark.svg",
+                    iconImageSize: [22, 28],
+                    iconImageOffset: [-14, -14],
+                    cursor: "pointer",
+                }
+            )
+            geoObjects[i].events.add('click', e => {
+                e.preventDefault()
+                placemarkOnClick(gto[i]['id'])
+            });
+
+        })
+        geoObjects.forEach(item => gtoMap.geoObjects.add(item))
+        gtoMap.setBounds(gtoMap.geoObjects.getBounds(), {checkZoomRange: true, zoomMargin: 100})
+        if (gtoItems.length) {
+            gtoItems.forEach(item => {
+                item.addEventListener("click", e => {
+                    let id = Number(item.getAttribute("data-gto-id"))
+                    let idx = gto.findIndex(item => Number(item.id) === id)
+                    if (geoObjects[idx]) {
+                        if(!item.classList.contains("active")) {
+                            resetActive()
+                            item.classList.add("active")
+                            const coords = geoObjects[idx].geometry.getCoordinates(); 
+                            gtoMap.setCenter(coords, maxZoom);
+                            geoObjects[idx].options.set({
+                                iconImageHref: 'img/svg/map-mark-active.svg',
+                                iconImageSize: [32, 40],
+                                iconImageOffset: [-16, -20],
+                            })
+                        } else {
+                            resetActive()
+                        }                  
+                    }   
+                }) 
+            })            
+            if (gtoSearch) {
+                gtoSearch.querySelector("input").addEventListener("input", e => {
+                    let shownObjects,
+                        bySearch = new ymaps.GeoQueryResult();
+                    gtoItems.forEach(item => {
+                        let id = Number(item.getAttribute("data-gto-id"))
+                        let idx = gto.findIndex(item => Number(item.id) === id)
+                        let find = item.querySelector(".item-gto__title").textContent.toLowerCase().includes(e.target.value.toLowerCase())
+                        if (!find) {
+                            item.classList.add("hide")
+                            geoObjects[idx].options.set('visible', false);
+                        } else {
+                            item.classList.remove("hide")
+                            geoObjects[idx].options.set('visible', true);
+                        }
+                    })
+                })
+                gtoSearch.addEventListener("reset", () => {
+                    gtoItems.forEach(item => item.classList.remove('hide'))
+                    geoObjects.forEach(item => item.options.set('visible', true))
+                })
+            }
+        }
+    }  
+    if (gto.length && document.querySelector("#gto-map")) {
+        ymaps.ready(gtoMapInit);
+    }
+</script>

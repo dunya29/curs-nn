@@ -234,7 +234,6 @@ function modalUnshowBtns() {
 modalUnshowBtns()
 //setSuccessTxt
 function setSuccessTxt(title = false, txt = false, btnTxt = false) {
-    console.log(successMod.querySelector(".modal__title"))
     successMod.querySelector(".modal__title").textContent = title ? title : "Ваша заявка принята"
     successMod.querySelector(".main-btn span").textContent = btnTxt ? btnTxt : "Закрыть"
     successMod.querySelector("p").textContent = txt ? txt : ''
@@ -1054,112 +1053,121 @@ if (scrollDownBtn) {
     })
 }
 //member popup
+const members = document.querySelector(".members")
 const memberMod = document.querySelector("#member-mod")
 const memberModContent = document.querySelector("[data-member-mod-content]")
-const memberItems = document.querySelectorAll(".item-member")
-const mainMemberCol = document.querySelector(".members__col--main")
-const memFirstColLastIt = document.querySelector(".members__col--first .item-member:last-child")
-const memSecColFirstIt = document.querySelector(".members__col--second .item-member:first-child")
-const memThirdColFirstIt = document.querySelector(".members__col--third .item-member:first-child")
-const memFirstColItLines = document.querySelectorAll(".members__col--first .item-member__line")
-const memLeftLine = document.querySelector(".members__line--left")
-const memRightLine = document.querySelector(".members__line--right")
 let mainMemberColPos
-function getMainMemberColPos() {
-    return {
-        height: mainMemberCol.clientHeight,
-        top: mainMemberCol.getBoundingClientRect().top,
-        left: mainMemberCol.getBoundingClientRect().left,
-        right: mainMemberCol.getBoundingClientRect().right,
-    }
-}
-function setMemberLeftLine() {
-    if (memFirstColLastIt && memLeftLine) {
-        let memFirstColLastItPos = {
-            width: memFirstColLastIt.clientWidth,
-            height: memFirstColLastIt.clientHeight,
-            top: memFirstColLastIt.getBoundingClientRect().top,
-            right: memFirstColLastIt.getBoundingClientRect().right
+if (members) {
+    const memberItems = members.querySelectorAll(".item-member")
+    if (memberItems.length) {
+        const mainMemberCol = members.querySelector(".members__col--main")
+        const memFirstColLastIt = members.querySelector(".members__col--first .item-member:last-child")
+        const memSecColFirstIt = members.querySelector(".members__col--second .item-member:first-child")
+        const memThirdColFirstIt = members.querySelector(".members__col--third .item-member:first-child")
+        const memFirstColItLines = members.querySelectorAll(".members__col--first .item-member__line")
+        const memLeftLine = members.querySelector(".members__line--left")
+        const memRightLine = members.querySelector(".members__line--right")
+        function getMemMainColPos() {
+            return {
+                height: mainMemberCol.clientHeight,
+                top: mainMemberCol.getBoundingClientRect().top,
+                left: mainMemberCol.getBoundingClientRect().left,
+                right: mainMemberCol.getBoundingClientRect().right,
+            }
         }
-        let memLeftLineW = mainMemberColPos.left - memFirstColLastItPos.right
-        let memLeftLineH = memFirstColLastItPos.top - mainMemberColPos.top - (memFirstColLastItPos.height / 2)
-        let memLeftLineMobH = memSecColFirstIt.getBoundingClientRect().top - mainMemberColPos.top + mainMemberColPos.height / 2 - (memSecColFirstIt.getBoundingClientRect().height / 2)
-        memLeftLine.style.width = memLeftLineW + 'px'
-        memLeftLine.style.height = window.innerWidth > bp.laptop ? memLeftLineH + 'px' : memLeftLineMobH + "px"
-        memLeftLine.style.top = mainMemberColPos.height / 2 + 'px'
-        memLeftLine.style.left = memFirstColLastItPos.width + 'px'
-        if (memFirstColItLines) {
-            memFirstColItLines.forEach(item => item.style.width = memLeftLineW / 3 + 'px')
-        }
-    }
-}
-function setMemberRightLine() {
-    if (memThirdColFirstIt && memRightLine) {
-        let memThirdColFirstItPos = {
-            width: memThirdColFirstIt.clientWidth,
-            height: memThirdColFirstIt.clientHeight,
-            left: memThirdColFirstIt.getBoundingClientRect().left,
-            top: memThirdColFirstIt.getBoundingClientRect().top
-        }
-        let memRightLineW = memThirdColFirstItPos.left - mainMemberColPos.right
-        let memRightLineH = memThirdColFirstItPos.top - mainMemberColPos.top + mainMemberColPos.height / 2 - (memThirdColFirstItPos.height / 2)
-        memRightLine.style.width = memRightLineW + 'px'
-        memRightLine.style.height = memRightLineH + 'px'
-        memRightLine.style.top = mainMemberColPos.height / 2 + 'px'
-        memRightLine.style.right = memThirdColFirstItPos.width + 'px'
-    }
-}
-function adjustSizeToMultOf9(item) {
-    item.style.width = null
-    item.style.height = null
-    setTimeout(() => {
-        let widthSum = parseInt(item.clientWidth).toString().split().reduce((sum, digit) => sum + +digit, 0)
-        let heightSumm = parseInt(item.clientHeight).toString().split().reduce((sum, digit) => sum + +digit, 0)
-        while (widthSum % 9 !== 0) {
-            widthSum = widthSum - 1
-        }
-        while (heightSumm % 9 !== 0) {
-            heightSumm = heightSumm + 1
-        }
-        item.style.width = widthSum + "px"
-        item.style.height = heightSumm + "px"
-    }, 0);
-}
-function memberItemDash() {
-    memberItems.forEach(item => {
-        if (!item.parentNode.classList.contains("members__team")) {
-            adjustSizeToMultOf9(item);
-        } else {
-            adjustSizeToMultOf9(item.parentNode);
-        }
-    });
-    if (mainMemberCol) {
-        mainMemberColPos = getMainMemberColPos()
-        setMemberLeftLine()
-        setMemberRightLine()
-    }
-}
-if (memberItems.length) {
-    memberItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const itemModContent = item.querySelector(".item-member__mod")
-            if (itemModContent) {
-                let modTitle = itemModContent.getAttribute("data-title")
-                if (memberMod && modTitle && memberModContent) {
-                    memberMod.querySelector(".modal__title").innerHTML = modTitle
-                    memberModContent.innerHTML = itemModContent.innerHTML
-                    openModal(memberMod)
+        function setMemLeftLine() {
+            if (memFirstColLastIt && memLeftLine) {
+                let memFirstColLastItPos = {
+                    width: memFirstColLastIt.clientWidth,
+                    height: memFirstColLastIt.clientHeight,
+                    top: memFirstColLastIt.getBoundingClientRect().top,
+                    right: memFirstColLastIt.getBoundingClientRect().right
+                }
+                let memLeftLineW = mainMemberColPos.left - memFirstColLastItPos.right
+                let memLeftLineH = memFirstColLastItPos.top - mainMemberColPos.top - (memFirstColLastItPos.height / 2)
+                let memLeftLineMobH = memSecColFirstIt.getBoundingClientRect().top - mainMemberColPos.top + mainMemberColPos.height / 2 - (memSecColFirstIt.getBoundingClientRect().height / 2)
+                memLeftLine.style.width = memLeftLineW + 'px'
+                memLeftLine.style.height = window.innerWidth > bp.laptop ? memLeftLineH + 'px' : memLeftLineMobH + "px"
+                memLeftLine.style.top = mainMemberColPos.height / 2 + 'px'
+                memLeftLine.style.left = memFirstColLastItPos.width + 'px'
+                if (memFirstColItLines) {
+                    memFirstColItLines.forEach(item => item.style.width = memLeftLineW / 3 + 'px')
                 }
             }
-        })
-    })
-    memberItemDash()
-    let currWinW = window.innerWidth
-    const handleResize = debounce(() => {
-        if (currWinW != window.innerWidth) {
-            memberItemDash()
-            currWinW = window.innerWidth
         }
-    }, 150);
-    window.addEventListener("resize", handleResize);
+        function setMemRightLine() {
+            if (memThirdColFirstIt && memRightLine) {
+                let memThirdColFirstItPos = {
+                    width: memThirdColFirstIt.clientWidth,
+                    height: memThirdColFirstIt.clientHeight,
+                    left: memThirdColFirstIt.getBoundingClientRect().left,
+                    top: memThirdColFirstIt.getBoundingClientRect().top
+                }
+                let memRightLineW = memThirdColFirstItPos.left - mainMemberColPos.right
+                let memRightLineH = memThirdColFirstItPos.top - mainMemberColPos.top + mainMemberColPos.height / 2 - (memThirdColFirstItPos.height / 2)
+                memRightLine.style.width = memRightLineW + 'px'
+                memRightLine.style.height = memRightLineH + 'px'
+                memRightLine.style.top = mainMemberColPos.height / 2 + 'px'
+                memRightLine.style.right = memThirdColFirstItPos.width + 'px'
+            }
+        }
+        function adjustSizeToMultOf9(item) {
+            item.style.width = null
+            item.style.height = null
+            setTimeout(() => {
+                let widthSum = Math.round(item.offsetWidth)
+                while (widthSum % 9 !== 0) {
+                    widthSum--
+                }
+                item.style.width = widthSum + "px"
+            }, 0);
+            setTimeout(() => {
+                let heightSumm = Math.round(item.offsetHeight)
+                while (heightSumm % 9 !== 0) {
+                    heightSumm++
+                }
+                item.style.height = heightSumm + "px"
+            }, 0);
+        }
+        function callMemDashFunc() {
+            memberItems.forEach(item => {
+                if (!item.parentNode.classList.contains("members__team")) {
+                    adjustSizeToMultOf9(item);
+                } else {
+                    adjustSizeToMultOf9(item.parentNode);
+                }
+            });
+            setTimeout(() => {
+                if (mainMemberCol) {
+                    mainMemberColPos = getMemMainColPos()
+                    setMemLeftLine()
+                    setMemRightLine()
+                }
+            }, 0);
+        }
+        memberItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const itemModContent = item.querySelector(".item-member__mod")
+                if (itemModContent) {
+                    let modTitle = itemModContent.getAttribute("data-title")
+                    if (memberMod && modTitle && memberModContent) {
+                        memberMod.querySelector(".modal__title").innerHTML = modTitle
+                        memberModContent.innerHTML = itemModContent.innerHTML
+                        openModal(memberMod)
+                    }
+                }
+            })
+        })
+        callMemDashFunc()
+        let currWinW = window.innerWidth
+        const handleResize = debounce(() => {
+            if (currWinW != window.innerWidth) {
+                callMemDashFunc()
+                currWinW = window.innerWidth
+
+            }
+        }, 200);
+        window.addEventListener("resize", handleResize);
+    }
 }
+

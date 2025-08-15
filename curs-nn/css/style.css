@@ -8063,6 +8063,9 @@ a.proj-video__gall-item .media-cover img {
     width: 100%;
     gap: 12px;
     padding: 10px;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
   }
 
   .members__team:before {

@@ -964,6 +964,7 @@ if (eventsWrapper) {
                                         iconImageHref: 'img/svg/map-mark.svg',
                                         iconImageSize: [22, 28],
                                         iconImageOffset: [-14, -14],
+                                        cursor: 'grab'
                                     }));
                                 });
                             }

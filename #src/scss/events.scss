@@ -106,7 +106,7 @@
     &__logo {
         width: 46px;
         height: 46px;
-        padding:5px;
+        padding: 5px;
         border-radius: 50%;
         border: 1px solid var(--pale-blue-color);
         background: var(--white-color);
@@ -312,5 +312,11 @@
             padding: 0 var(--container-offset);
             margin: 20px calc(var(--container-offset) * -1) 0;
         }
+    }
+}
+
+.event-mod {
+    [class*="-gototech"] {
+        display: none;
     }
 }

@@ -22,6 +22,9 @@
     &__btn {
         display: flex;
         align-items: center;
+        &:last-child {
+            border-left: 1px solid var(--pale-blue-color) !important;
+        }
         svg {
             flex: 0 0 24px;
             width: 24px;
@@ -79,8 +82,14 @@
         &__btn {
             font-size: 0;
             svg {
-                margin: 0!important;
+                margin: 0 !important;
             }
         }
+    }
+}
+@media (max-width: 1200.98px) {
+    .js-pagination-fixed .pagination__link.current {
+        padding-right: 10px;
+        padding: 10px;
     }
 }

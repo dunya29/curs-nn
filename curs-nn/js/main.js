@@ -6,6 +6,7 @@ if (preloader) {
     setTimeout(() => {
         enableScroll()
         preloader.classList.add('loaded');
+        ScrollTrigger.refresh()
     }, 1400);
 }
 const header = document.querySelector(".header")
@@ -515,7 +516,6 @@ if (blurTexts) {
     });
 }
 // fadeUp animation
-let isAnimating = false
 function animate() {
     const elements = document.querySelectorAll('[data-animation]');
     elements.forEach(async item => {
@@ -527,16 +527,8 @@ function animate() {
             if (preloader && !preloader.classList.contains("loaded")) {
                 await new Promise(resolve => setTimeout(resolve, preloaderHiddenTimeOut));
             }
-            while (isAnimating) {
-                await new Promise(resolve => setTimeout(resolve, 50));
-            }
-            isAnimating = true;
             item.classList.add(animName);
             item.removeAttribute("data-animation");
-            if (itemTop > 0) {
-                await new Promise(resolve => setTimeout(resolve, 200));
-            }
-            isAnimating = false;
         }
     });
 }
@@ -565,6 +557,72 @@ if (iconMenu && headerNav) {
         }
     })
 }
+// const filter = document.querySelectorAll(".filter")
+// let filterObj
+// // filter
+// if (filter.length) {
+//     filterObj = {
+//         checkInp: function (inp) {
+//             inp.checked = true
+//             inp.setAttribute("checked", true)
+//         },
+//         uncheckInp: function (inp) {
+//             inp.checked = false
+//             inp.removeAttribute("checked")
+//         },
+//         setSelected: function (inp, filterSelected) {
+//             let txt = inp.parentNode.querySelector("span:last-child").textContent
+//             let idx = inp.getAttribute("data-id")
+//             let inpName = inp.getAttribute("data-name")
+//             let selectedTxt = inpName ? inpName + " " + txt.toLowerCase() : txt
+//             filterSelected.insertAdjacentHTML("afterbegin", `<li data-target="${idx}">${selectedTxt}<button class="btn-cross"></button></li>`)
+//         },
+//         removeSelected: function (id, filterSelected) {
+//             if (filterSelected.querySelector(`[data-target="${id}"]`)) {
+//                 filterSelected.querySelector(`[data-target="${id}"]`).remove()
+//             }
+//         },
+//         selectedOnClick: function (e, filter, filterSelected) {
+//             filterSelected.querySelectorAll("li").forEach(item => {
+//                 if (item.querySelector(".btn-cross").contains(e.target)) {
+//                     let dataTarget = item.getAttribute("data-target")
+//                     filter.querySelector(`label input[data-id='${dataTarget}']`).click()
+//                 }
+//             })
+//         },
+//     }
+//     filter.forEach(filt => {
+//         const filterSelected = filt.querySelector(".filter__selected-items")
+//         if (filterSelected) {
+//             filt.querySelectorAll("label input").forEach(item => {
+//                 if (item.checked) {
+//                     filterObj.setSelected(item, filterSelected)
+//                 }
+//             })
+//             filt.addEventListener("click", e => {
+//                 if (filt.querySelector("label input")) {
+//                     filt.querySelectorAll("label input").forEach(inp => {
+//                         if (inp.contains(e.target)) {
+//                             let id = inp.getAttribute("data-id")
+//                             if (inp.type === 'checkbox') {
+//                                 inp.checked ? filterObj.setSelected(inp, filterSelected) : filterObj.removeSelected(id, filterSelected)
+//                             } else if (inp.type === 'radio') {
+//                                 filt.querySelectorAll(`input[name='${inp.name}']`).forEach(inp => filterObj.removeSelected(inp.getAttribute("data-id"), filterSelected))
+//                                 filterObj.setSelected(inp, filterSelected)
+//                             }
+//                         }
+//                     })
+//                 }
+//             })
+//             filterSelected.addEventListener("click", e => filterObj.selectedOnClick(e, filt, filterSelected,))
+//         }
+//     })
+// }
+
+
+
+// Логика фильтров с выбранной датой в календаре
+
 const filter = document.querySelectorAll(".filter")
 let filterObj
 // filter
@@ -583,7 +641,9 @@ if (filter.length) {
             let idx = inp.getAttribute("data-id")
             let inpName = inp.getAttribute("data-name")
             let selectedTxt = inpName ? inpName + " " + txt.toLowerCase() : txt
-            filterSelected.insertAdjacentHTML("afterbegin", `<li data-target="${idx}">${selectedTxt}<button class="btn-cross"></button></li>`)
+            if (!filterSelected.querySelector(`[data-target="${idx}"]`)) {
+                filterSelected.insertAdjacentHTML("afterbegin", `<li data-target="${idx}">${selectedTxt}<button class="btn-cross"></button></li>`)
+            }
         },
         removeSelected: function (id, filterSelected) {
             if (filterSelected.querySelector(`[data-target="${id}"]`)) {
@@ -594,11 +654,45 @@ if (filter.length) {
             filterSelected.querySelectorAll("li").forEach(item => {
                 if (item.querySelector(".btn-cross").contains(e.target)) {
                     let dataTarget = item.getAttribute("data-target")
-                    filter.querySelector(`label input[data-id='${dataTarget}']`).click()
+                    const targetInput = filter.querySelector(`label input[data-id='${CSS.escape(dataTarget)}']`)
+                    if (targetInput) {
+                        targetInput.click()
+                        return
+                    }
+                    if (dataTarget === 'filter[date]') {
+                        const dateInput = filter.querySelector('[data-datepicker-value]')
+                        if (dateInput) {
+                            dateInput.value = ''
+                            if (dateInput._picker && typeof dateInput._picker.clear === 'function') {
+                                try { dateInput._picker.clear() } catch (err) { }
+                            }
+                            this.removeSelected(dataTarget, filterSelected)
+                        }
+                    }
                 }
             })
         },
     }
+
+    function formatDateRu(dateValue) {
+        try {
+            let d
+            if (typeof dateValue === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(dateValue)) {
+                d = new Date(dateValue + 'T00:00:00')
+            } else if (typeof dateValue === 'string' && /^\d{2}\.\d{2}\.\d{4}$/.test(dateValue)) {
+                const [dd, mm, yy] = dateValue.split('.')
+                d = new Date(`${yy}-${mm}-${dd}T00:00:00`)
+            } else if (dateValue instanceof Date) {
+                d = dateValue
+            } else {
+                d = new Date(dateValue)
+            }
+            return new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }).format(d)
+        } catch (err) {
+            return dateValue
+        }
+    }
+
     filter.forEach(filt => {
         const filterSelected = filt.querySelector(".filter__selected-items")
         if (filterSelected) {
@@ -607,43 +701,102 @@ if (filter.length) {
                     filterObj.setSelected(item, filterSelected)
                 }
             })
+
+            const dateInput = filt.querySelector('[data-datepicker-value]')
+            const addDateSelected = (value) => {
+                if (!value) return;
+                const id = 'filter[date]';
+                const display = String(value).replace(/\s*,\s*/g, ' - ');
+                if (!filterSelected.querySelector(`[data-target="${id}"]`)) {
+                    filterSelected.insertAdjacentHTML("afterbegin",
+                        `<li data-target="${id}">Дата: ${display}<button class="btn-cross"></button></li>`);
+                } else {
+                    const el = filterSelected.querySelector(`[data-target="${id}"]`);
+                    el.innerHTML = `Дата: ${display}<button class="btn-cross"></button>`;
+                }
+            }
+            const removeDateSelected = () => {
+                const id = 'filter[date]'
+                filterObj.removeSelected(id, filterSelected)
+            }
+
+            if (dateInput) {
+                if (dateInput.value) {
+                    addDateSelected(dateInput.value)
+                }
+
+                dateInput.addEventListener('change', (ev) => {
+                    const v = ev.target.value
+                    if (v) addDateSelected(v)
+                    else removeDateSelected()
+                })
+
+                dateInput.addEventListener('input', (ev) => {
+                    const v = ev.target.value
+                    if (v) addDateSelected(v)
+                })
+            }
+
             filt.addEventListener("click", e => {
                 if (filt.querySelector("label input")) {
                     filt.querySelectorAll("label input").forEach(inp => {
-                        if (inp.contains(e.target)) {
+                        if (inp.contains(e.target) || inp === e.target) {
                             let id = inp.getAttribute("data-id")
                             if (inp.type === 'checkbox') {
                                 inp.checked ? filterObj.setSelected(inp, filterSelected) : filterObj.removeSelected(id, filterSelected)
                             } else if (inp.type === 'radio') {
-                                filt.querySelectorAll(`input[name='${inp.name}']`).forEach(inp => filterObj.removeSelected(inp.getAttribute("data-id"), filterSelected))
+                                filt.querySelectorAll(`input[name='${inp.name}']`).forEach(r => filterObj.removeSelected(r.getAttribute("data-id"), filterSelected))
                                 filterObj.setSelected(inp, filterSelected)
                             }
                         }
                     })
                 }
             })
-            filterSelected.addEventListener("click", e => filterObj.selectedOnClick(e, filt, filterSelected,))
+
+            filterSelected.addEventListener("click", e => filterObj.selectedOnClick(e, filt, filterSelected))
         }
     })
 }
-const datepicker = document.querySelectorAll(".datepicker")
-// datepicker
-if (datepicker) {
-    datepicker.forEach(item => {
-        new AirDatepicker(item, {
+
+const datepickersMap = new WeakMap();
+
+const datepickerNodes = document.querySelectorAll(".datepicker");
+if (datepickerNodes && datepickerNodes.length) {
+    datepickerNodes.forEach(node => {
+        const filterForm = node.closest('.filter__form');
+        const field = filterForm ? filterForm.querySelector('input[data-datepicker-value]') : null;
+
+        const picker = new AirDatepicker(node, {
             range: true,
             multipleDatesSeparator: ' - ',
             onSelect({ formattedDate }) {
-                let filterForm = item.closest('.filter__form')
-                if (filterForm) {
-                    filterForm.querySelector('input[data-datepicker-value]').setAttribute('data-datepicker-value', formattedDate)
-                    filterForm.submit()
-                }
+                if (!field) return;
+                field.value = formattedDate || '';
+                field.setAttribute('data-datepicker-value', formattedDate || '');
+                field.dispatchEvent(new Event('change', { bubbles: true }));
             }
-        })
-    })
+        });
 
+        if (field) {
+            field._picker = picker;
+            datepickersMap.set(field, picker);
+        }
+    });
 }
+
+
+function clearDateField(field) {
+    if (!field) return;
+    const picker = field._picker || datepickersMap.get(field);
+    if (picker && typeof picker.clear === 'function') {
+        try { picker.clear(); } catch (err) { }
+    }
+    field.value = '';
+    field.removeAttribute('data-datepicker-value');
+    field.dispatchEvent(new Event('change', { bubbles: true }));
+}
+
+
 //intro
 const introBg = document.querySelector(".intro .media-cover-bg")
 if (introBg) {
@@ -791,6 +944,29 @@ if (eventsWrapper) {
                             eventsMod.querySelector(".modal__title").innerHTML = modTitle
                             eventsModContent.innerHTML = itemModContent.innerHTML
                             readMoreFunc()
+                            const itemMap = eventsMod.querySelector(".item-event__map")
+                            let coords = item.getAttribute("data-coords")
+                            if (itemMap && coords) {
+                                let [lat, lng] = coords.split(',').map(coord => parseFloat(coord.trim()));
+                                ymaps.ready(()=> {
+                                    itemMap.setAttribute("id", "event-map")
+                                    let eventsMap = new ymaps.Map('event-map', {
+                                        center: [lat, lng],
+                                        zoom: 15
+                                    });
+                                    eventsMap.controls.remove('rulerControl');
+                                    eventsMap.controls.remove('searchControl');
+                                    eventsMap.controls.remove('trafficControl');
+                                    eventsMap.controls.remove('typeSelector');
+                                    eventsMap.controls.remove('rulerControl');
+                                    eventsMap.geoObjects.add(new ymaps.Placemark([lat, lng], {}, {
+                                        iconLayout: 'default#image',
+                                        iconImageHref: 'img/svg/map-mark.svg',
+                                        iconImageSize: [22, 28],
+                                        iconImageOffset: [-14, -14],
+                                    }));
+                                });
+                            }
                             openModal(eventsMod)
                         }
                     }
@@ -885,6 +1061,7 @@ if (gallerySwiper.length) {
             observeParents: true,
             centeredSlides: true,
             watchSlidesProgress: true,
+            loop: true,
             initialSlide: item.querySelectorAll(".swiper-slide").length > 2 ? 1 : 0,
             effect: "coverflow",
             coverflowEffect: {
@@ -1171,3 +1348,224 @@ if (members) {
     }
 }
 
+
+
+
+// Логика с cookie баннером
+
+(function () {
+    const COOKIE_NAME = 'site_cookie_consent';
+    const COOKIE_VALUE = 'accepted';
+    const COOKIE_DAYS = 999;
+
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        const expires = "expires=" + date.toUTCString();
+        let cookieStr = `${name}=${encodeURIComponent(value)}; ${expires}; path=/; SameSite=Lax`;
+        if (location.protocol === 'https:') cookieStr += '; Secure';
+        document.cookie = cookieStr;
+    }
+
+    function getCookie(name) {
+        if (!document.cookie) return null;
+        const pref = name + '=';
+        const parts = document.cookie.split('; ');
+        for (let i = 0; i < parts.length; i++) {
+            if (parts[i].indexOf(pref) === 0) return decodeURIComponent(parts[i].substring(pref.length));
+        }
+        return null;
+    }
+
+    function hasConsent() {
+        return getCookie(COOKIE_NAME) === COOKIE_VALUE;
+    }
+
+    const popupEl = document.querySelector('#cookie-popup');
+
+    if (typeof window.showCookie !== 'function') {
+        window.showCookie = function () {
+            if (popupEl) {
+                popupEl.classList.add('show');
+                popupEl.setAttribute('aria-hidden', 'false');
+            }
+        };
+    }
+    if (typeof window.unshowCookie !== 'function') {
+        window.unshowCookie = function () {
+            if (popupEl) {
+                popupEl.classList.remove('show');
+                popupEl.setAttribute('aria-hidden', 'true');
+            }
+        };
+    }
+
+    function initCookiePopup() {
+        if (!hasConsent()) {
+            window.showCookie();
+        } else {
+            window.unshowCookie();
+        }
+
+        const acceptBtn = popupEl ? popupEl.querySelector('.cookie__btns button') : null;
+        if (acceptBtn && !acceptBtn._cookieHandlerAttached) {
+            acceptBtn.addEventListener('click', function () {
+                setCookie(COOKIE_NAME, COOKIE_VALUE, COOKIE_DAYS);
+                if (typeof window.unshowCookie === 'function') window.unshowCookie();
+            });
+
+            acceptBtn._cookieHandlerAttached = true;
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCookiePopup);
+    } else {
+        initCookiePopup();
+    }
+})();
+
+
+
+// Фикс пагинации
+
+(function paginationFixer() {
+    const debounce = (fn, ms = 120) => {
+        let t;
+        return (...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn(...args), ms);
+        };
+    };
+
+    function updateOne(nav) {
+        if (!nav) return;
+
+        const items = Array.from(nav.querySelectorAll('.pagination__link, .pagination__item'));
+        const numbered = items
+            .map(el => {
+                const m = el.textContent.match(/\d+/);
+                return m ? { el, num: parseInt(m[0], 10) } : null;
+            })
+            .filter(Boolean);
+
+        if (numbered.length === 0) {
+            nav.querySelectorAll('.js-pagination-hide-duplicate').forEach(x => x.classList.remove('js-pagination-hide-duplicate'));
+            nav.classList.remove('js-pagination-fixed');
+            return;
+        }
+
+        const total = Math.max(...numbered.map(n => n.num));
+
+        let current = nav.querySelector('.pagination__link.current, .pagination__link.active, .pagination__item.current, .pagination__item.active');
+        if (!current) {
+            current = nav.querySelector('.pagination__link:nth-last-child(2), .pagination__item:nth-last-child(2)');
+        }
+        if (!current) return;
+
+        current.setAttribute('data-total', String(total));
+        const curNumMatch = current.textContent.match(/\d+/);
+        const curNum = curNumMatch ? curNumMatch[0] : current.textContent.trim();
+        current.setAttribute('aria-label', `Страница ${curNum} из ${total}`);
+
+        let lastElem = null;
+        for (let i = numbered.length - 1; i >= 0; i--) {
+            if (numbered[i].num === total) { lastElem = numbered[i].el; break; }
+        }
+
+        nav.querySelectorAll('.js-pagination-hide-duplicate').forEach(el => {
+            if (el !== lastElem) el.classList.remove('js-pagination-hide-duplicate');
+        });
+
+        if (lastElem && lastElem !== current) {
+            lastElem.classList.add('js-pagination-hide-duplicate');
+        } else if (lastElem) {
+            lastElem.classList.remove('js-pagination-hide-duplicate');
+        }
+
+        nav.classList.add('js-pagination-fixed');
+    }
+
+    function updateAll() {
+        document.querySelectorAll('.pagination').forEach(updateOne);
+    }
+
+    const debouncedUpdateAll = debounce(() => {
+        try { updateAll(); } catch (e) { console.error('paginationFixer error', e); }
+    }, 80);
+
+    function injectStyle() {
+        if (document.getElementById('js-pagination-fix-style')) return;
+        const style = document.createElement('style');
+        style.id = 'js-pagination-fix-style';
+        style.textContent = `
+        @media (max-width: 1200.98px) {
+        .js-pagination-fixed .pagination__link.current:after,
+        .js-pagination-fixed .pagination__link.active:after,
+        .js-pagination-fixed .pagination__item.current:after,
+        .js-pagination-fixed .pagination__item.active:after {
+            content: " из " attr(data-total) !important;
+            margin-left: 0.2em !important;
+            white-space: nowrap !important;
+        }
+
+        .js-pagination-fixed .js-pagination-hide-duplicate {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        .js-pagination-fixed .pagination__link.current,
+        .js-pagination-fixed .pagination__item.current {
+            padding-right: 10 !important;
+        }
+        }
+    `;
+        document.head.appendChild(style);
+    }
+
+    injectStyle();
+
+    const mo = new MutationObserver(mutations => {
+        for (const mut of mutations) {
+            if (mut.addedNodes && mut.addedNodes.length) {
+                for (const node of mut.addedNodes) {
+                    if (node.nodeType !== 1) continue;
+                    if (node.classList && node.classList.contains('pagination')) {
+                        debouncedUpdateAll();
+                        return;
+                    }
+                    if (node.querySelector && node.querySelector('.pagination')) {
+                        debouncedUpdateAll();
+                        return;
+                    }
+                }
+            }
+            const target = mut.target && mut.target.closest && mut.target.closest('.pagination');
+            if (target) { debouncedUpdateAll(); return; }
+        }
+    });
+
+    mo.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true });
+
+    document.addEventListener('click', (e) => {
+        const t = e.target.closest && e.target.closest('.pagination__btn, .pagination__link, .pagination__item');
+        if (!t) return;
+
+        setTimeout(debouncedUpdateAll, 60);
+        setTimeout(debouncedUpdateAll, 300);
+        setTimeout(debouncedUpdateAll, 800);
+    }, true);
+
+    window.addEventListener('popstate', () => {
+        setTimeout(debouncedUpdateAll, 60);
+        setTimeout(debouncedUpdateAll, 300);
+    });
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', debouncedUpdateAll);
+    } else {
+        debouncedUpdateAll();
+    }
+
+    window.__paginationFixer = { updateAll, updateOne };
+})();

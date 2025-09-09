@@ -5808,7 +5808,6 @@ function buildRoute(points) {
 
         // Координаты для второй полилинии (красная)
         var polyline2Points = [
-            [56.326887, 44.005986],  // Центр города
             [56.320, 43.945],        // Канавинский мост
             [56.335, 43.890],        // Сортировочная
             [56.350, 43.840]         // Дубравная
@@ -5832,28 +5831,18 @@ function buildRoute(points) {
             // Добавляем линии на карту
             gtoMap.geoObjects.add(polyline1);
             gtoMap.geoObjects.add(polyline2);
-
-       /*  // Добавляем точки (некликабельные)
-            polyline1Points.forEach(function(point, index) {
-                var placemark = new ymaps.Placemark(point, {}, {
-                    preset: 'islands#circleIcon',
-                    iconColor: '#0000FF',
-                    hasBalloon: false,
-                    hasHint: false,
-                    interactivityModel: 'default#silent' // Делаем некликабельным
-                });
-                gtoMap.geoObjects.add(placemark);
-            });
-*/
-            polyline2Points.forEach(function(point, index) {
+ polyline2Points.forEach(function(point, index) {
                 var placemark = new ymaps.Placemark(point, {}, {
                     preset: 'islands#circleIcon',
                     iconColor: '#FF0000',
                     hasBalloon: false,
                     hasHint: false,
-                    interactivityModel: 'default#silent' // Делаем некликабельным
+                    //interactivityModel: 'default#silent' // Делаем некликабельным
                 });
                 gtoMap.geoObjects.add(placemark);
+                placemark.events.add('click', function(e) {
+                alert('Клик по красной линии!');
+            });
             }); 
 // Обработчики клика на линии
             polyline1.events.add('click', function(e) {

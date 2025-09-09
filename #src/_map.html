@@ -132,7 +132,7 @@
         const points = [
             { coords: [56.317110, 43.941928], name: 'Остановка 1' },
     { coords: [56.280787, 43.937892], name: 'Остановка 2' },
-    { coords: [56.300982, 43.940035], name: 'Остановка 3' },
+    { coords: [56.300982, 43.940035 ], name: 'Остановка 3' },
 ];
 function buildRoute(points) {
         if (!gtoMap) {
@@ -246,6 +246,80 @@ function buildRoute(points) {
   // Добавляем метки на карту
   placemarks.forEach(placemark => gtoMap.geoObjects.add(placemark));
 //addPlacemarks(points, pointNames);
+
+
+
+// Координаты для первой полилинии (синяя)
+        var polyline1Points = [
+            [56.326887, 44.005986],  // Центр города
+            [56.312, 44.048],        // Московский вокзал
+            [56.294, 44.054],        // Площадь Ленина
+            [56.270, 44.037]         // Сенная площадь
+        ];
+
+        // Координаты для второй полилинии (красная)
+        var polyline2Points = [
+            [56.326887, 44.005986],  // Центр города
+            [56.320, 43.945],        // Канавинский мост
+            [56.335, 43.890],        // Сортировочная
+            [56.350, 43.840]         // Дубравная
+        ];
+
+
+        // Создаем первую полилинию (синяя)
+            var polyline1 = new ymaps.Polyline(polyline1Points, {}, {
+                strokeColor: '#0000FF',
+                strokeWidth: 5,
+                strokeOpacity: 0.7
+            });
+
+            // Создаем вторую полилинию (красная)
+            var polyline2 = new ymaps.Polyline(polyline2Points, {}, {
+                strokeColor: '#FF0000',
+                strokeWidth: 5,
+                strokeOpacity: 0.7
+            });
+
+            // Добавляем линии на карту
+            gtoMap.geoObjects.add(polyline1);
+            gtoMap.geoObjects.add(polyline2);
+
+       /*  // Добавляем точки (некликабельные)
+            polyline1Points.forEach(function(point, index) {
+                var placemark = new ymaps.Placemark(point, {}, {
+                    preset: 'islands#circleIcon',
+                    iconColor: '#0000FF',
+                    hasBalloon: false,
+                    hasHint: false,
+                    interactivityModel: 'default#silent' // Делаем некликабельным
+                });
+                gtoMap.geoObjects.add(placemark);
+            });
+*/
+            polyline2Points.forEach(function(point, index) {
+                var placemark = new ymaps.Placemark(point, {}, {
+                    preset: 'islands#circleIcon',
+                    iconColor: '#FF0000',
+                    hasBalloon: false,
+                    hasHint: false,
+                    interactivityModel: 'default#silent' // Делаем некликабельным
+                });
+                gtoMap.geoObjects.add(placemark);
+            }); 
+// Обработчики клика на линии
+            polyline1.events.add('click', function(e) {
+                alert('Клик по синей линии!');
+            });
+
+            polyline2.events.add('click', function(e) {
+                alert('Клик по красной линии!');
+            });
+
+            // Автоматическое масштабирование карты чтобы показать все полилинии
+            gtoMap.setBounds(gtoMap.geoObjects.getBounds(), {
+                checkZoomRange: true
+            });
+
     }  
     if (gto.length && document.querySelector("#gto-map")) {
         ymaps.ready(gtoMapInit);

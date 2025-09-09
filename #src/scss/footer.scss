@@ -27,7 +27,7 @@
     &__top,
     &__bottom {
         display: grid;
-        grid-template-columns: 8fr 4fr;
+        grid-template-columns: 6fr 4fr;
         gap: 30px;
     }
     &__logo {
@@ -42,10 +42,12 @@
         align-items: flex-start;
         flex-direction: column;
     }
-    &__navs, &__info {
+    &__navs,
+    &__info {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 30px;
+        white-space: nowrap;
     }
     &__nav {
         &-header {
@@ -85,7 +87,8 @@
         &__bottom {
             margin-top: 108px;
         }
-        &__navs, &__info{
+        &__navs,
+        &__info {
             gap: 20px;
         }
         &__nav {
@@ -95,7 +98,8 @@
         }
     }
     @media (max-width: $bp2) {
-        &__navs, &__info {
+        &__navs,
+        &__info {
             gap: 16px;
         }
         &__nav {
@@ -152,7 +156,7 @@
             margin-top: 24px;
         }
     }
-    @media (max-width: $bp7)  {
+    @media (max-width: $bp7) {
         &__main {
             grid-template-columns: 1fr;
         }

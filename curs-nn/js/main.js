@@ -1,12 +1,14 @@
 const preloader = document.querySelector(".preloader")
-let preloaderHiddenTimeOut = 1400
+let preloaderHiddenTimeOut = 1800
 if (preloader) {
     enableScroll()
     disableScroll()
     setTimeout(() => {
-        enableScroll()
         preloader.classList.add('loaded');
-        ScrollTrigger.refresh()
+        setTimeout(() => {
+            enableScroll()
+            ScrollTrigger.refresh()
+        }, 400);
     }, 1400);
 }
 const header = document.querySelector(".header")
@@ -29,7 +31,7 @@ let bp = {
 }
 //get path to sprite id
 function sprite(id) {
-    return '<svg><use xlink:href="img/svg/sprite.svg#' + id + '"></use></svg>'
+    return '<svg><use xlink:href="html/img/svg/sprite.svg#' + id + '"></use></svg>'
 }
 //scroll pos
 function scrollPos() {
@@ -948,7 +950,7 @@ if (eventsWrapper) {
                             let coords = item.getAttribute("data-coords")
                             if (itemMap && coords) {
                                 let [lat, lng] = coords.split(',').map(coord => parseFloat(coord.trim()));
-                                ymaps.ready(()=> {
+                                ymaps.ready(() => {
                                     itemMap.setAttribute("id", "event-map")
                                     let eventsMap = new ymaps.Map('event-map', {
                                         center: [lat, lng],
@@ -961,7 +963,7 @@ if (eventsWrapper) {
                                     eventsMap.controls.remove('rulerControl');
                                     eventsMap.geoObjects.add(new ymaps.Placemark([lat, lng], {}, {
                                         iconLayout: 'default#image',
-                                        iconImageHref: 'img/svg/map-mark.svg',
+                                        iconImageHref: 'html/img/svg/map-mark.svg',
                                         iconImageSize: [22, 28],
                                         iconImageOffset: [-14, -14],
                                         cursor: 'grab'
@@ -1175,6 +1177,7 @@ if (dataPrintBtn.length) {
             if (printBlock) {
                 const opt = {
                     filename: printName ? printName + ".pdf" : 'document.pdf',
+                    pagebreak: { avoid: ['.col-schedule', '.schedule__month'] },
                     html2canvas: {
                         scale: 4,
                         useCORS: true,

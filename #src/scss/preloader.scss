@@ -6,11 +6,12 @@
     height: 100%;
     background-color: var(--white-color);
     z-index: 1000;
-    transition: transform 0.5s ease;
+    transition: visibility 0.4s ease,opacity 0.4s ease;
     overflow: hidden;
     pointer-events: none;
     &.loaded {
-        transform: scale(0);
+        opacity: 0;
+        visibility: hidden;
     }
     &__item {
         width: 100%;
@@ -20,7 +21,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(1.2);
-        img {
+        img, svg {
             width: 100%;
             height: 100%;
             object-fit: contain;

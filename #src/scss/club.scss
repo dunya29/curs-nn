@@ -64,17 +64,17 @@
                 }
             }
         }
-        &:nth-child(1) {
+        &:nth-child(4n+1) {
             .item-shop {
                 margin-top: 34px;
             }
         }
-        &:nth-child(2) {
+        &:nth-child(2n) {
             .item-shop {
                 margin-top: 132px;
             }
         }
-        &:nth-child(4) {
+        &:nth-child(4n) {
             .item-shop {
                 margin-top: 73px;
             }
@@ -92,7 +92,7 @@
     }
     @media (max-width: $bp1) {
         .swiper-slide {
-            &:nth-child(1) {
+            &:nth-child(4n+1) {
                 .item-shop {
                     margin-top: 0;
                 }

@@ -1169,6 +1169,40 @@ if (clubAchieveList.length) {
 }
 //print
 const dataPrintBtn = document.querySelectorAll("[data-print-btn]")
+function convertImagesToBase64WithTransparency(block) {
+    return new Promise((resolve) => {
+        const images = block.querySelectorAll('img');
+        let converted = 0;
+        if (images.length === 0) resolve();
+        images.forEach(img => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const newImg = new Image();
+            newImg.crossOrigin = 'anonymous';
+            newImg.src = img.src;
+            newImg.onload = () => {
+                canvas.width = newImg.width;
+                canvas.height = newImg.height;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(newImg, 0, 0);
+                try {
+                    const base64 = canvas.toDataURL('image/png');
+                    img.src = base64;
+                    converted++;
+                } catch (error) {
+                    console.warn('Cannot convert image:', img.src);
+                    converted++;
+                }
+                if (converted === images.length) resolve();
+            };
+            newImg.onerror = () => {
+                console.warn('Failed to load image:', img.src);
+                converted++;
+                if (converted === images.length) resolve();
+            };
+        });
+    });
+}
 if (dataPrintBtn.length) {
     dataPrintBtn.forEach(btn => {
         btn.addEventListener("click", async () => {
@@ -1191,6 +1225,7 @@ if (dataPrintBtn.length) {
                         orientation: 'portrait'
                     }
                 };
+                await convertImagesToBase64WithTransparency(printBlock)
                 html2pdf().set(opt).from(printBlock).save();
             }
         })

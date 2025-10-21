@@ -128,9 +128,6 @@ h6,
 			color: var(--bright-blue-color);
 			text-decoration: underline;
 		}
-		span {
-			color: var(--coral-red-color);
-		}
 	}
 	ol li,
 	ul li {
@@ -1179,6 +1176,9 @@ figcaption {
 		opacity: 1;
 		transform: translateX(0);
 	}
+}
+[data-animation="scaleUp"] {
+	transform: scale(1.05);
 }
 .scaleUp {
 	animation-name: scaleUp;

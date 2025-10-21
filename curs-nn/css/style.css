@@ -474,10 +474,6 @@ h6,
   text-decoration: underline;
 }
 
-.page-content p span {
-  color: var(--coral-red-color);
-}
-
 .page-content ol li,
 .page-content ul li {
   min-height: 30px;
@@ -1613,6 +1609,12 @@ figcaption p {
     -webkit-transform: translateX(0);
     transform: translateX(0);
   }
+}
+
+[data-animation=scaleUp] {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .scaleUp {
@@ -2879,11 +2881,13 @@ figcaption p {
 }
 
 .item-team__logo {
+  width: 100%;
   height: 128px;
   margin-bottom: 10px;
 }
 
 .item-team__logo img {
+  width: 100%;
   max-height: 100%;
   -o-object-fit: contain;
   object-fit: contain;
@@ -2962,15 +2966,15 @@ figcaption p {
   color: var(--white-color);
 }
 
-.fan-shop .swiper-slide:nth-child(1) .item-shop {
+.fan-shop .swiper-slide:nth-child(4n+1) .item-shop {
   margin-top: 34px;
 }
 
-.fan-shop .swiper-slide:nth-child(2) .item-shop {
+.fan-shop .swiper-slide:nth-child(2n) .item-shop {
   margin-top: 132px;
 }
 
-.fan-shop .swiper-slide:nth-child(4) .item-shop {
+.fan-shop .swiper-slide:nth-child(4n) .item-shop {
   margin-top: 73px;
 }
 
@@ -4371,7 +4375,7 @@ a.proj-video__gall-item .media-cover img {
 
 .item-affiche__clubs {
   display: grid;
-  grid-template-columns: 110px 1fr 110px;
+  grid-template-columns: 114px 1fr 114px;
   gap: 10px;
 }
 
@@ -6606,7 +6610,7 @@ a.proj-video__gall-item .media-cover img {
     padding: 94px 20px 18px;
   }
 
-  .fan-shop .swiper-slide:nth-child(1) .item-shop {
+  .fan-shop .swiper-slide:nth-child(4n+1) .item-shop {
     margin-top: 0;
   }
 
@@ -6987,7 +6991,7 @@ a.proj-video__gall-item .media-cover img {
   }
 
   .item-affiche__clubs {
-    grid-template-columns: 94px 1fr 94px;
+    grid-template-columns: 100px 1fr 100px;
   }
 
   .item-affiche__club-logo {

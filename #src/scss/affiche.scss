@@ -17,7 +17,7 @@
     }
     &__clubs {
         display: grid;
-        grid-template-columns: 110px 1fr 110px;
+        grid-template-columns: 114px 1fr 114px;
         gap: 10px;
     }
     &__club-logo {
@@ -85,7 +85,7 @@
             justify-self: start;
         }
         &__clubs {
-            grid-template-columns: 94px 1fr 94px;
+            grid-template-columns: 100px 1fr 100px;
         }
         &__club-logo {
             width: 64px;

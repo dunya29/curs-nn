@@ -1,6 +1,13 @@
 .main [data-print-block] {
-     display: none;
+    display: none;
 }
+/* .col-schedule,
+.schedule__month {
+    page-break-inside: avoid;
+}
+.schedule__month {
+    page-break-after: avoid;
+} */
 @page {
     size: auto;
     margin: 0;
@@ -35,23 +42,16 @@
     }
 }
 .schedule {
-    .container {
-        max-width: 100% !important;
-    }
     &__top {
         padding: 12px 0;
         background: var(--dark-blue-color);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         margin-bottom: 20px;
         h2 {
-            font-size: clamp(18px, 3vw, 28px);
             font-size: 28px;
             color: var(--white-color);
-        }
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
         }
     }
     &__filter {
@@ -73,17 +73,22 @@
     &__logo {
         width: 98px;
     }
+    &__top,
+    &__month,
+    &__cols {
+        padding: 0 var(--container-offset);
+    }
     &__month {
         font-size: 24px;
+        color: var(--black-color);
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 10px!important;
+        margin-top: 10px;
     }
     &__cols {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        gap: clamp(3px, 0.5vw, 6px);
         gap: 6px;
-        margin-bottom: 20px;
     }
 }
 .col-schedule {
@@ -92,6 +97,9 @@
     flex-direction: column;
     border-radius: clamp(3px, 1.1vw, 6px);
     overflow: hidden;
+    margin-top: 6px;
+    page-break: avoid;
+    page-break-inside: avoid;
     &--1 {
         grid-column: 1/2;
     }
@@ -218,11 +226,13 @@
         border-radius: 50%;
         background: var(--white-color);
         margin-left: -6px;
-        box-shadow: 0 0 1px var(--pale-blue-color);
+        border: 1px solid var(--pale-blue-color);
         &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
             border-color: var(--dark-blue-color);
             background: var(--dark-blue-color);
-            margin-left: 0;
         }
         img {
             width: 100%;

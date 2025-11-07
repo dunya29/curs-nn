@@ -69,6 +69,11 @@
         grid-template-columns: 1fr;
         gap: 20px;
     }
+    &__time-empty {
+        font-weight: 600;
+        color: var(--bright-blue-color);
+        text-align: center;
+    }
     @media (min-width: $bp1) {
         &__date,
         &__tour,

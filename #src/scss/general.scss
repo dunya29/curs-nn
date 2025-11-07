@@ -435,6 +435,17 @@ figcaption {
 		fill: var(--bright-blue-color);
 		margin-right: 8px;
 	}
+	&.loading {
+		background: url(../img/svg/spinner.svg) center/40px 40px no-repeat;
+		pointer-events: none;
+		transition: none;
+		span,
+		svg {
+			visibility: hidden;
+			opacity: 0;
+			transition: none;
+		}
+	}
 }
 .btn-cross {
 	width: 20px;
@@ -487,6 +498,62 @@ figcaption {
 	color: var(--coral-red-color);
 	&::after {
 		content: " руб.";
+	}
+}
+.social-list {
+	margin-top: 30px;
+	ul {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: -4px;
+		li {
+			flex-shrink: 0;
+			margin: 4px;
+			a {
+				display: block;
+				width: 48px;
+				height: 48px;
+				border-radius: 50%;
+				background: var(--pale-border-color);
+				padding: 12px;
+				position: relative;
+				svg {
+					fill: var(--white-color);
+					width: 100%;
+					height: 100%;
+					transition: all 0.3s linear;
+				}
+				p {
+					font-size: 14px;
+					color: var(--black-color);
+					width: max-content;
+					max-width: 118px;
+					padding: 7px 11px;
+					border-radius: 12px;
+					background: var(--light-gray-color);
+					position: absolute;
+					top: 100%;
+					right: 50%;
+					transform: translateX(50%);
+					margin-top: 5px;
+					visibility: hidden;
+					opacity: 0;
+					transition: all .3s linear;
+				}
+				&:hover {
+					background: var(--pale-blue-color);
+					svg {
+						fill: var(--bright-blue-color);
+					}
+					p {
+						visibility: visible;
+						opacity: 1;;
+					}
+				}
+			}
+		}
 	}
 }
 .tabs {

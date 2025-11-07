@@ -1169,12 +1169,17 @@ if (clubAchieveList.length) {
 }
 //print
 const dataPrintBtn = document.querySelectorAll("[data-print-btn]")
-function convertImagesToBase64WithTransparency(block) {
+function convertImagesToBase64(block) {
     return new Promise((resolve) => {
         const images = block.querySelectorAll('img');
         let converted = 0;
         if (images.length === 0) resolve();
         images.forEach(img => {
+            if (img.src.startsWith('data:image/')) {
+                converted++;
+                if (converted === images.length) resolve();
+                return;
+            }
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
             const newImg = new Image();
@@ -1205,28 +1210,84 @@ function convertImagesToBase64WithTransparency(block) {
 }
 if (dataPrintBtn.length) {
     dataPrintBtn.forEach(btn => {
+        let printName = btn.getAttribute("data-print-name")
+        let opt = {
+            html2canvas: {
+                scale: 3,
+                useCORS: true,
+                letterRendering: true,
+                logging: false,
+                scrollY: 0,
+            },
+            jsPDF: {
+                unit: 'mm',
+                format: 'a4',
+                orientation: 'portrait',
+                margins: { top: 0, right: 20, bottom: 20, left: 20 }
+            },
+            pagebreak: {
+                avoid: ['.col-schedule', '.schedule__month']
+            },
+        };
         btn.addEventListener("click", async () => {
+            btn.classList.add("loading")
             const printBlock = document.querySelector(`[data-print-block='${btn.getAttribute("data-print-btn")}']`)
-            let printName = btn.getAttribute("data-print-name")
             if (printBlock) {
-                const opt = {
-                    filename: printName ? printName + ".pdf" : 'document.pdf',
-                    pagebreak: { avoid: ['.col-schedule', '.schedule__month'] },
-                    html2canvas: {
-                        scale: 4,
-                        useCORS: true,
-                        letterRendering: true,
-                        logging: false,
-                        scrollY: 0,
-                    },
-                    jsPDF: {
-                        unit: 'mm',
-                        format: 'a4',
-                        orientation: 'portrait'
+                await convertImagesToBase64(printBlock)
+                const months = printBlock.querySelectorAll('.schedule__month');
+                const firstMonth = months[0];
+                const firstSection = document.createElement('div');
+                firstSection.appendChild(printBlock.querySelector('.schedule__top').cloneNode(true));
+                firstSection.appendChild(firstMonth.cloneNode(true));
+                firstSection.appendChild(firstMonth.nextElementSibling.cloneNode(true));
+                const pdfFiles = [];
+                const firstPdf = await html2pdf()
+                    .set(opt)
+                    .from(firstSection)
+                    .outputPdf('blob');
+
+                pdfFiles.push(firstPdf);
+                if (months.length > 1) {
+                    for (let i = 1; i < months.length; i++) {
+                        const monthSection = document.createElement('div');
+                        monthSection.appendChild(months[i].cloneNode(true));
+                        monthSection.appendChild(months[i].nextElementSibling.cloneNode(true));
+
+                        const monthPdf = await html2pdf()
+                            .set(opt)
+                            .from(monthSection)
+                            .outputPdf('blob');
+
+                        pdfFiles.push(monthPdf);
                     }
-                };
-                await convertImagesToBase64WithTransparency(printBlock)
-                html2pdf().set(opt).from(printBlock).save();
+                }
+
+                const { PDFDocument } = PDFLib;
+                const mergedPdf = await PDFDocument.create();
+
+                for (const pdfBlob of pdfFiles) {
+                    const pdfBytes = await pdfBlob.arrayBuffer();
+                    const pdfDoc = await PDFDocument.load(pdfBytes);
+                    const pages = await mergedPdf.copyPages(pdfDoc, pdfDoc.getPageIndices());
+                    pages.forEach(page => mergedPdf.addPage(page));
+                }
+
+                const mergedPdfBytes = await mergedPdf.save({ addDefaultPage: false });
+                const blob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = printName ? printName + ".pdf" : 'document.pdf';
+                link.click();
+                URL.revokeObjectURL(url);
+                btn.classList.remove("loading")
+                /*  try {
+                     await convertImagesToBase64(printBlock)
+                     await html2pdf().set(opt).from(printBlock).save();
+                 } finally {
+                     btn.classList.remove("loading")
+                 } */
             }
         })
     })
@@ -1608,3 +1669,56 @@ if (members) {
 
     window.__paginationFixer = { updateAll, updateOne };
 })();
+//fancybox defaults
+Fancybox.defaults = {
+    ...Fancybox.defaults,
+    Hash: false,
+    Thumbs: false,
+    Toolbar: {
+        display: {
+            left: [],
+            middle: [],
+            right: ["close"],
+        }
+    },
+    on: {
+        init: (fancybox, slide) => {
+            disableScroll()
+        },
+        destroy: (fancybox, slide) => {
+            enableScroll()
+        },
+    },
+};
+Fancybox.bind("[data-fancybox]", {
+    contentClick: "iterateZoom",
+    Images: {
+        Panzoom: {
+            maxScale: 2,
+        },
+    },
+});
+/* 
+let deferredPrompt;
+const addBtn = document.querySelector('.inst-btn');
+
+window.addEventListener('appinstalled', e => {
+    console.log('👍', 'appinstalled', e);
+    addBtn.style.display = 'none';
+    deferredPrompt = null;
+});
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    addBtn.style.display = 'block';
+    addBtn.addEventListener('click', () => {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                addBtn.style.display = 'none';
+            }
+            deferredPrompt = null;
+        });
+    });
+});  */

@@ -220,9 +220,6 @@
 }
 .item-team {
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     border-radius: 16px;
     border: 2px solid var(--soft-blue-color);
     background: var(--white-color);
@@ -236,10 +233,39 @@
         padding: 12px;
         margin: auto auto 0;
     }
+    &__top {
+        position: relative;
+        .social-list {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            ul {
+                flex-direction: column;
+                li {
+                    a {
+                        width: 32px;
+                        height: 32px;
+                        padding: 8px;
+                        background: var(--light-gray-color);
+                        svg {
+                            fill: var(--soft-blue-color);
+                        }
+                        p {
+                            top: 50%;
+                            right: 100%;
+                            transform: none;
+                            margin: 0 0 -4px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
     &__logo {
-        width: 100%;
+        width: calc(100% - 64px);
         height: 128px;
-        margin-bottom: 10px;
+        margin: 0 auto 12px;
         img {
             width: 100%;
             max-height: 100%;
@@ -257,6 +283,40 @@
         padding: 16px;
         h5 {
             font-size: 20px;
+        }
+        &__top {
+            .social-list {
+                ul {
+                    li {
+                        a {
+                            width: 28px;
+                            height: 28px;
+                            padding: 7px;
+                        }
+                    }
+                }
+            }
+        }
+        &__logo {
+            width: calc(100% - 56px);
+        }
+    }
+    @media (max-width: $bp4) {
+        &__top {
+            .social-list {
+                ul {
+                    li {
+                        a {
+                            width: 40px;
+                            height: 40px;
+                            padding: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        &__logo {
+            width: calc(100% - 80px);
         }
     }
     @media (max-width: $bp5) {

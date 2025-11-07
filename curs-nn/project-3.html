@@ -15,7 +15,9 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="preload" href="fonts/Manrope-Medium.woff2" as="font" type="font/woff2" crossorigin> 
     <link href="css/air-datepicker.css" type="text/css" rel="stylesheet">
+      <link href="css/fancybox.min.css" type="text/css" rel="stylesheet">
     <link href="css/style.min.css" type="text/css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
     <title>Оберег. Выставка одной картины</title>
 </head>
 
@@ -4792,8 +4794,9 @@
                                     </picture>
                                 </div>
                             </div>
-                            <a href="#" target="_blank" class="proj-video__gall-item">
-                                <div class="video media-cover">
+                            <div class="proj-video__gall-item">
+                                <div class="video media-cover" data-fancybox="video-gallery" data-src="https://vkvideo.ru/video_ext.php?oid=-214730559&id=456239250&autoplay=1"
+                                    data-type="iframe">
                                     <picture>
                                         <source srcset="img/content/project-3-video-gall-2.webp" type="image/webp" media="(min-width: 767.98px)">
                                         <source srcset="img/content/project-3-video-gall-2.jpg" media="(min-width: 767.98px)">
@@ -5083,6 +5086,8 @@
 <script src="js/libs/swiper.min.js"></script>
 <script src="js/libs/air-datepicker.min.js"></script>
 <script src="js/libs/html2pdf.min.js"></script>
+<script src="js/libs/pdf-lib.min.js"></script>
+<script src="js/libs/fancybox.min.js"></script>
 <script src="js/main.js"></script>
     </body>
 

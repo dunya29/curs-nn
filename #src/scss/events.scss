@@ -112,9 +112,11 @@
         background: var(--white-color);
         margin-left: -6px;
         &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
             border-color: var(--dark-blue-color);
             background: var(--dark-blue-color);
-            margin-left: 0;
         }
         img {
             width: 100%;
@@ -314,9 +316,17 @@
         }
     }
 }
-
 .event-mod {
     [class*="-gototech"] {
         display: none;
+    }
+    .item-affiche__time-empty {
+        color: var(--dark-blue-color);
+        text-align: left;
+    }
+    @media (min-width: $bp4) {
+        .item-affiche__time-empty {
+            grid-column: 1/3;
+        }
     }
 }

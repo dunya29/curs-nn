@@ -4766,6 +4766,10 @@ a.proj-video__gall-item .media-cover img {
   page-break-inside: avoid;
 }
 
+.col-schedule.disabled {
+  opacity: 0.2;
+}
+
 .col-schedule--1 {
   grid-column: 1/2;
 }

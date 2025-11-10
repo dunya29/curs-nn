@@ -482,6 +482,7 @@ h6,
   align-content: center;
   position: relative;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .page-content ol li:last-child,
@@ -6008,6 +6009,15 @@ a.proj-video__gall-item .media-cover img {
 }
 
 @media (min-width: 1200.98px) {
+  .width-8col ul,
+  .width-8col ol,
+  .width-6col ul,
+  .width-6col ol {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+
   .events .swiper-nav {
     position: absolute;
     top: 7px;
@@ -8943,7 +8953,24 @@ a.proj-video__gall-item .media-cover img {
   }
 }
 
+@media (min-width: 767.98px) and (max-width: 1200.98px) {
+  .width-8col ul,
+  .width-8col ol,
+  .width-6col ul,
+  .width-6col ol {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media (min-width: 1200.98px) and (max-width: 1450.98px) {
+  .width-6col {
+    max-width: 740px;
+  }
+
   .about-po .width-6col {
     max-width: 740px;
   }

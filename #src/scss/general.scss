@@ -136,6 +136,7 @@ h6,
 		align-content: center;
 		position: relative;
 		margin-bottom: 20px;
+		text-align: left;
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -1091,6 +1092,18 @@ figcaption {
 			}
 		}
 	}
+	@media (min-width: $bp2) {
+		ul,ol {
+			column-count: 2;
+		}
+	}
+	@media (min-width: $bp4) and (max-width: $bp2){
+		ul,ol {
+			width: max-content;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
 }
 .width-8col {
 	max-width: 1085px;
@@ -1103,6 +1116,9 @@ figcaption {
 	@media (max-width: $bp1) {
 		max-width: 570px;
 	}
+	 @media (min-width: $bp2) and (max-width: $bp1) {
+        max-width: 740px;
+    }
 }
 .grid-2col,
 .grid-3col {

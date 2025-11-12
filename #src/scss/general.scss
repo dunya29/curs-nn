@@ -174,6 +174,7 @@ h6,
 	video {
 		overflow: hidden;
 		margin: 32px auto;
+		border-radius: 16px;
 	}
 	table {
 		width: 100%;
@@ -311,6 +312,13 @@ h5,
 	@media (max-width: $bp1) {
 		font-size: 16px;
 	}
+}
+h6,
+.h6,
+.page-content h5,
+.page-content p.h5 {
+	font-size: 16px;
+	line-height: 1.4;
 }
 blockquote {
 	margin: 32px 0;
@@ -541,7 +549,7 @@ figcaption {
 					margin-top: 5px;
 					visibility: hidden;
 					opacity: 0;
-					transition: all .3s linear;
+					transition: all 0.3s linear;
 				}
 				&:hover {
 					background: var(--pale-blue-color);
@@ -550,7 +558,7 @@ figcaption {
 					}
 					p {
 						visibility: visible;
-						opacity: 1;;
+						opacity: 1;
 					}
 				}
 			}
@@ -1035,6 +1043,12 @@ figcaption {
 		object-fit: contain;
 		margin: 0 auto 30px;
 	}
+	&--sm {
+		h2,
+		.h2 {
+			max-width: 1270px;
+		}
+	}
 	@media (max-width: $bp1) {
 		margin-bottom: 32px;
 		h2,
@@ -1093,12 +1107,20 @@ figcaption {
 		}
 	}
 	@media (min-width: $bp2) {
-		ul,ol {
+		ul,
+		ol {
 			column-count: 2;
+			li {
+				&:before {
+					background-image: url(../img/svg/list-check-2.svg);
+					top: 0;
+				}
+			}
 		}
 	}
-	@media (min-width: $bp4) and (max-width: $bp2){
-		ul,ol {
+	@media (min-width: $bp4) and (max-width: $bp2) {
+		ul,
+		ol {
 			width: max-content;
 			margin-left: auto;
 			margin-right: auto;
@@ -1113,12 +1135,20 @@ figcaption {
 }
 .width-6col {
 	max-width: 806px;
+	@media (min-width: $bp1) {
+		&--sm {
+			max-width: 630px;
+		}
+	}
 	@media (max-width: $bp1) {
 		max-width: 570px;
 	}
-	 @media (min-width: $bp2) and (max-width: $bp1) {
-        max-width: 740px;
-    }
+	@media (min-width: $bp2) and (max-width: $bp1) {
+		max-width: 740px;
+		&--sm {
+			max-width: 550px;
+		}
+	}
 }
 .grid-2col,
 .grid-3col {
@@ -1138,6 +1168,11 @@ figcaption {
 		grid-template-columns: 1fr;
 		gap: 24px;
 	}
+	@media (min-width: $bp4) {
+		.sec-top {
+			text-align: left;
+		}
+	}
 }
 .grid-3col {
 	grid-template-columns: repeat(3, 1fr);
@@ -1153,6 +1188,15 @@ figcaption {
 	}
 	@media (max-width: $bp2) {
 		margin-bottom: 80px;
+	}
+}
+.mb-80 {
+	margin-bottom: 80px;
+	@media (max-width: $bp1) {
+		margin-bottom: 60px;
+	}
+	@media (max-width: $bp2) {
+		margin-bottom: 40px;
 	}
 }
 .mb-60 {

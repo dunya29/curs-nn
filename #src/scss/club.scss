@@ -64,7 +64,7 @@
                 }
             }
         }
-        &:nth-child(4n+1) {
+        &:nth-child(4n + 1) {
             .item-shop {
                 margin-top: 34px;
             }
@@ -92,7 +92,7 @@
     }
     @media (max-width: $bp1) {
         .swiper-slide {
-            &:nth-child(4n+1) {
+            &:nth-child(4n + 1) {
                 .item-shop {
                     margin-top: 0;
                 }
@@ -135,15 +135,9 @@
         border-radius: 16px;
         margin: 0 auto;
     }
-    .width-6col {
-        max-width: 666px;
-    }
     @media (max-width: $bp1) {
         img {
             border-radius: 8px;
-        }
-        .width-6col {
-            max-width: 550px;
         }
     }
 }
@@ -227,11 +221,12 @@
 }
 .club-info,
 .image-block,
-.proj-why--map, 
+.proj-why--map,
 .about-goals {
     @media (min-width: $bp1) {
         .page-content {
-            p, li {
+            p,
+            li {
                 font-size: 16px;
                 &.h1 {
                     font-size: 56px;
@@ -295,7 +290,8 @@
             }
         }
         &__main-top {
-            h3,.h3 {
+            h3,
+            .h3 {
                 max-width: 461px;
             }
         }
@@ -306,7 +302,8 @@
     }
     @media (max-width: $bp2) {
         &__main-top {
-            h3,.h3 {
+            h3,
+            .h3 {
                 max-width: 100%;
             }
         }

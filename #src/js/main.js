@@ -1698,27 +1698,3 @@ Fancybox.bind("[data-fancybox]", {
         },
     },
 });
-/* 
-let deferredPrompt;
-const addBtn = document.querySelector('.inst-btn');
-
-window.addEventListener('appinstalled', e => {
-    console.log('👍', 'appinstalled', e);
-    addBtn.style.display = 'none';
-    deferredPrompt = null;
-});
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    addBtn.style.display = 'block';
-    addBtn.addEventListener('click', () => {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                addBtn.style.display = 'none';
-            }
-            deferredPrompt = null;
-        });
-    });
-});  */

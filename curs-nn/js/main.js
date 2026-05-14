@@ -105,7 +105,7 @@ function smoothDrop(header, body, dur = false) {
         }, 0);
     }
 }
-//debounde 
+//debounde
 function debounce(func, delay = 100) {
     let timeoutId;
     return function (...args) {
@@ -145,6 +145,7 @@ function tabSwitch(nav, block) {
 const customScroll = document.querySelectorAll(".custom-scroll")
 let isFirefox = typeof InstallTrigger !== 'undefined';
 if (isFirefox) {
+    document.body.classList.add("isFirefox")
     document.documentElement.style.scrollbarColor = "#002848 #dde6ed"
 }
 if (isFirefox && customScroll) {

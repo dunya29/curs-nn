@@ -340,6 +340,10 @@ body {
   overflow-x: hidden;
 }
 
+body.isFirefox .fancybox__content {
+  height: 100% !important;
+}
+
 .wrap {
   height: 100%;
   display: -webkit-box;
@@ -483,6 +487,7 @@ h6,
   position: relative;
   margin-bottom: 20px;
   text-align: left;
+  page-break-inside: avoid;
 }
 
 .page-content ol li:last-child,
@@ -1565,6 +1570,14 @@ figcaption p {
 
 .grid-3col {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.mb-120:last-child,
+.mb-80:last-child,
+.mb-60:last-child,
+.mb-40:last-child,
+.mb-32:last-child {
+  margin-bottom: 0;
 }
 
 .mb-120 {
@@ -4544,7 +4557,12 @@ a.proj-video__gall-item .media-cover img {
   gap: 30px;
 }
 
-.proj-list h5.proj-list__title {
+.proj-list__row .sec-top {
+  margin-bottom: 0;
+}
+
+.proj-list h5.proj-list__title,
+.proj-list .h5.proj-list__title {
   font-size: 20px;
   max-width: 372px;
 }
@@ -4581,6 +4599,16 @@ a.proj-video__gall-item .media-cover img {
   left: 12px;
 }
 
+.proj-map__img {
+  padding: 10px;
+  border-radius: 16px;
+  background: var(--light-gray-color);
+}
+
+.proj-map__img img {
+  margin: 0 auto;
+}
+
 .item-affiche {
   padding: 30px 0;
   border-top: 1px solid var(--light-gray-color);
@@ -4606,7 +4634,7 @@ a.proj-video__gall-item .media-cover img {
 
 .item-affiche__clubs {
   display: grid;
-  grid-template-columns: 114px 1fr 114px;
+  grid-template-columns: 122px 1fr 122px;
   gap: 10px;
 }
 
@@ -4784,8 +4812,15 @@ a.proj-video__gall-item .media-cover img {
   margin: 0;
 }
 
+.schedule__top,
+.schedule__month,
+.schedule__cols {
+  padding: 0 var(--container-offset);
+}
+
 .schedule__top {
-  padding: 12px 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
   background: var(--dark-blue-color);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4801,6 +4836,7 @@ a.proj-video__gall-item .media-cover img {
 
 .schedule__top h2 {
   font-size: 28px;
+  line-height: 1;
   color: var(--white-color);
 }
 
@@ -4810,7 +4846,7 @@ a.proj-video__gall-item .media-cover img {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: 3px -2px -2px;
+  margin: 6px -2px -2px;
 }
 
 .schedule__filter:empty {
@@ -4820,20 +4856,14 @@ a.proj-video__gall-item .media-cover img {
 .schedule__filter span {
   font-size: 10px;
   color: var(--white-color);
-  padding: 0 3px;
+  padding: 0 3px 2px;
   border: 1px solid var(--white-color);
   border-radius: 2px;
   margin: 2px;
 }
 
 .schedule__logo {
-  width: 98px;
-}
-
-.schedule__top,
-.schedule__month,
-.schedule__cols {
-  padding: 0 var(--container-offset);
+  width: 79px;
 }
 
 .schedule__month {
@@ -5928,8 +5958,15 @@ a.proj-video__gall-item .media-cover img {
 .footer__navs,
 .footer__info {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+}
+
+.footer__navs {
+  grid-template-columns: 1fr 1.5fr;
+}
+
+.footer__info {
+  grid-template-columns: repeat(3, 1fr);
   white-space: nowrap;
 }
 
@@ -6124,6 +6161,9 @@ a.proj-video__gall-item .media-cover img {
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
+    -webkit-column-gap: 90px;
+    -moz-column-gap: 90px;
+    column-gap: 90px;
   }
 
   .width-8col ul li:before,
@@ -6161,7 +6201,7 @@ a.proj-video__gall-item .media-cover img {
   }
 
   .width-6col--sm {
-    max-width: 630px;
+    max-width: 650px;
   }
 
   .header__nav .container {
@@ -7293,7 +7333,8 @@ a.proj-video__gall-item .media-cover img {
     column-gap: 20px;
   }
 
-  .proj-list h5.proj-list__title {
+  .proj-list h5.proj-list__title,
+  .proj-list .h5.proj-list__title {
     max-width: 330px;
   }
 
@@ -7320,7 +7361,7 @@ a.proj-video__gall-item .media-cover img {
   }
 
   .item-affiche__clubs {
-    grid-template-columns: 100px 1fr 100px;
+    grid-template-columns: 107px 1fr 107px;
   }
 
   .item-affiche__club-logo {
@@ -7958,7 +7999,8 @@ a.proj-video__gall-item .media-cover img {
     max-width: 100%;
   }
 
-  .proj-list h5.proj-list__title {
+  .proj-list h5.proj-list__title,
+  .proj-list .h5.proj-list__title {
     font-size: 28px;
     max-width: 100%;
   }

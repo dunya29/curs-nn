@@ -1154,7 +1154,11 @@ if (swiper1.length) {
                 type: "bullets",
                 clickable: true,
             },
-            speed: 300,
+            navigation: {
+                prevEl: item.querySelector(".nav-btn--prev"),
+                nextEl: item.querySelector(".nav-btn--next"),
+            },
+            speed: 800,
         })
     })
 }
